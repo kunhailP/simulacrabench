@@ -50,10 +50,25 @@ def main():
         r = score(schema, config, vec, truth, cells)
         res[inst] = r["skill"]
         info = getattr(mod.predict, "last_info", None)
+        orc_path = os.path.join(ROOT, a.data, inst, "oracle.npz")
+        if os.path.exists(orc_path):
+            O = np.load(orc_path)
+            role = "DEV" if a.phase == 1 else "TEST"
+            nh = len({c[1] for c in cells})
+            items = [k for k, r in schema["items"].items() if r["class"] == "PREDICT"]
+            ov = [O[role + "::" + t][r] for r in range(nh) for t in items]
+            ov = floored(ov, schema, cells, config["scoring"]["floor"])
+            ro = score(schema, config, ov, truth, cells)
+            res.setdefault("_oracle", {})[inst] = ro["skill"]
+            print("%-11s ORACLE %.4f   headroom %.4f" % (inst, ro["skill"], ro["skill"] - r["skill"]))
         print("%-11s skill %.4f  (se %.4f)  %.1fs  %s" % (
             inst, r["skill"], r["std_error"] / r["uniform_reference"], dt,
             json.dumps(info, default=str) if info else ""), flush=True)
+    orc = res.pop("_oracle", None)
     print("MEAN %.4f   total %.1fs" % (np.mean(list(res.values())), time.time() - t_all))
+    if orc:
+        print("ORACLE MEAN %.4f   headroom %.4f" % (np.mean(list(orc.values())),
+              np.mean(list(orc.values())) - np.mean([res[k] for k in orc])))
 
 
 if __name__ == "__main__":
