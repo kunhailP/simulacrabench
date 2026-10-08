@@ -50,6 +50,8 @@ SCENARIOS = {
                      parent_scale=0.8, cell_scale=1.0, agree_lo=0.55, agree_hi=0.99),
     "cleangate": dict(given_scale=1.0, inter_scale=0.6, trait_scale=1.0, trait2_scale=0.7,
                       parent_scale=0.8, cell_scale=0.0, agree_lo=0.97, agree_hi=1.0),
+    "notrait":  dict(given_scale=1.0, inter_scale=0.6, trait_scale=0.0, trait2_scale=0.0,
+                     parent_scale=0.8, cell_scale=0.0, agree_lo=0.55, agree_hi=0.99),
     "ordinal":  dict(given_scale=1.0, inter_scale=0.6, trait_scale=1.0, trait2_scale=0.7,
                      parent_scale=0.8, cell_scale=0.0, agree_lo=0.55, agree_hi=0.99,
                      ord=1, hurdle=1.0),
