@@ -30,7 +30,7 @@ from make_sandbox import (assign_roles, generated_items, load_config,  # noqa: E
                           load_schema, _generation_order)
 
 
-def simulate(schema, seed):
+def simulate(schema, seed, cell_effects=0.0, cell_rank=3):
     rng = np.random.default_rng(seed)
     items = schema["items"]
     n = schema["dataset"]["n_rows"]
@@ -76,6 +76,18 @@ def simulate(schema, seed):
     trait = X @ rng.normal(0, 0.4, X.shape[1]) + rng.normal(size=n)
     trait = (trait - trait.mean()) / trait.std()
     trait2 = rng.normal(size=n)
+    # Higher-order cell effects shared across items through a low-rank factor:
+    # the full cell of the three most "important" GIVEN columns carries a
+    # latent vector f_c; each item loads on it. Off by default.
+    if cell_effects > 0 and len(given) >= 2:
+        top = given[:3]
+        ck = np.zeros(n, np.int64)
+        for g in top:
+            ck = ck * (int(codes[g].max()) + 1) + codes[g]
+        _, ck = np.unique(ck, return_inverse=True)
+        F = rng.normal(0, 1.0, (int(ck.max()) + 1, cell_rank))
+    else:
+        ck, F = None, None
 
     for k in order:
         rec = items[k]
@@ -101,6 +113,9 @@ def simulate(schema, seed):
             logits += eff[key]
         logits += np.outer(trait, rng.normal(0, 1.0, w))
         logits += np.outer(trait2, rng.normal(0, 0.7, w))
+        if F is not None:
+            load = rng.normal(0, cell_effects, (cell_rank, w))
+            logits += (F @ load)[ck]
         g = rec.get("gate")
         if g and items[g["parent"]]["class"] == "PREDICT":
             pc = codes[g["parent"]]
@@ -138,11 +153,12 @@ def main():
     ap.add_argument("--schema", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--cell-effects", type=float, default=0.0)
     ap.add_argument("--config", default=os.path.join(
         os.path.dirname(__file__), "..", "raw", "repo", "config.yml"))
     a = ap.parse_args()
     schema = load_schema(a.schema, load_config(a.config))
-    frame = assign_roles(schema, simulate(schema, a.seed))
+    frame = assign_roles(schema, simulate(schema, a.seed, a.cell_effects))
     os.makedirs(a.out, exist_ok=True)
     frame.to_parquet(os.path.join(a.out, "respondents.parquet"), index=False)
     with open(os.path.join(a.out, "schema.json"), "w", encoding="utf-8") as fh:
