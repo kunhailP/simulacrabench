@@ -1,0 +1,26 @@
+[
+  {
+    "name": "main",
+    "commit": {
+      "sha": "f980ef5059360fcf977ed7971af5c00ee5c1962f",
+      "url": "https://api.github.com/repos/SituatedEvals/public/commits/f980ef5059360fcf977ed7971af5c00ee5c1962f"
+    },
+    "protected": false
+  },
+  {
+    "name": "marginal-reference",
+    "commit": {
+      "sha": "6d8e0b9319ad9e32cd7078ef208096828d936864",
+      "url": "https://api.github.com/repos/SituatedEvals/public/commits/6d8e0b9319ad9e32cd7078ef208096828d936864"
+    },
+    "protected": false
+  },
+  {
+    "name": "sophia/ru-proofread",
+    "commit": {
+      "sha": "caebdbf0ab315a85e07572881c2c7c88f78bce98",
+      "url": "https://api.github.com/repos/SituatedEvals/public/commits/caebdbf0ab315a85e07572881c2c7c88f78bce98"
+    },
+    "protected": false
+  }
+]

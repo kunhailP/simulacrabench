@@ -1,0 +1,1556 @@
+[
+  {
+    "sha": "f980ef5059360fcf977ed7971af5c00ee5c1962f",
+    "node_id": "C_kwDOT3tgGNoAKGY5ODBlZjUwNTkzNjBmY2Y5NzdlZDc5NzFhZjVjMDBlZTVjMTk2MmY",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-10-08T02:31:57Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-10-08T02:31:57Z"
+      },
+      "message": "Clarified row shuffling",
+      "tree": {
+        "sha": "24112b8c8766aa93c047ed4aca32894cadd9e4d6",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/24112b8c8766aa93c047ed4aca32894cadd9e4d6"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/f980ef5059360fcf977ed7971af5c00ee5c1962f",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/f980ef5059360fcf977ed7971af5c00ee5c1962f",
+    "html_url": "https://github.com/SituatedEvals/public/commit/f980ef5059360fcf977ed7971af5c00ee5c1962f",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/f980ef5059360fcf977ed7971af5c00ee5c1962f/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0d2332d8ae19a8ce171031142bdc97134910e7ec",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/0d2332d8ae19a8ce171031142bdc97134910e7ec",
+        "html_url": "https://github.com/SituatedEvals/public/commit/0d2332d8ae19a8ce171031142bdc97134910e7ec"
+      }
+    ]
+  },
+  {
+    "sha": "0d2332d8ae19a8ce171031142bdc97134910e7ec",
+    "node_id": "C_kwDOT3tgGNoAKDBkMjMzMmQ4YWUxOWE4Y2UxNzEwMzExNDJiZGM5NzEzNDkxMGU3ZWM",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-09-30T02:02:20Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-09-30T02:02:55Z"
+      },
+      "message": "Updated due date",
+      "tree": {
+        "sha": "1fa06b766109bbbdeea4259e003f1fcae3772324",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/1fa06b766109bbbdeea4259e003f1fcae3772324"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/0d2332d8ae19a8ce171031142bdc97134910e7ec",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/0d2332d8ae19a8ce171031142bdc97134910e7ec",
+    "html_url": "https://github.com/SituatedEvals/public/commit/0d2332d8ae19a8ce171031142bdc97134910e7ec",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/0d2332d8ae19a8ce171031142bdc97134910e7ec/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ee427a94f6cc6a0d9d653b6be68c835a032e7552",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/ee427a94f6cc6a0d9d653b6be68c835a032e7552",
+        "html_url": "https://github.com/SituatedEvals/public/commit/ee427a94f6cc6a0d9d653b6be68c835a032e7552"
+      }
+    ]
+  },
+  {
+    "sha": "ee427a94f6cc6a0d9d653b6be68c835a032e7552",
+    "node_id": "C_kwDOT3tgGNoAKGVlNDI3YTk0ZjZjYzZhMGQ5ZDY1M2I2YmU2OGM4MzVhMDMyZTc1NTI",
+    "commit": {
+      "author": {
+        "name": "Andy Haupt",
+        "email": "h4upt@stanford.edu",
+        "date": "2026-09-01T21:29:21Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-01T21:29:21Z"
+      },
+      "message": "Wording change in unhcr.json text description [non-breaking]",
+      "tree": {
+        "sha": "db169ffc79a00b02e887ef4f113efc70d6c8188b",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/db169ffc79a00b02e887ef4f113efc70d6c8188b"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/ee427a94f6cc6a0d9d653b6be68c835a032e7552",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJql0OxCRC1aQ7uu5UhlAAAjaYQAKPyUB4D+NLYTS/Vu6cKTqBO\n9Jl6VawOaDJxoozfrWFtgGAyImGCLvxOE7AzwGjpEd13ca1Cfa7wBEi0GiMjHb0J\nbl9dqWkoNJMFvMdjfQm8YcdvatpEvN0OMTHJepX74ZlrC8giJXscaXIVkDZOmq2i\ncv9/NLGa61gPfcU5r6XPcu29AmMpVf2w5ipI37i9B5SKdTz2CgO5MFgEEP8q08nw\nf0gbBy3FszlMAjcu7FDqvScIUfjtkaNhTFiwGFeIv7xah3RIzjwtrJlYSWYZ4G+E\nSOytSxTryXO51R12aYjDDIY1oxsMgKd1kfH5j4tcgKXEaDCzc6dWChpwQ1Mwi5Gs\nEw5LYcZ+TfulHgVbhwoM14CoZ0R7R91rcTsbRB1F72TFy0AX0i6lC1WoCA6F9ono\nwZSxl5R1PwyySJlwKsNql3+1L8ju31DJ5WjOFpMMyhxct8lhMlRUJ4aT4gt8/5il\neLyhhVcibeRvHsSvTlbYFpCKO9hi2EQXO/YilPlk+tvSYyKdoDJKlOvEsxsOUU7j\nlLEMsY+t7tx3uptYC+O39OvHg8KKC2aIZLsFaP28lzRHl0dxIjTczl6HYT3r7A6W\n29GKSseDjErCESmO5/VzOOnP8vfbINvRZvm0NKTcej5vbaTFrWarScrrALCBw66J\ny0e/jRy/CiQgJTgiDA+u\n=3Rkw\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree db169ffc79a00b02e887ef4f113efc70d6c8188b\nparent 1bb2d46026fe0d91979448c3d916506be0608513\nauthor Andy Haupt <h4upt@stanford.edu> 1788298161 -0500\ncommitter GitHub <noreply@github.com> 1788298161 -0500\n\nWording change in unhcr.json text description [non-breaking]",
+        "verified_at": "2026-09-01T21:29:22Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/ee427a94f6cc6a0d9d653b6be68c835a032e7552",
+    "html_url": "https://github.com/SituatedEvals/public/commit/ee427a94f6cc6a0d9d653b6be68c835a032e7552",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/ee427a94f6cc6a0d9d653b6be68c835a032e7552/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1bb2d46026fe0d91979448c3d916506be0608513",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/1bb2d46026fe0d91979448c3d916506be0608513",
+        "html_url": "https://github.com/SituatedEvals/public/commit/1bb2d46026fe0d91979448c3d916506be0608513"
+      }
+    ]
+  },
+  {
+    "sha": "1bb2d46026fe0d91979448c3d916506be0608513",
+    "node_id": "C_kwDOT3tgGNoAKDFiYjJkNDYwMjZmZTBkOTE5Nzk0NDhjM2Q5MTY1MDZiZTA2MDg1MTM",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T23:48:18Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T23:48:18Z"
+      },
+      "message": "Changed gating in unhcr.json",
+      "tree": {
+        "sha": "91a69a4cedabed295dc6e06023b95b93f3efb04b",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/91a69a4cedabed295dc6e06023b95b93f3efb04b"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/1bb2d46026fe0d91979448c3d916506be0608513",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/1bb2d46026fe0d91979448c3d916506be0608513",
+    "html_url": "https://github.com/SituatedEvals/public/commit/1bb2d46026fe0d91979448c3d916506be0608513",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/1bb2d46026fe0d91979448c3d916506be0608513/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a3e0a2a7c4fbfb9e593e2df3d9fe67db9ccd582a",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/a3e0a2a7c4fbfb9e593e2df3d9fe67db9ccd582a",
+        "html_url": "https://github.com/SituatedEvals/public/commit/a3e0a2a7c4fbfb9e593e2df3d9fe67db9ccd582a"
+      }
+    ]
+  },
+  {
+    "sha": "a3e0a2a7c4fbfb9e593e2df3d9fe67db9ccd582a",
+    "node_id": "C_kwDOT3tgGNoAKGEzZTBhMmE3YzRmYmZiOWU1OTNlMmRmM2Q5ZmU2N2RiOWNjZDU4MmE",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:40:51Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:49:11Z"
+      },
+      "message": "Documented treatment of disjunctional gating",
+      "tree": {
+        "sha": "408da2167ae6ab0356d78a98bd81b6994ba88c39",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/408da2167ae6ab0356d78a98bd81b6994ba88c39"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/a3e0a2a7c4fbfb9e593e2df3d9fe67db9ccd582a",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/a3e0a2a7c4fbfb9e593e2df3d9fe67db9ccd582a",
+    "html_url": "https://github.com/SituatedEvals/public/commit/a3e0a2a7c4fbfb9e593e2df3d9fe67db9ccd582a",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/a3e0a2a7c4fbfb9e593e2df3d9fe67db9ccd582a/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "561885316a33ca1a993408a8d2d3695f0ce834e1",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/561885316a33ca1a993408a8d2d3695f0ce834e1",
+        "html_url": "https://github.com/SituatedEvals/public/commit/561885316a33ca1a993408a8d2d3695f0ce834e1"
+      }
+    ]
+  },
+  {
+    "sha": "561885316a33ca1a993408a8d2d3695f0ce834e1",
+    "node_id": "C_kwDOT3tgGNoAKDU2MTg4NTMxNmEzM2NhMWE5OTM0MDhhOGQyZDM2OTVmMGNlODM0ZTE",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:27:23Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:49:11Z"
+      },
+      "message": "Updated schemas",
+      "tree": {
+        "sha": "d2d759809cc61daba144a6533cff640167c55d07",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/d2d759809cc61daba144a6533cff640167c55d07"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/561885316a33ca1a993408a8d2d3695f0ce834e1",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/561885316a33ca1a993408a8d2d3695f0ce834e1",
+    "html_url": "https://github.com/SituatedEvals/public/commit/561885316a33ca1a993408a8d2d3695f0ce834e1",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/561885316a33ca1a993408a8d2d3695f0ce834e1/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "70ef9dc3ab6346a9301716851800dae1d6942d76",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/70ef9dc3ab6346a9301716851800dae1d6942d76",
+        "html_url": "https://github.com/SituatedEvals/public/commit/70ef9dc3ab6346a9301716851800dae1d6942d76"
+      }
+    ]
+  },
+  {
+    "sha": "70ef9dc3ab6346a9301716851800dae1d6942d76",
+    "node_id": "C_kwDOT3tgGNoAKDcwZWY5ZGMzYWI2MzQ2YTkzMDE3MTY4NTE4MDBkYWUxZDY5NDJkNzY",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T05:48:58Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:49:11Z"
+      },
+      "message": "Add new train-dev-test scoring metric",
+      "tree": {
+        "sha": "23251f586d348d1e7dbc9ae1237deaf651d33a04",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/23251f586d348d1e7dbc9ae1237deaf651d33a04"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/70ef9dc3ab6346a9301716851800dae1d6942d76",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/70ef9dc3ab6346a9301716851800dae1d6942d76",
+    "html_url": "https://github.com/SituatedEvals/public/commit/70ef9dc3ab6346a9301716851800dae1d6942d76",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/70ef9dc3ab6346a9301716851800dae1d6942d76/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "566b626de9e4d90299fc69bb35bcb9913745c3ac",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/566b626de9e4d90299fc69bb35bcb9913745c3ac",
+        "html_url": "https://github.com/SituatedEvals/public/commit/566b626de9e4d90299fc69bb35bcb9913745c3ac"
+      }
+    ]
+  },
+  {
+    "sha": "566b626de9e4d90299fc69bb35bcb9913745c3ac",
+    "node_id": "C_kwDOT3tgGNoAKDU2NmI2MjZkZTllNGQ5MDI5OWZjNjliYjM1YmNiOTkxMzc0NWMzYWM",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T05:48:19Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:49:11Z"
+      },
+      "message": "Add .zip check file",
+      "tree": {
+        "sha": "b3570e6fa2d913d0924116785552ca066c4ec5a3",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/b3570e6fa2d913d0924116785552ca066c4ec5a3"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/566b626de9e4d90299fc69bb35bcb9913745c3ac",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/566b626de9e4d90299fc69bb35bcb9913745c3ac",
+    "html_url": "https://github.com/SituatedEvals/public/commit/566b626de9e4d90299fc69bb35bcb9913745c3ac",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/566b626de9e4d90299fc69bb35bcb9913745c3ac/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f961761f2abd3b2d29620474b339e8efb0f70eac",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/f961761f2abd3b2d29620474b339e8efb0f70eac",
+        "html_url": "https://github.com/SituatedEvals/public/commit/f961761f2abd3b2d29620474b339e8efb0f70eac"
+      }
+    ]
+  },
+  {
+    "sha": "f961761f2abd3b2d29620474b339e8efb0f70eac",
+    "node_id": "C_kwDOT3tgGNoAKGY5NjE3NjFmMmFiZDNiMmQyOTYyMDQ3NGIzMzllOGVmYjBmNzBlYWM",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T05:47:32Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:49:11Z"
+      },
+      "message": "Update tutorial files for new roles column",
+      "tree": {
+        "sha": "e9901326cba1589b605ff28a91a23487fa3f3e04",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/e9901326cba1589b605ff28a91a23487fa3f3e04"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/f961761f2abd3b2d29620474b339e8efb0f70eac",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/f961761f2abd3b2d29620474b339e8efb0f70eac",
+    "html_url": "https://github.com/SituatedEvals/public/commit/f961761f2abd3b2d29620474b339e8efb0f70eac",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/f961761f2abd3b2d29620474b339e8efb0f70eac/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "51637fcfe3a4aa59eca27f0849f8d8d7e05fd7af",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/51637fcfe3a4aa59eca27f0849f8d8d7e05fd7af",
+        "html_url": "https://github.com/SituatedEvals/public/commit/51637fcfe3a4aa59eca27f0849f8d8d7e05fd7af"
+      }
+    ]
+  },
+  {
+    "sha": "51637fcfe3a4aa59eca27f0849f8d8d7e05fd7af",
+    "node_id": "C_kwDOT3tgGNoAKDUxNjM3ZmNmZTNhNGFhNTllY2EyN2YwODQ5ZjhkOGQ3ZTA1ZmQ3YWY",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T05:46:55Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:49:11Z"
+      },
+      "message": "Removed max per participant submission number",
+      "tree": {
+        "sha": "a8aa91a9928fb07bee10aa4d41538c58bea19e77",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/a8aa91a9928fb07bee10aa4d41538c58bea19e77"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/51637fcfe3a4aa59eca27f0849f8d8d7e05fd7af",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/51637fcfe3a4aa59eca27f0849f8d8d7e05fd7af",
+    "html_url": "https://github.com/SituatedEvals/public/commit/51637fcfe3a4aa59eca27f0849f8d8d7e05fd7af",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/51637fcfe3a4aa59eca27f0849f8d8d7e05fd7af/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7ce1c1ce7e7ccdb658044f8a391810a133175267",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/7ce1c1ce7e7ccdb658044f8a391810a133175267",
+        "html_url": "https://github.com/SituatedEvals/public/commit/7ce1c1ce7e7ccdb658044f8a391810a133175267"
+      }
+    ]
+  },
+  {
+    "sha": "7ce1c1ce7e7ccdb658044f8a391810a133175267",
+    "node_id": "C_kwDOT3tgGNoAKDdjZTFjMWNlN2U3Y2NkYjY1ODA0NGY4YTM5MTgxMGExMzMxNzUyNjc",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T05:45:17Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-17T06:49:11Z"
+      },
+      "message": "Changed description of train-dev-test split",
+      "tree": {
+        "sha": "661354db20759210c5f17cc89eca8ceb778b743b",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/661354db20759210c5f17cc89eca8ceb778b743b"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/7ce1c1ce7e7ccdb658044f8a391810a133175267",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/7ce1c1ce7e7ccdb658044f8a391810a133175267",
+    "html_url": "https://github.com/SituatedEvals/public/commit/7ce1c1ce7e7ccdb658044f8a391810a133175267",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/7ce1c1ce7e7ccdb658044f8a391810a133175267/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "509b43ff72c9f992fe38af91d638fb89ddcec5d5",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/509b43ff72c9f992fe38af91d638fb89ddcec5d5",
+        "html_url": "https://github.com/SituatedEvals/public/commit/509b43ff72c9f992fe38af91d638fb89ddcec5d5"
+      }
+    ]
+  },
+  {
+    "sha": "509b43ff72c9f992fe38af91d638fb89ddcec5d5",
+    "node_id": "C_kwDOT3tgGNoAKDUwOWI0M2ZmNzJjOWY5OTJmZTM4YWY5MWQ2MzhmYjg5ZGRjZWM1ZDU",
+    "commit": {
+      "author": {
+        "name": "mmac11",
+        "email": "mary.maclennan@gmail.com",
+        "date": "2026-08-16T00:37:04Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-08-16T00:37:04Z"
+      },
+      "message": "Add FAQ section for SimulacraBench",
+      "tree": {
+        "sha": "c62fb6ded81c311fa8046c6e32fa80b469672b2c",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/c62fb6ded81c311fa8046c6e32fa80b469672b2c"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/509b43ff72c9f992fe38af91d638fb89ddcec5d5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqgQYwCRC1aQ7uu5UhlAAAUWgQAGMyTnAEhIgZmJmFdDyAHr5G\nf5C4xZmQX6yxLyvpY1ZAeLdG1kLfCXhYiP4io1B6fUZ+8ZzXJz7dF5oQnWFoIw0t\nxoliZVp/QX6V7L6CpHkG0R33TWIyYnpm9eYZhMqKIGpmyscuF6Peu4Kfs1EiWN9A\nHG/CG+qWWbTnAfcZWdzfr3oy7AClKh/t/nSOLEa5s4OXbpQCpruCTz3+HGNbrop/\n0XqTnezUAt00F6czfGrOZcwvrGu5o/H4El0MwBi9eM0xe0nl8mQDYM8lUIjv11AN\nSqCb8nTRPIRrp7J8MbXZl2AKKStpYbYEyLwDHw56Xj71JgAEBxg5lNNZw3baSLdN\nnCf0qcQZ6DAw98U5xPEqm5tm2mWwZfPOhjhB4est7o5Q83YGlJQVUcksINyY51Fx\nQANWuQEdvG4WP6zz1zQi6pXEmtDolADsyTz38LO4Guk9hygLbSdeof4uwvfTdkUZ\nU5XH9z8rlcb3nAjy2Q5Bv1oULBm2J+ATORWFN4LytdYRxjeKRmRB6C7qliGgOLh0\nt6D/Cnx42tQ6L7PDGmp/yrmd1Vlht3z0NNZKQGekBzW6YVwAA7t91drBFWjENXTX\ne7s32Bi7E/NxIgQG8S4jHhFknxeo4+TGQxNzMPEA66TbmB5FUN5BjDgrGos4sZIx\nm43tZdKlyPJ2V5bgAyvR\n=sA3O\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c62fb6ded81c311fa8046c6e32fa80b469672b2c\nparent 219f29d4046acfe40a7b49f69f841a378112e9e4\nauthor mmac11 <mary.maclennan@gmail.com> 1786840624 -0700\ncommitter GitHub <noreply@github.com> 1786840624 -0700\n\nAdd FAQ section for SimulacraBench",
+        "verified_at": "2026-08-16T00:37:05Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/509b43ff72c9f992fe38af91d638fb89ddcec5d5",
+    "html_url": "https://github.com/SituatedEvals/public/commit/509b43ff72c9f992fe38af91d638fb89ddcec5d5",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/509b43ff72c9f992fe38af91d638fb89ddcec5d5/comments",
+    "author": {
+      "login": "mmac11",
+      "id": 301507282,
+      "node_id": "U_kgDOEfii0g",
+      "avatar_url": "https://avatars.githubusercontent.com/u/301507282?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mmac11",
+      "html_url": "https://github.com/mmac11",
+      "followers_url": "https://api.github.com/users/mmac11/followers",
+      "following_url": "https://api.github.com/users/mmac11/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mmac11/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mmac11/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mmac11/subscriptions",
+      "organizations_url": "https://api.github.com/users/mmac11/orgs",
+      "repos_url": "https://api.github.com/users/mmac11/repos",
+      "events_url": "https://api.github.com/users/mmac11/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mmac11/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "219f29d4046acfe40a7b49f69f841a378112e9e4",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/219f29d4046acfe40a7b49f69f841a378112e9e4",
+        "html_url": "https://github.com/SituatedEvals/public/commit/219f29d4046acfe40a7b49f69f841a378112e9e4"
+      }
+    ]
+  },
+  {
+    "sha": "219f29d4046acfe40a7b49f69f841a378112e9e4",
+    "node_id": "C_kwDOT3tgGNoAKDIxOWYyOWQ0MDQ2YWNmZTQwYTdiNDlmNjlmODQxYTM3ODExMmU5ZTQ",
+    "commit": {
+      "author": {
+        "name": "Andy Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T22:41:08Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-08-15T22:41:08Z"
+      },
+      "message": "Delete main",
+      "tree": {
+        "sha": "eb036126a1c484e623b315ee2a3c27a6e4be6edd",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/eb036126a1c484e623b315ee2a3c27a6e4be6edd"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/219f29d4046acfe40a7b49f69f841a378112e9e4",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqgOsECRC1aQ7uu5UhlAAAOHAQACXh6eFNmU6SWi6yjv5VJHbC\nI4CleW/Sba6UnuolCAbPDnoS+v+VGWnJl+ef3yGsIC/OpEeORMnNoacqZcW3K+7X\nnby50C50cuSfX0gCbaU6sVejTOt90XVbXi7pqZb5osJahNDwmvBxG48xOtkTUOzd\nWdcTGnAuaeONQsW5BfaijxL2e1rbmh01KT6u8N5fo6DwxWGA4uLDfURT22nQSLds\nYVc3QJPrZBuLsZjnnfwc2cMhhWJGbkyx2qqA1mQkrfXtz2CXmMoGhwAbTeI9CdI8\nuxD5MiRyUAhEFhHSV1pVtjkmL0XZpkSDdts+0+qQBKbsspHEUGNGLg1QdOXdV+NY\nNFrBtKOfXeKNe1hCkhm6fGJYnufIDBcJZ9qPaWegXzKxsq7emFFsToWSsT89ToZy\nlt8Gj1LWUsSfMhBRFvaxPmJmYeBGPEXUT95lriXZFoRWtkDQKTfk2eVBLBMHGr6g\nWokscKTmWCc/vqrt/wEFFj62bvf3vToCNBPSwShu1icMmoAy+NQuyZrW6XH87Ses\nctLP1spNJ7es7U/mBHFmPavHy4+zR3g3GbfVUjmCLbz9VJcF6/02Jwcm6z70TrJU\nza0cQJcJW/NuIpMIrYpGfDe1QoJofKCV9cWlTXVydrva18DzIfdRGQHcVvzl1Dla\noo2F8RAM0dAoglE6xQX/\n=fKWt\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree eb036126a1c484e623b315ee2a3c27a6e4be6edd\nparent 2ce06dd11d30cb01349429604a4ec2ee3694b8df\nauthor Andy Haupt <a.haupt@me.com> 1786833668 -0700\ncommitter GitHub <noreply@github.com> 1786833668 -0700\n\nDelete main",
+        "verified_at": "2026-08-15T22:41:09Z"
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/219f29d4046acfe40a7b49f69f841a378112e9e4",
+    "html_url": "https://github.com/SituatedEvals/public/commit/219f29d4046acfe40a7b49f69f841a378112e9e4",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/219f29d4046acfe40a7b49f69f841a378112e9e4/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2ce06dd11d30cb01349429604a4ec2ee3694b8df",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/2ce06dd11d30cb01349429604a4ec2ee3694b8df",
+        "html_url": "https://github.com/SituatedEvals/public/commit/2ce06dd11d30cb01349429604a4ec2ee3694b8df"
+      }
+    ]
+  },
+  {
+    "sha": "2ce06dd11d30cb01349429604a4ec2ee3694b8df",
+    "node_id": "C_kwDOT3tgGNoAKDJjZTA2ZGQxMWQzMGNiMDEzNDk0Mjk2MDRhNGVjMmVlMzY5NGI4ZGY",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T22:30:12Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T22:30:12Z"
+      },
+      "message": "Changed train-test split into data row",
+      "tree": {
+        "sha": "28b9a58fc16a7eb2ce952b2e6c97566eb63e1bad",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/28b9a58fc16a7eb2ce952b2e6c97566eb63e1bad"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/2ce06dd11d30cb01349429604a4ec2ee3694b8df",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/2ce06dd11d30cb01349429604a4ec2ee3694b8df",
+    "html_url": "https://github.com/SituatedEvals/public/commit/2ce06dd11d30cb01349429604a4ec2ee3694b8df",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/2ce06dd11d30cb01349429604a4ec2ee3694b8df/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0943dba1072b9004f29ca996c54fcd3d100fb306",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/0943dba1072b9004f29ca996c54fcd3d100fb306",
+        "html_url": "https://github.com/SituatedEvals/public/commit/0943dba1072b9004f29ca996c54fcd3d100fb306"
+      }
+    ]
+  },
+  {
+    "sha": "0943dba1072b9004f29ca996c54fcd3d100fb306",
+    "node_id": "C_kwDOT3tgGNoAKDA5NDNkYmExMDcyYjkwMDRmMjljYTk5NmM1NGZjZDNkMTAwZmIzMDY",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T22:29:46Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T22:29:46Z"
+      },
+      "message": "Updated baselines",
+      "tree": {
+        "sha": "45474f8f4619ad5feab0fb577dcb94d318e41982",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/45474f8f4619ad5feab0fb577dcb94d318e41982"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/0943dba1072b9004f29ca996c54fcd3d100fb306",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/0943dba1072b9004f29ca996c54fcd3d100fb306",
+    "html_url": "https://github.com/SituatedEvals/public/commit/0943dba1072b9004f29ca996c54fcd3d100fb306",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/0943dba1072b9004f29ca996c54fcd3d100fb306/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "56fefad54de176a22f98aa00ad2a2e3c6ec57301",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/56fefad54de176a22f98aa00ad2a2e3c6ec57301",
+        "html_url": "https://github.com/SituatedEvals/public/commit/56fefad54de176a22f98aa00ad2a2e3c6ec57301"
+      }
+    ]
+  },
+  {
+    "sha": "56fefad54de176a22f98aa00ad2a2e3c6ec57301",
+    "node_id": "C_kwDOT3tgGNoAKDU2ZmVmYWQ1NGRlMTc2YTIyZjk4YWEwMGFkMmEyZTNjNmVjNTczMDE",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T22:28:17Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T22:28:17Z"
+      },
+      "message": "Updated README",
+      "tree": {
+        "sha": "4df6278261282a6cbb69bd689d52a4653f3c5fe2",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/4df6278261282a6cbb69bd689d52a4653f3c5fe2"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/56fefad54de176a22f98aa00ad2a2e3c6ec57301",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/56fefad54de176a22f98aa00ad2a2e3c6ec57301",
+    "html_url": "https://github.com/SituatedEvals/public/commit/56fefad54de176a22f98aa00ad2a2e3c6ec57301",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/56fefad54de176a22f98aa00ad2a2e3c6ec57301/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7f321273d9b0d9258527a72202f062cbfc6b6711",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/7f321273d9b0d9258527a72202f062cbfc6b6711",
+        "html_url": "https://github.com/SituatedEvals/public/commit/7f321273d9b0d9258527a72202f062cbfc6b6711"
+      }
+    ]
+  },
+  {
+    "sha": "7f321273d9b0d9258527a72202f062cbfc6b6711",
+    "node_id": "C_kwDOT3tgGNoAKDdmMzIxMjczZDliMGQ5MjU4NTI3YTcyMjAyZjA2MmNiZmM2YjY3MTE",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T20:33:56Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T20:33:56Z"
+      },
+      "message": ".zip checker",
+      "tree": {
+        "sha": "1df2d8c1d27a26864de0ee3e217e46ef0cdb26b8",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/1df2d8c1d27a26864de0ee3e217e46ef0cdb26b8"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/7f321273d9b0d9258527a72202f062cbfc6b6711",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/7f321273d9b0d9258527a72202f062cbfc6b6711",
+    "html_url": "https://github.com/SituatedEvals/public/commit/7f321273d9b0d9258527a72202f062cbfc6b6711",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/7f321273d9b0d9258527a72202f062cbfc6b6711/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "93fc14a498f9e73b1e81aa67c7ce3471452683a7",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/93fc14a498f9e73b1e81aa67c7ce3471452683a7",
+        "html_url": "https://github.com/SituatedEvals/public/commit/93fc14a498f9e73b1e81aa67c7ce3471452683a7"
+      }
+    ]
+  },
+  {
+    "sha": "93fc14a498f9e73b1e81aa67c7ce3471452683a7",
+    "node_id": "C_kwDOT3tgGNoAKDkzZmMxNGE0OThmOWU3M2IxZTgxYWE2N2M3Y2UzNDcxNDUyNjgzYTc",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T20:33:34Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-15T20:33:34Z"
+      },
+      "message": "Translated notebooks",
+      "tree": {
+        "sha": "b5867c5b8cff9a676c51bbc1c7b1e0dd1f61b530",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/b5867c5b8cff9a676c51bbc1c7b1e0dd1f61b530"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/93fc14a498f9e73b1e81aa67c7ce3471452683a7",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/93fc14a498f9e73b1e81aa67c7ce3471452683a7",
+    "html_url": "https://github.com/SituatedEvals/public/commit/93fc14a498f9e73b1e81aa67c7ce3471452683a7",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/93fc14a498f9e73b1e81aa67c7ce3471452683a7/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "38a6d377ee593596eaa5ea605f77d24cf9a258c9",
+        "url": "https://api.github.com/repos/SituatedEvals/public/commits/38a6d377ee593596eaa5ea605f77d24cf9a258c9",
+        "html_url": "https://github.com/SituatedEvals/public/commit/38a6d377ee593596eaa5ea605f77d24cf9a258c9"
+      }
+    ]
+  },
+  {
+    "sha": "38a6d377ee593596eaa5ea605f77d24cf9a258c9",
+    "node_id": "C_kwDOT3tgGNoAKDM4YTZkMzc3ZWU1OTM1OTZlYWE1ZWE2MDVmNzdkMjRjZjlhMjU4Yzk",
+    "commit": {
+      "author": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-13T19:50:14Z"
+      },
+      "committer": {
+        "name": "Andreas Haupt",
+        "email": "a.haupt@me.com",
+        "date": "2026-08-13T19:50:14Z"
+      },
+      "message": "Initial commit",
+      "tree": {
+        "sha": "3aac540c196664e787a9acba2df883c4f133f92b",
+        "url": "https://api.github.com/repos/SituatedEvals/public/git/trees/3aac540c196664e787a9acba2df883c4f133f92b"
+      },
+      "url": "https://api.github.com/repos/SituatedEvals/public/git/commits/38a6d377ee593596eaa5ea605f77d24cf9a258c9",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/SituatedEvals/public/commits/38a6d377ee593596eaa5ea605f77d24cf9a258c9",
+    "html_url": "https://github.com/SituatedEvals/public/commit/38a6d377ee593596eaa5ea605f77d24cf9a258c9",
+    "comments_url": "https://api.github.com/repos/SituatedEvals/public/commits/38a6d377ee593596eaa5ea605f77d24cf9a258c9/comments",
+    "author": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Indraos",
+      "id": 3179453,
+      "node_id": "MDQ6VXNlcjMxNzk0NTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3179453?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Indraos",
+      "html_url": "https://github.com/Indraos",
+      "followers_url": "https://api.github.com/users/Indraos/followers",
+      "following_url": "https://api.github.com/users/Indraos/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Indraos/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Indraos/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Indraos/subscriptions",
+      "organizations_url": "https://api.github.com/users/Indraos/orgs",
+      "repos_url": "https://api.github.com/users/Indraos/repos",
+      "events_url": "https://api.github.com/users/Indraos/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Indraos/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+
+    ]
+  }
+]

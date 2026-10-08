@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+data/
+sub/*.zip
+raw/repo/
+_sandbox/

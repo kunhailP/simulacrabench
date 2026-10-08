@@ -1,0 +1,93 @@
+n entries 92 []
+1 0.6533 | U 0.52 WB 0.50 HCR 0.94 | mgjeon | SAPIENSQ | SapiensQ, SapiensQ Inc.; South Korea; Industry | 2026-09-27
+2 0.6533 | U 0.52 WB 0.50 HCR 0.94 | techsq |  |  | 2026-10-07
+3 0.6500 | U 0.52 WB 0.50 HCR 0.93 | vladkulikov | in2ai | Vladislav Kulikov, iMak AI Lab; Russia; Academic; Stepan Vag | 2026-09-11
+4 0.6500 | U 0.52 WB 0.50 HCR 0.93 | deleted_user_82319 | SAPIENSQ | Eunhye Jang; SAPIENSQ; Republice of Korea; Private Sector | 2026-09-12
+5 0.6500 | U 0.52 WB 0.50 HCR 0.93 | riccardocadei |  |  | 2026-10-05
+6 0.6467 | U 0.52 WB 0.50 HCR 0.92 | veseluhha |  |  | 2026-10-05
+7 0.6467 | U 0.52 WB 0.49 HCR 0.93 | volart | tv | Artem Volgin; Total Values; United Kingdom; Private Sector | 2026-09-13
+8 0.6467 | U 0.52 WB 0.49 HCR 0.93 | ajk21 | AJK | Arjun Kode, Independent Researcher, United States of America | 2026-09-18
+9 0.6467 | U 0.52 WB 0.49 HCR 0.93 | syehsyoh | syehsyoh | syehsyoh | 2026-09-19
+10 0.6467 | U 0.52 WB 0.49 HCR 0.93 | michaelibrahim |  |  | 2026-09-30
+11 0.6467 | U 0.52 WB 0.49 HCR 0.93 | aa_aa_a |  |  | 2026-10-07
+12 0.6433 | U 0.52 WB 0.49 HCR 0.92 | dt517 | LLM+ | Academic | 2026-08-31
+13 0.6433 | U 0.52 WB 0.49 HCR 0.92 | dddsaty | AIDIVE | Anon | 2026-09-07
+14 0.6433 | U 0.52 WB 0.49 HCR 0.92 | jwilliamn | ntodo | Jaspers Huanay, Hse, Peru, Private sector | 2026-09-16
+15 0.6433 | U 0.52 WB 0.49 HCR 0.92 | ghosttt | 123 | carrie | 2026-09-17
+16 0.6433 | U 0.52 WB 0.49 HCR 0.92 | minjoonyoo | Odyssey | Minjoon Yoo, Yonsei University; South Korea; Academic | 2026-09-19
+17 0.6433 | U 0.52 WB 0.49 HCR 0.92 | ziyeyang | Fighting the Landlord | ziyeyang | 2026-09-21
+18 0.6433 | U 0.52 WB 0.49 HCR 0.92 | jacobcrainic | JC | Jacob Crainic, UF; USA; Academic | 2026-09-25
+19 0.6433 | U 0.52 WB 0.49 HCR 0.92 | sinhaharsh |  |  | 2026-09-30
+20 0.6433 | U 0.52 WB 0.49 HCR 0.92 | localtest_52 |  |  | 2026-10-02
+21 0.6433 | U 0.52 WB 0.49 HCR 0.92 | 121231 |  |  | 2026-10-03
+22 0.6433 | U 0.52 WB 0.49 HCR 0.92 | ninini111 |  |  | 2026-10-04
+23 0.6433 | U 0.52 WB 0.49 HCR 0.92 | chengenhao |  |  | 2026-10-04
+24 0.6433 | U 0.52 WB 0.49 HCR 0.92 | enhaocheng |  |  | 2026-10-05
+25 0.6433 | U 0.52 WB 0.49 HCR 0.92 | avsolatorio |  |  | 2026-10-06
+26 0.6433 | U 0.52 WB 0.49 HCR 0.92 | nnnn212 |  |  | 2026-10-06
+27 0.6433 | U 0.52 WB 0.49 HCR 0.92 | whatt |  |  | 2026-10-07
+28 0.6433 | U 0.52 WB 0.49 HCR 0.92 | testttt |  |  | 2026-10-07
+29 0.6433 | U 0.52 WB 0.49 HCR 0.92 | prior-only |  |  | 2026-10-07
+30 0.6400 | U 0.52 WB 0.49 HCR 0.91 | yangbaoguo | Happy | Chen Kunlong, Tiktok, China,Private Sector | 2026-09-11
+31 0.6400 | U 0.52 WB 0.49 HCR 0.91 | krosenf | kar | Katherine Rosenfeld, Gates Foundation, USA, Nonprofit | 2026-09-22
+32 0.6400 | U 0.52 WB 0.49 HCR 0.91 | susupro |  |  | 2026-09-30
+33 0.6400 | U 0.52 WB 0.49 HCR 0.91 | jvlmdr |  |  | 2026-10-01
+34 0.6400 | U 0.52 WB 0.49 HCR 0.91 | 4872872 |  |  | 2026-10-04
+35 0.6400 | U 0.52 WB 0.49 HCR 0.91 | adammmm |  |  | 2026-10-06
+36 0.6400 | U 0.52 WB 0.49 HCR 0.91 | dinner1 |  |  | 2026-10-07
+37 0.6400 | U 0.52 WB 0.49 HCR 0.91 | marginal |  |  | 2026-10-07
+38 0.6400 | U 0.52 WB 0.49 HCR 0.91 | hanjunjung |  |  | 2026-10-08
+39 0.6400 | U 0.51 WB 0.49 HCR 0.92 | stepanvagin | in2ai | Vladislav Kulikov, iMak AI Lab; Russia; Academic; Stepan Vag | 2026-08-30
+40 0.6400 | U 0.51 WB 0.49 HCR 0.92 | tylerlu |  |  | 2026-10-07
+41 0.6367 | U 0.52 WB 0.49 HCR 0.90 | pppmcc | mcc | Penghang Yu; School of Communications and Information Engine | 2026-09-07
+42 0.6367 | U 0.52 WB 0.49 HCR 0.90 | lebinno |  |  | 2026-10-03
+43 0.6367 | U 0.52 WB 0.49 HCR 0.90 | iwantwlb |  |  | 2026-10-07
+44 0.6367 | U 0.52 WB 0.49 HCR 0.90 | cosmmmos |  |  | 2026-10-07
+45 0.6367 | U 0.52 WB 0.49 HCR 0.90 | arunklenin |  |  | 2026-10-07
+46 0.6367 | U 0.51 WB 0.49 HCR 0.91 | ph0en1x7 | Phoenix | Agzam Shamsadinov, Kazakh-British Technical University, Kaza | 2026-09-05
+47 0.6367 | U 0.51 WB 0.49 HCR 0.91 | mazga | Phoenix | Agzam Shamsadinov, Kazakh-British Technical University, Kaza | 2026-09-07
+48 0.6367 | U 0.51 WB 0.49 HCR 0.91 | mishka | AI is all u need | Sasha; MNU; Russia; Academic | 2026-09-07
+49 0.6367 | U 0.51 WB 0.49 HCR 0.91 | eisuke | Team EO | Eisuke Okuda, Individual; Japan; Other | 2026-09-21
+50 0.6333 | U 0.52 WB 0.49 HCR 0.89 | exochard |  |  | 2026-10-06
+51 0.6333 | U 0.51 WB 0.48 HCR 0.91 | nomos1011 | nomadany | K.Park, independent researcher; South Korea;Other | 2026-09-14
+52 0.6300 | U 0.52 WB 0.49 HCR 0.88 | abe_lincoln |  |  | 2026-10-07
+53 0.6267 | U 0.52 WB 0.49 HCR 0.87 | deleted_user_2268 | Happy | Chen Kunlong, Tiktok, China,Private Sector | 2026-09-14
+54 0.6233 | U 0.52 WB 0.49 HCR 0.86 | 2132dad |  |  | 2026-10-02
+55 0.6233 | U 0.52 WB 0.49 HCR 0.86 | lebololiwe |  |  | 2026-10-07
+56 0.6233 | U 0.51 WB 0.49 HCR 0.87 | lsempe |  |  | 2026-10-01
+57 0.6233 | U 0.51 WB 0.49 HCR 0.87 | heyufeng2003 |  |  | 2026-10-05
+58 0.6133 | U 0.51 WB 0.49 HCR 0.84 | stellballrun |  |  | 2026-10-07
+59 0.6067 | U 0.52 WB 0.48 HCR 0.82 | jajaja |  |  | 2026-10-03
+60 0.6067 | U 0.51 WB 0.49 HCR 0.82 | kristylht | dividope | Kristy Lau, Inidiviudal, Hong Kong, Private Sector | 2026-09-02
+61 0.6000 | U 0.52 WB 0.49 HCR 0.79 | piotrlipinski81 | pietruszko | Piotr Lipinski; University of Cambridge; the United Kingdom; | 2026-09-20
+62 0.6000 | U 0.51 WB 0.49 HCR 0.80 | eamag | Urithiru | Dmitrii Magas, Independent; Germany; Private Sector\n | 2026-09-17
+63 0.5967 | U 0.49 WB 0.47 HCR 0.83 | ensu1231 |  |  | 2026-10-04
+64 0.5933 | U 0.51 WB 0.49 HCR 0.78 | gnahum12345 |  |  | 2026-10-04
+65 0.5933 | U 0.50 WB 0.48 HCR 0.80 | jeetu_sk | BHopper | Satyajeeth Suresh Kannan, Innovation Academy; USA; Academic | 2026-09-24
+66 0.5833 | U 0.51 WB 0.48 HCR 0.76 | jaywoong | woong | Jaywoong Jeong; KAIST; Republic of Korea; Academic | 2026-09-25
+67 0.5800 | U 0.51 WB 0.49 HCR 0.74 | cben999 |  |  | 2026-10-07
+68 0.5800 | U 0.50 WB 0.48 HCR 0.76 | hangglider5 | Nectar | Kenny Leung, South China University of Technology; China; Ac | 2026-09-26
+69 0.5800 | U 0.50 WB 0.48 HCR 0.76 | changyuanchen |  |  | 2026-10-04
+70 0.5700 | U 0.51 WB 0.49 HCR 0.71 | awxlong | glassbox | Xuelong An, Independent; United Kingdom | 2026-08-24
+71 0.5700 | U 0.50 WB 0.48 HCR 0.73 | javier1 |  |  | 2026-10-02
+72 0.5633 | U 0.50 WB 0.48 HCR 0.71 | chris_vas | ChrisTeam | Chris; Individual; Greece; Other | 2026-09-24
+73 0.5367 | U 0.48 WB 0.47 HCR 0.66 | goood |  |  | 2026-10-06
+74 0.5267 | U 0.49 WB 0.45 HCR 0.64 | davidsmith42 | 42 | ananth vydianath,none,united kingdom,other | 2026-09-01
+75 0.5000 | U 0.52 WB 0.49 HCR 0.49 | darisdzakwan | DarisDzakwan | Daris Dzakwan Hoesien; Oulu University; Indonesia; Academic | 2026-09-23
+76 0.5000 | U 0.42 WB 0.43 HCR 0.65 | vikasmaur2nd |  |  | 2026-10-07
+77 0.4700 | U 0.51 WB 0.49 HCR 0.41 | 5eong | Seong | Seong Hah Cho, Independent, Hong Kong, Other | 2026-08-21
+78 0.4667 | U 0.51 WB 0.48 HCR 0.41 | hyperborey | Нyperborey | Boris D. Yarovoy, Independent; Russia; Other | 2026-08-27
+79 0.4633 | U 0.47 WB 0.43 HCR 0.49 | hdcore-vinhla | HDcore | Le Anh Vinh, Independent, Vietnam, Other | 2026-09-01
+80 0.4300 | U 0.50 WB 0.48 HCR 0.31 | villegasber | global_team | Bernardo Villegas, University of Cambridge; United Kingdom;  | 2026-08-19
+81 0.4233 | U 0.49 WB 0.47 HCR 0.31 | masaaaato | MTS | Masato Tsutsui, A Pharmaceutical Company; Japan; Private Sec | 2026-09-23
+82 0.4200 | U 0.50 WB 0.47 HCR 0.29 | faithful |  |  | 2026-10-06
+83 0.4000 | U 0.36 WB 0.37 HCR 0.47 | ayush42 |  |  | 2026-10-05
+84 0.3600 | U 0.27 WB 0.33 HCR 0.48 | ryanleeai | rlee | Ryan Lee, Independent; United States; Private Sector | 2026-09-10
+85 0.3600 | U 0.26 WB 0.34 HCR 0.48 | z_z_z | zzz | z_z_z,Independent Researcher;america;academic | 2026-09-28
+86 0.3567 | U 0.26 WB 0.33 HCR 0.48 | darkprince | overdose | Vova,Independt;Finland; Nonprofit | 2026-08-20
+87 0.3567 | U 0.26 WB 0.33 HCR 0.48 | MaxwellEQ |  |  | 2026-09-28
+88 0.3567 | U 0.26 WB 0.33 HCR 0.48 | adinath |  |  | 2026-10-01
+89 0.3567 | U 0.26 WB 0.33 HCR 0.48 | navaneetha_krishnan |  |  | 2026-10-02
+90 0.1667 | U 0.10 WB 0.17 HCR 0.23 | nomaltester | normalperson | Minjoon Yoo, Yonsei University; South Korea; Academic | 2026-09-12
+91 -0.3267 | U -0.23 WB -0.28 HCR -0.47 | signupupup | signupupup | signupupup,sign;america;nonprofit | 2026-09-28
+92 -0.3267 | U -0.23 WB -0.28 HCR -0.47 | yellow | yellow | yellow,none;america;other | 2026-09-28

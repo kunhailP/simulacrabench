@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SimulacraBench · Benchmarking AI's Ability to Augment Development Data</title>
+<meta name="description" content="A NeurIPS 2026 competition. Validate AI representations of hard-to-reach populations on unreleased UNHCR, UNICEF, and World Bank microdata. Public launch August 18, 2026.">
+<!-- Brand rule: crimson only. No Situated Evals blue anywhere on this page,
+     including the parent lockup and the footer. --sky appears exactly once
+     (the microdata at rest, inside the closed-evaluation diagram). grep
+     before shipping. -->
+<link rel="canonical" href="https://simulacrabench.org/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1C1E21">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SimulacraBench">
+<meta property="og:title" content="SimulacraBench · Benchmarking AI's Ability to Augment Development Data">
+<meta property="og:description" content="A NeurIPS 2026 competition. Validate AI representations of hard-to-reach populations on unreleased UNHCR, UNICEF, and World Bank microdata.">
+<meta property="og:url" content="https://simulacrabench.org/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Duotone filter for the photo bands: luminance, then a maroon→coral ramp
+     with a lifted midtone so faces and gestures stay legible. -->
+<svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <!-- Luminance, then a low-chroma warm ramp: deep maroon shadows through
+       muted brick and clay to bone highlights. Deliberately far less saturated
+       than the brand's own crimson — a photograph pushed to full chroma stops
+       reading as a photograph. Skin tones and fabric keep their modelling. -->
+  <filter id="sb-duotone" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="0.2339 0.7867 0.0794 0 -0.04
+                                         0.2339 0.7867 0.0794 0 -0.04
+                                         0.2339 0.7867 0.0794 0 -0.04
+                                         0      0      0      1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.290 0.549 0.788 0.957"/>
+      <feFuncG type="table" tableValues="0.086 0.227 0.541 0.929"/>
+      <feFuncB type="table" tableValues="0.078 0.196 0.478 0.894"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
+
+<header class="site-header">
+  <div class="shell header-row">
+    <a class="lockup" href="/" aria-label="SimulacraBench home">
+      <svg class="mark" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path class="mark-left" d="M0 46 V24 A12 12 0 0 1 24 24 V46 Z"/>
+          <path class="mark-right" d="M25.8 46 V10.1 A10.1 10.1 0 0 1 46 10.1 V46 Z"/>
+        </svg>
+      <span class="wordmark">Simulacra<span class="wordmark-em">Bench</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" hidden>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#competition">Competition</a>
+      <a href="#data">Data</a>
+      <a href="#starter-kit">Starter kit</a>
+      <a href="#rules">Rules</a>
+      <a href="#team">Team</a>
+      <a class="pill pill-solid" href="https://docs.google.com/forms/d/e/1FAIpQLSea9nL8ffhdvSzGz746rpkkgghdFMlB4x-h1n4eNiqF3Bir9A/viewform">Register interest</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= Hero — the hero is the task ================= -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero-bg" aria-hidden="true">
+      <!--@HERO_PATTERN--><svg class="hero-pattern-svg" viewBox="0 0 1460 720" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><text class="hc" x="83.2" y="18.1" opacity="0.26">0</text><text class="hc" x="115.5" y="16" opacity="0.23">0</text><text class="hc" x="163.8" y="22.8" opacity="0.29">1</text><text class="hc" x="212.2" y="13.2" opacity="0.27">0</text><text class="hc" x="228.3" y="14.9" opacity="0.26">1</text><text class="hc-em" x="244.4" y="17.6" opacity="0.27">p̂</text><text class="hc" x="317" y="19.6" opacity="0.28">1</text><text class="hc" x="333.1" y="23" opacity="0.31">0</text><text class="hc" x="389.5" y="15.3" opacity="0.28">1</text><text class="hc" x="405.6" y="20.7" opacity="0.29">0</text><text class="hc" x="437.9" y="22.6" opacity="0.32">0</text><text class="hc" x="454" y="15.1" opacity="0.32">1</text><text class="hc" x="470.1" y="22.8" opacity="0.30">0</text><text class="hc" x="486.2" y="19.3" opacity="0.32">1</text><text class="hc" x="502.3" y="13.9" opacity="0.30">Ω</text><text class="hc" x="550.7" y="15.5" opacity="0.29">0</text><text class="hc" x="566.8" y="21" opacity="0.30">1</text><text class="hc" x="599.1" y="14.9" opacity="0.33">1</text><text class="hc" x="615.2" y="19.4" opacity="0.30">Ω</text><text class="hc" x="631.3" y="15.1" opacity="0.31">0</text><text class="hc-em" x="679.7" y="21.8" opacity="0.31">p̂</text><text class="hc" x="703.8" y="21.5" opacity="0.34">1</text><text class="hc" x="720" y="22.9" opacity="0.32">0</text><text class="hc" x="736.1" y="20.7" opacity="0.33">1</text><text class="hc" x="752.2" y="13.7" opacity="0.31">1</text><text class="hc" x="784.4" y="19" opacity="0.34">1</text><text class="hc-em" x="800.6" y="22.6" opacity="0.34">p̂</text><text class="hc" x="824.7" y="21.7" opacity="0.33">1</text><text class="hc" x="840.9" y="22.1" opacity="0.37">0</text><text class="hc" x="857" y="14.9" opacity="0.37">1</text><text class="hc" x="889.2" y="22.5" opacity="0.38">1</text><text class="hc" x="921.5" y="14" opacity="0.33">1</text><text class="hc" x="953.7" y="20" opacity="0.35">0</text><text class="hc" x="985.9" y="15.9" opacity="0.35">0</text><text class="hc" x="1018.2" y="15.3" opacity="0.38">0</text><text class="hc" x="1050.4" y="15.8" opacity="0.40">Ω</text><text class="hc" x="1066.5" y="13.2" opacity="0.37">0</text><text class="hc" x="1082.7" y="13.6" opacity="0.36">0</text><text class="hc" x="1098.8" y="18.7" opacity="0.36">1</text><text class="hc-em" x="1114.9" y="21.9" opacity="0.42">p̂</text><text class="hc" x="1171.3" y="14.4" opacity="0.37">1</text><text class="hc" x="1187.4" y="22.1" opacity="0.41">1</text><text class="hc" x="1219.7" y="19.4" opacity="0.40">1</text><text class="hc" x="1260" y="23" opacity="0.38">1</text><text class="hc" x="1276.1" y="20.4" opacity="0.43">0</text><text class="hc" x="1356.7" y="19.9" opacity="0.44">1</text><text class="hc" x="1388.9" y="20.9" opacity="0.44">0</text><text class="hc" x="1405.1" y="19.2" opacity="0.42">0</text><text class="hc" x="1421.2" y="19.1" opacity="0.40">0</text><text class="hc" x="1437.3" y="22.9" opacity="0.45">1</text><text class="hc" x="31.7" y="48.4" opacity="0.22">0</text><text class="hc" x="63.9" y="46" opacity="0.24">1</text><text class="hc-em" x="80" y="47" opacity="0.25">p̂</text><text class="hc" x="136.4" y="40.1" opacity="0.24">1</text><text class="hc" x="168.7" y="41.7" opacity="0.28">0</text><text class="hc-em" x="200.9" y="48.9" opacity="0.25">p̂</text><text class="hc" x="241.2" y="44.3" opacity="0.29">0</text><text class="hc" x="289.6" y="45.8" opacity="0.26">1</text><text class="hc" x="305.7" y="45" opacity="0.30">0</text><text class="hc" x="370.2" y="41.7" opacity="0.28">0</text><text class="hc" x="386.3" y="42.1" opacity="0.28">0</text><text class="hc" x="418.5" y="43.2" opacity="0.31">0</text><text class="hc" x="450.8" y="40.7" opacity="0.27">Ω</text><text class="hc" x="483" y="47.1" opacity="0.30">0</text><text class="hc" x="499.1" y="47.9" opacity="0.27">1</text><text class="hc-em" x="515.3" y="44.5" opacity="0.28">p̂</text><text class="hc" x="555.6" y="41.4" opacity="0.28">0</text><text class="hc" x="587.8" y="46.3" opacity="0.32">1</text><text class="hc" x="660.3" y="44.8" opacity="0.30">1</text><text class="hc" x="676.5" y="44.7" opacity="0.34">0</text><text class="hc" x="692.6" y="42.7" opacity="0.32">1</text><text class="hc" x="724.8" y="46.1" opacity="0.35">1</text><text class="hc" x="740.9" y="47.9" opacity="0.36">0</text><text class="hc" x="757.1" y="49.3" opacity="0.35">1</text><text class="hc" x="773.2" y="44.5" opacity="0.35">Ω</text><text class="hc" x="805.4" y="45.7" opacity="0.36">0</text><text class="hc" x="853.8" y="46.5" opacity="0.33">0</text><text class="hc" x="934.4" y="49" opacity="0.39">1</text><text class="hc" x="974.7" y="47.9" opacity="0.35">1</text><text class="hc" x="1023" y="40.8" opacity="0.37">1</text><text class="hc" x="1039.2" y="47.7" opacity="0.37">0</text><text class="hc" x="1055.3" y="48.1" opacity="0.35">1</text><text class="hc" x="1095.6" y="43.4" opacity="0.40">1</text><text class="hc" x="1111.7" y="41.5" opacity="0.38">0</text><text class="hc" x="1192.3" y="49.5" opacity="0.37">1</text><text class="hc" x="1208.4" y="45.3" opacity="0.38">Ω</text><text class="hc" x="1240.7" y="45.2" opacity="0.42">0</text><text class="hc" x="1256.8" y="43.1" opacity="0.39">0</text><text class="hc" x="1305.1" y="48.5" opacity="0.43">1</text><text class="hc" x="1321.3" y="45.7" opacity="0.39">Ω</text><text class="hc" x="1337.4" y="45" opacity="0.42">0</text><text class="hc" x="1353.5" y="49.7" opacity="0.41">0</text><text class="hc" x="1369.6" y="48" opacity="0.42">1</text><text class="hc-em" x="1385.7" y="46.9" opacity="0.39">p̂</text><text class="hc" x="1409.9" y="44.1" opacity="0.45">1</text><text class="hc" x="1442.2" y="44.7" opacity="0.40">1</text><text class="hc" x="1458.3" y="48.2" opacity="0.45">1</text><text class="hc" x="3.8" y="68.9" opacity="0.24">0</text><text class="hc-em" x="36.1" y="74.8" opacity="0.21">p̂</text><text class="hc" x="60.2" y="69.3" opacity="0.25">1</text><text class="hc" x="76.4" y="70.6" opacity="0.25">0</text><text class="hc" x="92.5" y="74.3" opacity="0.22">1</text><text class="hc" x="124.7" y="69" opacity="0.25">1</text><text class="hc" x="140.8" y="70.8" opacity="0.25">0</text><text class="hc" x="173.1" y="69" opacity="0.26">Ω</text><text class="hc" x="269.8" y="74.4" opacity="0.29">1</text><text class="hc" x="302" y="70.1" opacity="0.30">0</text><text class="hc" x="318.2" y="77" opacity="0.30">0</text><text class="hc" x="334.3" y="69.4" opacity="0.29">1</text><text class="hc-em" x="350.4" y="68" opacity="0.30">p̂</text><text class="hc" x="374.6" y="74.9" opacity="0.26">1</text><text class="hc" x="390.7" y="73.9" opacity="0.25">0</text><text class="hc" x="406.8" y="73.8" opacity="0.31">1</text><text class="hc" x="439.1" y="72.1" opacity="0.31">0</text><text class="hc" x="455.2" y="73.9" opacity="0.27">1</text><text class="hc-em" x="471.3" y="68.1" opacity="0.27">p̂</text><text class="hc" x="511.6" y="72.7" opacity="0.28">0</text><text class="hc" x="527.7" y="69" opacity="0.32">1</text><text class="hc" x="576.1" y="67.6" opacity="0.33">0</text><text class="hc" x="592.2" y="74.6" opacity="0.30">1</text><text class="hc" x="608.3" y="72.2" opacity="0.31">Ω</text><text class="hc" x="640.6" y="74" opacity="0.34">0</text><text class="hc" x="656.7" y="71.5" opacity="0.33">0</text><text class="hc" x="672.8" y="69" opacity="0.30">1</text><text class="hc" x="688.9" y="67.2" opacity="0.35">0</text><text class="hc" x="769.5" y="73" opacity="0.33">1</text><text class="hc" x="825.9" y="76.1" opacity="0.35">0</text><text class="hc" x="874.3" y="76" opacity="0.37">0</text><text class="hc" x="946.8" y="74.2" opacity="0.33">0</text><text class="hc" x="963" y="71.7" opacity="0.33">1</text><text class="hc" x="979.1" y="73.4" opacity="0.37">0</text><text class="hc" x="995.2" y="76.4" opacity="0.37">1</text><text class="hc" x="1011.3" y="73.6" opacity="0.37">0</text><text class="hc" x="1027.4" y="70.9" opacity="0.40">1</text><text class="hc" x="1108" y="73.2" opacity="0.39">1</text><text class="hc" x="1124.2" y="71" opacity="0.35">0</text><text class="hc" x="1140.3" y="70.8" opacity="0.36">1</text><text class="hc" x="1156.4" y="76.1" opacity="0.39">Ω</text><text class="hc" x="1172.5" y="76.7" opacity="0.39">0</text><text class="hc" x="1204.8" y="75.1" opacity="0.36">1</text><text class="hc-em" x="1220.9" y="74.6" opacity="0.36">p̂</text><text class="hc" x="1261.2" y="71.7" opacity="0.38">0</text><text class="hc" x="1277.3" y="73.1" opacity="0.37">1</text><text class="hc" x="1309.5" y="72.3" opacity="0.41">0</text><text class="hc" x="1325.7" y="69.9" opacity="0.41">1</text><text class="hc-em" x="1341.8" y="69.8" opacity="0.42">p̂</text><text class="hc" x="1366" y="67.1" opacity="0.40">1</text><text class="hc" x="1382.1" y="68.6" opacity="0.43">0</text><text class="hc" x="1398.2" y="76" opacity="0.43">1</text><text class="hc" x="1414.3" y="76.9" opacity="0.44">0</text><text class="hc" x="1430.4" y="76.1" opacity="0.41">1</text><text class="hc" x="1446.6" y="76.7" opacity="0.41">0</text><text class="hc" x="102.9" y="100.2" opacity="0.24">0</text><text class="hc" x="119" y="94.5" opacity="0.25">1</text><text class="hc" x="135.1" y="98.4" opacity="0.26">Ω</text><text class="hc" x="167.4" y="99.8" opacity="0.25">0</text><text class="hc" x="272.1" y="95.1" opacity="0.29">1</text><text class="hc-em" x="320.5" y="96.7" opacity="0.28">p̂</text><text class="hc" x="409.2" y="96.5" opacity="0.31">1</text><text class="hc" x="457.5" y="94.6" opacity="0.27">Ω</text><text class="hc" x="473.6" y="100.2" opacity="0.27">0</text><text class="hc" x="505.9" y="94.9" opacity="0.30">0</text><text class="hc" x="554.2" y="98.8" opacity="0.28">1</text><text class="hc" x="570.4" y="101.4" opacity="0.32">Ω</text><text class="hc" x="586.5" y="95.2" opacity="0.32">0</text><text class="hc-em" x="634.8" y="98.2" opacity="0.30">p̂</text><text class="hc" x="675.1" y="100.5" opacity="0.35">0</text><text class="hc" x="691.3" y="99.5" opacity="0.33">1</text><text class="hc" x="723.5" y="97.7" opacity="0.30">0</text><text class="hc-em" x="755.7" y="94.8" opacity="0.33">p̂</text><text class="hc" x="779.9" y="100.9" opacity="0.32">1</text><text class="hc" x="812.2" y="96.1" opacity="0.34">1</text><text class="hc" x="828.3" y="97" opacity="0.35">0</text><text class="hc" x="860.5" y="95.4" opacity="0.33">0</text><text class="hc" x="892.8" y="95.2" opacity="0.36">Ω</text><text class="hc" x="908.9" y="103.2" opacity="0.37">0</text><text class="hc" x="941.1" y="102" opacity="0.34">0</text><text class="hc" x="957.2" y="98" opacity="0.38">1</text><text class="hc" x="989.5" y="97.6" opacity="0.35">1</text><text class="hc" x="1005.6" y="98" opacity="0.35">Ω</text><text class="hc" x="1021.7" y="99.6" opacity="0.38">0</text><text class="hc" x="1037.8" y="102.4" opacity="0.37">0</text><text class="hc" x="1054" y="101.6" opacity="0.39">1</text><text class="hc-em" x="1070.1" y="94.2" opacity="0.37">p̂</text><text class="hc" x="1094.3" y="99.7" opacity="0.40">1</text><text class="hc" x="1142.6" y="99.5" opacity="0.39">1</text><text class="hc" x="1158.7" y="94.8" opacity="0.39">0</text><text class="hc-em" x="1191" y="100.3" opacity="0.36">p̂</text><text class="hc" x="1247.4" y="96.2" opacity="0.41">1</text><text class="hc" x="1263.5" y="101.6" opacity="0.39">0</text><text class="hc" x="1279.6" y="103.7" opacity="0.41">1</text><text class="hc" x="1295.8" y="99.4" opacity="0.41">0</text><text class="hc" x="1344.1" y="102.3" opacity="0.41">0</text><text class="hc" x="1440.8" y="99.2" opacity="0.43">Ω</text><text class="hc" x="1.1" y="122.5" opacity="0.24">0</text><text class="hc-em" x="33.3" y="122.7" opacity="0.21">p̂</text><text class="hc" x="57.5" y="123.9" opacity="0.26">1</text><text class="hc" x="73.6" y="124.1" opacity="0.21">0</text><text class="hc" x="122" y="121.6" opacity="0.24">0</text><text class="hc" x="178.4" y="122.1" opacity="0.23">1</text><text class="hc" x="194.5" y="123.4" opacity="0.26">0</text><text class="hc" x="226.8" y="122.8" opacity="0.24">0</text><text class="hc" x="242.9" y="128.6" opacity="0.24">1</text><text class="hc" x="307.4" y="129.9" opacity="0.29">0</text><text class="hc" x="323.5" y="126.5" opacity="0.29">0</text><text class="hc" x="355.7" y="121.5" opacity="0.30">1</text><text class="hc" x="388" y="126.3" opacity="0.28">1</text><text class="hc" x="404.1" y="130.9" opacity="0.29">Ω</text><text class="hc" x="420.2" y="121.1" opacity="0.28">0</text><text class="hc" x="436.3" y="129" opacity="0.29">0</text><text class="hc-em" x="468.6" y="122.6" opacity="0.27">p̂</text><text class="hc" x="492.7" y="129.7" opacity="0.29">1</text><text class="hc" x="541.1" y="126.3" opacity="0.27">1</text><text class="hc" x="573.3" y="129.2" opacity="0.32">1</text><text class="hc" x="613.6" y="123.7" opacity="0.32">1</text><text class="hc" x="629.8" y="125.8" opacity="0.30">0</text><text class="hc" x="694.2" y="128.9" opacity="0.31">0</text><text class="hc" x="726.5" y="129.3" opacity="0.30">Ω</text><text class="hc" x="742.6" y="126.3" opacity="0.30">0</text><text class="hc" x="774.8" y="124.1" opacity="0.30">0</text><text class="hc" x="791" y="125.7" opacity="0.34">1</text><text class="hc" x="807.1" y="127.9" opacity="0.31">0</text><text class="hc" x="823.2" y="125.6" opacity="0.36">1</text><text class="hc" x="871.6" y="124.8" opacity="0.35">0</text><text class="hc" x="887.7" y="126.6" opacity="0.34">1</text><text class="hc-em" x="903.8" y="130.9" opacity="0.36">p̂</text><text class="hc" x="928" y="127.2" opacity="0.33">1</text><text class="hc" x="944.1" y="126.4" opacity="0.33">0</text><text class="hc" x="960.2" y="124.9" opacity="0.36">1</text><text class="hc" x="976.3" y="123" opacity="0.36">1</text><text class="hc" x="992.5" y="130.5" opacity="0.36">0</text><text class="hc-em" x="1024.7" y="129.3" opacity="0.33">p̂</text><text class="hc" x="1048.9" y="121.9" opacity="0.37">1</text><text class="hc" x="1081.1" y="125" opacity="0.38">1</text><text class="hc" x="1097.2" y="121.9" opacity="0.35">0</text><text class="hc" x="1113.4" y="122.2" opacity="0.36">1</text><text class="hc" x="1129.5" y="130.2" opacity="0.37">0</text><text class="hc" x="1145.6" y="127.5" opacity="0.39">1</text><text class="hc" x="1177.8" y="124.3" opacity="0.37">0</text><text class="hc" x="1194" y="125" opacity="0.39">0</text><text class="hc" x="1258.4" y="121.2" opacity="0.38">1</text><text class="hc" x="1274.6" y="127.5" opacity="0.37">Ω</text><text class="hc" x="1290.7" y="126.1" opacity="0.41">0</text><text class="hc" x="1322.9" y="122.6" opacity="0.41">1</text><text class="hc" x="1363.2" y="124.5" opacity="0.40">1</text><text class="hc" x="1379.3" y="128.1" opacity="0.43">0</text><text class="hc" x="1395.5" y="128.2" opacity="0.43">1</text><text class="hc" x="1411.6" y="130.4" opacity="0.42">1</text><text class="hc" x="1427.7" y="121.8" opacity="0.39">0</text><text class="hc" x="1443.8" y="128" opacity="0.40">1</text><text class="hc" x="14.2" y="157.7" opacity="0.20">0</text><text class="hc" x="94.8" y="157.1" opacity="0.26">1</text><text class="hc" x="143.1" y="156.2" opacity="0.23">0</text><text class="hc" x="175.4" y="153.7" opacity="0.26">1</text><text class="hc" x="191.5" y="153.5" opacity="0.22">0</text><text class="hc" x="207.6" y="149.8" opacity="0.28">1</text><text class="hc" x="256" y="154.7" opacity="0.27">0</text><text class="hc" x="272.1" y="153.9" opacity="0.27">1</text><text class="hc-em" x="288.2" y="150" opacity="0.26">p̂</text><text class="hc" x="312.4" y="151.9" opacity="0.26">1</text><text class="hc" x="328.5" y="153.2" opacity="0.25">0</text><text class="hc" x="360.8" y="154.4" opacity="0.24">1</text><text class="hc" x="393" y="157.6" opacity="0.28">1</text><text class="hc-em" x="409.1" y="152.1" opacity="0.28">p̂</text><text class="hc" x="481.7" y="157.9" opacity="0.30">0</text><text class="hc" x="513.9" y="152.3" opacity="0.29">0</text><text class="hc" x="578.4" y="157" opacity="0.28">0</text><text class="hc" x="594.5" y="155.3" opacity="0.32">0</text><text class="hc" x="659" y="153.9" opacity="0.28">Ω</text><text class="hc" x="675.1" y="152.5" opacity="0.31">0</text><text class="hc" x="691.2" y="148.5" opacity="0.32">0</text><text class="hc" x="707.3" y="150.4" opacity="0.30">1</text><text class="hc-em" x="723.5" y="150.4" opacity="0.29">p̂</text><text class="hc" x="812.1" y="156.1" opacity="0.31">0</text><text class="hc" x="884.7" y="155.9" opacity="0.31">0</text><text class="hc" x="900.8" y="157.5" opacity="0.31">1</text><text class="hc" x="916.9" y="151" opacity="0.33">0</text><text class="hc" x="933" y="157" opacity="0.36">1</text><text class="hc" x="949.1" y="151.6" opacity="0.35">0</text><text class="hc" x="965.3" y="148.3" opacity="0.37">1</text><text class="hc" x="981.4" y="153" opacity="0.37">Ω</text><text class="hc" x="1013.6" y="150.1" opacity="0.34">0</text><text class="hc" x="1062" y="156.4" opacity="0.35">0</text><text class="hc" x="1078.1" y="149.7" opacity="0.38">1</text><text class="hc" x="1110.3" y="154.3" opacity="0.35">0</text><text class="hc" x="1142.6" y="149.1" opacity="0.38">1</text><text class="hc-em" x="1158.7" y="157" opacity="0.39">p̂</text><text class="hc" x="1199" y="155" opacity="0.40">0</text><text class="hc" x="1215.1" y="148.8" opacity="0.36">1</text><text class="hc" x="1231.2" y="155.1" opacity="0.36">1</text><text class="hc" x="1247.4" y="150.4" opacity="0.39">0</text><text class="hc-em" x="1279.6" y="154.6" opacity="0.41">p̂</text><text class="hc" x="1303.8" y="150.3" opacity="0.38">1</text><text class="hc" x="1352.1" y="154.4" opacity="0.37">0</text><text class="hc" x="1384.4" y="153.3" opacity="0.40">0</text><text class="hc" x="1400.5" y="154" opacity="0.39">1</text><text class="hc" x="1416.6" y="156" opacity="0.38">Ω</text><text class="hc" x="1432.7" y="155.6" opacity="0.39">0</text><text class="hc" x="1448.9" y="153.5" opacity="0.39">0</text><text class="hc" x="41" y="179.6" opacity="0.24">1</text><text class="hc" x="57.1" y="184.3" opacity="0.22">0</text><text class="hc" x="73.2" y="180.6" opacity="0.23">1</text><text class="hc" x="89.3" y="181.6" opacity="0.24">Ω</text><text class="hc" x="210.2" y="182.8" opacity="0.22">1</text><text class="hc" x="242.5" y="179.4" opacity="0.26">0</text><text class="hc" x="298.9" y="179.9" opacity="0.24">1</text><text class="hc" x="347.3" y="181" opacity="0.27">0</text><text class="hc" x="395.6" y="176.5" opacity="0.24">1</text><text class="hc" x="427.9" y="179.4" opacity="0.26">0</text><text class="hc" x="460.1" y="184.1" opacity="0.28">0</text><text class="hc" x="508.5" y="176.5" opacity="0.27">1</text><text class="hc" x="524.6" y="178.1" opacity="0.29">Ω</text><text class="hc" x="556.8" y="180.9" opacity="0.26">0</text><text class="hc-em" x="589.1" y="177.5" opacity="0.27">p̂</text><text class="hc" x="661.6" y="179.1" opacity="0.29">1</text><text class="hc" x="677.7" y="184.7" opacity="0.28">0</text><text class="hc" x="693.8" y="182.6" opacity="0.33">1</text><text class="hc-em" x="710" y="179.6" opacity="0.32">p̂</text><text class="hc" x="734.1" y="177.4" opacity="0.33">1</text><text class="hc" x="750.3" y="178.9" opacity="0.30">0</text><text class="hc" x="766.4" y="175.8" opacity="0.29">1</text><text class="hc" x="830.9" y="177.5" opacity="0.33">1</text><text class="hc" x="847" y="179.6" opacity="0.35">Ω</text><text class="hc" x="863.1" y="178.4" opacity="0.36">0</text><text class="hc" x="895.3" y="179" opacity="0.34">0</text><text class="hc" x="911.5" y="178.4" opacity="0.35">1</text><text class="hc" x="975.9" y="178.9" opacity="0.36">0</text><text class="hc" x="992.1" y="182.8" opacity="0.33">0</text><text class="hc" x="1008.2" y="176.8" opacity="0.35">1</text><text class="hc-em" x="1024.3" y="177" opacity="0.33">p̂</text><text class="hc" x="1048.5" y="178.1" opacity="0.35">1</text><text class="hc" x="1113" y="178.8" opacity="0.33">0</text><text class="hc-em" x="1145.2" y="177.7" opacity="0.34">p̂</text><text class="hc" x="1169.4" y="177.6" opacity="0.36">1</text><text class="hc" x="1217.7" y="178.6" opacity="0.35">0</text><text class="hc" x="1250" y="182.7" opacity="0.39">0</text><text class="hc" x="1282.2" y="178.2" opacity="0.38">Ω</text><text class="hc" x="1298.3" y="183.8" opacity="0.37">0</text><text class="hc" x="1330.6" y="175.5" opacity="0.38">0</text><text class="hc" x="1346.7" y="175.4" opacity="0.37">1</text><text class="hc" x="1362.8" y="175.3" opacity="0.38">0</text><text class="hc" x="1378.9" y="180.4" opacity="0.37">1</text><text class="hc" x="1411.2" y="182.3" opacity="0.41">0</text><text class="hc" x="1427.3" y="177" opacity="0.39">0</text><text class="hc-em" x="1459.5" y="178.9" opacity="0.43">p̂</text><text class="hc" x="-8.7" y="205.4" opacity="0.19">1</text><text class="hc" x="7.4" y="202.2" opacity="0.22">0</text><text class="hc" x="71.9" y="208.7" opacity="0.25">1</text><text class="hc-em" x="88" y="208.9" opacity="0.23">p̂</text><text class="hc" x="144.4" y="208.3" opacity="0.21">1</text><text class="hc" x="160.6" y="205.9" opacity="0.21">0</text><text class="hc" x="176.7" y="205.3" opacity="0.23">1</text><text class="hc" x="192.8" y="203.6" opacity="0.23">0</text><text class="hc" x="225" y="208.7" opacity="0.22">Ω</text><text class="hc" x="241.2" y="205.4" opacity="0.24">0</text><text class="hc" x="257.3" y="207.8" opacity="0.26">0</text><text class="hc" x="305.6" y="205.9" opacity="0.24">0</text><text class="hc" x="321.8" y="206" opacity="0.23">1</text><text class="hc" x="370.1" y="205.3" opacity="0.24">0</text><text class="hc" x="386.2" y="205.5" opacity="0.28">1</text><text class="hc" x="426.5" y="208.7" opacity="0.25">1</text><text class="hc" x="442.7" y="208.2" opacity="0.30">0</text><text class="hc" x="458.8" y="207.8" opacity="0.30">1</text><text class="hc-em" x="523.3" y="206.2" opacity="0.27">p̂</text><text class="hc" x="579.7" y="211.1" opacity="0.26">1</text><text class="hc" x="595.8" y="207.1" opacity="0.28">0</text><text class="hc" x="611.9" y="211.8" opacity="0.27">1</text><text class="hc" x="628" y="204.3" opacity="0.30">0</text><text class="hc" x="644.2" y="202" opacity="0.30">1</text><text class="hc" x="660.3" y="204.4" opacity="0.30">Ω</text><text class="hc" x="773.1" y="205.5" opacity="0.34">Ω</text><text class="hc" x="789.2" y="209.2" opacity="0.33">0</text><text class="hc" x="861.8" y="208.2" opacity="0.32">1</text><text class="hc" x="894" y="204.9" opacity="0.34">1</text><text class="hc" x="910.1" y="204.4" opacity="0.31">1</text><text class="hc" x="926.3" y="203.8" opacity="0.33">0</text><text class="hc" x="942.4" y="202.6" opacity="0.31">1</text><text class="hc-em" x="958.5" y="209" opacity="0.31">p̂</text><text class="hc" x="982.7" y="209.7" opacity="0.34">1</text><text class="hc" x="998.8" y="210.7" opacity="0.36">0</text><text class="hc" x="1014.9" y="204.5" opacity="0.34">1</text><text class="hc" x="1047.2" y="209.2" opacity="0.33">1</text><text class="hc" x="1079.4" y="205.3" opacity="0.37">1</text><text class="hc" x="1127.8" y="206.2" opacity="0.37">0</text><text class="hc" x="1192.2" y="205.8" opacity="0.38">1</text><text class="hc" x="1208.4" y="203.8" opacity="0.34">Ω</text><text class="hc" x="1224.5" y="211.4" opacity="0.40">0</text><text class="hc" x="1240.6" y="208.9" opacity="0.37">0</text><text class="hc-em" x="1272.8" y="211.3" opacity="0.41">p̂</text><text class="hc" x="1297" y="209.1" opacity="0.36">1</text><text class="hc" x="1313.1" y="204.9" opacity="0.40">0</text><text class="hc" x="1345.4" y="205.3" opacity="0.36">1</text><text class="hc" x="1361.5" y="206.8" opacity="0.38">0</text><text class="hc" x="1377.6" y="210" opacity="0.41">1</text><text class="hc-em" x="1393.7" y="205.9" opacity="0.40">p̂</text><text class="hc" x="1450.2" y="208.9" opacity="0.40">1</text><text class="hc" x="20" y="230.8" opacity="0.19">0</text><text class="hc" x="52.2" y="233.9" opacity="0.19">0</text><text class="hc" x="68.4" y="229.2" opacity="0.22">1</text><text class="hc" x="84.5" y="235.3" opacity="0.20">Ω</text><text class="hc" x="100.6" y="233.8" opacity="0.21">0</text><text class="hc" x="116.7" y="229.5" opacity="0.20">0</text><text class="hc" x="149" y="229.8" opacity="0.21">1</text><text class="hc" x="197.3" y="237.7" opacity="0.23">Ω</text><text class="hc" x="213.4" y="237.1" opacity="0.23">0</text><text class="hc" x="229.6" y="234.5" opacity="0.25">0</text><text class="hc-em" x="261.8" y="238.4" opacity="0.26">p̂</text><text class="hc" x="302.1" y="237.3" opacity="0.26">0</text><text class="hc" x="318.2" y="229.3" opacity="0.23">1</text><text class="hc" x="334.3" y="229.7" opacity="0.24">1</text><text class="hc" x="366.6" y="234.1" opacity="0.23">1</text><text class="hc-em" x="382.7" y="238.6" opacity="0.23">p̂</text><text class="hc" x="471.4" y="237" opacity="0.29">1</text><text class="hc" x="519.7" y="238.5" opacity="0.27">Ω</text><text class="hc" x="552" y="238.1" opacity="0.25">0</text><text class="hc" x="584.2" y="232.9" opacity="0.28">1</text><text class="hc" x="632.6" y="235.4" opacity="0.28">Ω</text><text class="hc" x="648.7" y="238.1" opacity="0.28">0</text><text class="hc" x="664.8" y="232.3" opacity="0.31">0</text><text class="hc" x="680.9" y="236.4" opacity="0.30">1</text><text class="hc" x="721.2" y="230.1" opacity="0.28">1</text><text class="hc" x="737.3" y="233.3" opacity="0.27">0</text><text class="hc" x="753.5" y="233" opacity="0.29">1</text><text class="hc" x="801.8" y="237.8" opacity="0.30">1</text><text class="hc" x="842.1" y="238.9" opacity="0.31">1</text><text class="hc" x="874.4" y="233.1" opacity="0.33">1</text><text class="hc" x="890.5" y="231.7" opacity="0.33">0</text><text class="hc" x="922.7" y="230.8" opacity="0.32">0</text><text class="hc" x="955" y="235.3" opacity="0.32">Ω</text><text class="hc" x="987.2" y="235.2" opacity="0.36">0</text><text class="hc" x="1035.6" y="234.7" opacity="0.32">0</text><text class="hc" x="1083.9" y="235.7" opacity="0.34">0</text><text class="hc" x="1100" y="231.3" opacity="0.36">0</text><text class="hc" x="1116.2" y="234.2" opacity="0.32">1</text><text class="hc" x="1156.5" y="234.9" opacity="0.36">1</text><text class="hc" x="1188.7" y="233.7" opacity="0.39">1</text><text class="hc" x="1220.9" y="236.4" opacity="0.40">0</text><text class="hc" x="1237.1" y="237.7" opacity="0.35">1</text><text class="hc" x="1277.4" y="231.3" opacity="0.39">1</text><text class="hc" x="1358" y="238.9" opacity="0.36">0</text><text class="hc" x="1406.3" y="237.1" opacity="0.39">0</text><text class="hc" x="1422.4" y="237.7" opacity="0.37">0</text><text class="hc" x="1438.6" y="235.4" opacity="0.37">0</text><text class="hc" x="1454.7" y="236.9" opacity="0.40">1</text><text class="hc-em" x="88.8" y="259.7" opacity="0.19">p̂</text><text class="hc" x="113" y="259.5" opacity="0.24">1</text><text class="hc" x="145.2" y="257.8" opacity="0.21">1</text><text class="hc-em" x="209.7" y="265.9" opacity="0.21">p̂</text><text class="hc" x="282.3" y="262.7" opacity="0.24">0</text><text class="hc" x="298.4" y="259.4" opacity="0.23">1</text><text class="hc" x="330.6" y="262" opacity="0.26">1</text><text class="hc" x="346.7" y="257.3" opacity="0.26">Ω</text><text class="hc" x="379" y="257.2" opacity="0.28">0</text><text class="hc" x="411.2" y="258" opacity="0.29">1</text><text class="hc" x="459.6" y="259.1" opacity="0.26">Ω</text><text class="hc" x="475.7" y="262.3" opacity="0.26">0</text><text class="hc" x="507.9" y="260.6" opacity="0.27">1</text><text class="hc" x="548.2" y="263" opacity="0.26">1</text><text class="hc" x="580.5" y="264.7" opacity="0.27">1</text><text class="hc" x="628.8" y="265.3" opacity="0.28">1</text><text class="hc" x="685.3" y="256.6" opacity="0.29">0</text><text class="hc" x="701.4" y="260.4" opacity="0.32">1</text><text class="hc" x="717.5" y="262.9" opacity="0.31">0</text><text class="hc" x="733.6" y="260.1" opacity="0.28">1</text><text class="hc" x="765.9" y="260.2" opacity="0.29">1</text><text class="hc" x="846.5" y="265" opacity="0.29">1</text><text class="hc" x="862.6" y="259.7" opacity="0.33">0</text><text class="hc" x="894.8" y="265" opacity="0.35">Ω</text><text class="hc" x="910.9" y="262.3" opacity="0.32">0</text><text class="hc" x="927.1" y="260.6" opacity="0.31">0</text><text class="hc" x="1031.8" y="264.3" opacity="0.35">1</text><text class="hc-em" x="1080.2" y="260.6" opacity="0.34">p̂</text><text class="hc" x="1120.5" y="265.9" opacity="0.33">0</text><text class="hc" x="1136.6" y="257.4" opacity="0.34">1</text><text class="hc" x="1168.9" y="257.7" opacity="0.36">1</text><text class="hc" x="1217.2" y="264.1" opacity="0.37">Ω</text><text class="hc" x="1249.5" y="260.7" opacity="0.34">0</text><text class="hc" x="1313.9" y="259.5" opacity="0.38">1</text><text class="hc" x="1330.1" y="257.1" opacity="0.39">Ω</text><text class="hc" x="1346.2" y="261.1" opacity="0.36">0</text><text class="hc" x="1362.3" y="257.3" opacity="0.36">0</text><text class="hc" x="1378.4" y="258.9" opacity="0.40">1</text><text class="hc-em" x="1394.5" y="260.1" opacity="0.36">p̂</text><text class="hc" x="1418.7" y="260.5" opacity="0.39">1</text><text class="hc" x="1434.8" y="264.5" opacity="0.37">0</text><text class="hc" x="108.6" y="284.5" opacity="0.23">0</text><text class="hc" x="157" y="288.3" opacity="0.19">1</text><text class="hc" x="173.1" y="286" opacity="0.25">Ω</text><text class="hc" x="221.5" y="287.2" opacity="0.20">0</text><text class="hc" x="237.6" y="284.1" opacity="0.25">1</text><text class="hc" x="253.7" y="287.9" opacity="0.24">0</text><text class="hc-em" x="350.4" y="286" opacity="0.26">p̂</text><text class="hc" x="374.6" y="286.7" opacity="0.24">1</text><text class="hc" x="406.9" y="287.3" opacity="0.25">1</text><text class="hc" x="423" y="291.4" opacity="0.23">1</text><text class="hc-em" x="471.3" y="285.2" opacity="0.24">p̂</text><text class="hc" x="495.5" y="286.1" opacity="0.26">1</text><text class="hc" x="511.6" y="290.5" opacity="0.26">0</text><text class="hc" x="527.8" y="287.1" opacity="0.30">1</text><text class="hc" x="543.9" y="288.9" opacity="0.30">0</text><text class="hc" x="560" y="289" opacity="0.26">1</text><text class="hc" x="576.1" y="289.1" opacity="0.28">0</text><text class="hc" x="592.2" y="288" opacity="0.28">1</text><text class="hc" x="624.5" y="283.9" opacity="0.26">0</text><text class="hc" x="640.6" y="291" opacity="0.28">0</text><text class="hc" x="672.8" y="285.9" opacity="0.30">1</text><text class="hc" x="689" y="292.8" opacity="0.31">0</text><text class="hc" x="705.1" y="286.2" opacity="0.31">1</text><text class="hc" x="753.4" y="290.6" opacity="0.27">0</text><text class="hc" x="842.1" y="292.3" opacity="0.32">1</text><text class="hc" x="874.3" y="290.4" opacity="0.31">0</text><text class="hc" x="946.9" y="290.8" opacity="0.32">0</text><text class="hc" x="979.1" y="287.5" opacity="0.32">0</text><text class="hc" x="995.2" y="286.2" opacity="0.34">1</text><text class="hc" x="1011.4" y="284.2" opacity="0.35">0</text><text class="hc" x="1043.6" y="284.1" opacity="0.31">Ω</text><text class="hc" x="1059.7" y="292.5" opacity="0.34">0</text><text class="hc" x="1092" y="287.1" opacity="0.34">0</text><text class="hc" x="1124.2" y="291.7" opacity="0.34">0</text><text class="hc" x="1140.3" y="287.3" opacity="0.34">1</text><text class="hc" x="1188.7" y="289.9" opacity="0.35">0</text><text class="hc-em" x="1220.9" y="290.4" opacity="0.34">p̂</text><text class="hc" x="1245.1" y="285" opacity="0.35">1</text><text class="hc" x="1261.2" y="286.5" opacity="0.37">0</text><text class="hc" x="1277.3" y="286.9" opacity="0.37">1</text><text class="hc" x="1309.6" y="288.8" opacity="0.37">0</text><text class="hc-em" x="1341.8" y="290" opacity="0.36">p̂</text><text class="hc" x="1366" y="290.3" opacity="0.38">1</text><text class="hc" x="1382.1" y="283.6" opacity="0.40">0</text><text class="hc" x="1398.2" y="290.2" opacity="0.38">1</text><text class="hc" x="1414.4" y="288.6" opacity="0.41">0</text><text class="hc" x="1446.6" y="287.9" opacity="0.37">0</text><text class="hc" x="17.7" y="313.1" opacity="0.22">1</text><text class="hc" x="33.8" y="317" opacity="0.20">Ω</text><text class="hc" x="66" y="311.5" opacity="0.23">0</text><text class="hc" x="114.4" y="317.8" opacity="0.19">0</text><text class="hc" x="130.5" y="315.3" opacity="0.22">1</text><text class="hc" x="146.6" y="317.6" opacity="0.22">Ω</text><text class="hc-em" x="211.1" y="319.5" opacity="0.23">p̂</text><text class="hc" x="235.3" y="318.6" opacity="0.24">1</text><text class="hc" x="251.4" y="312.5" opacity="0.20">0</text><text class="hc" x="283.6" y="312.9" opacity="0.22">1</text><text class="hc" x="299.8" y="314.8" opacity="0.22">0</text><text class="hc" x="315.9" y="312.8" opacity="0.24">1</text><text class="hc" x="356.2" y="318.6" opacity="0.26">1</text><text class="hc" x="485.1" y="310.5" opacity="0.28">0</text><text class="hc" x="501.3" y="317.9" opacity="0.24">0</text><text class="hc" x="517.4" y="313.7" opacity="0.28">0</text><text class="hc" x="581.9" y="312.3" opacity="0.30">Ω</text><text class="hc" x="598" y="319.4" opacity="0.28">0</text><text class="hc" x="614.1" y="319" opacity="0.25">0</text><text class="hc-em" x="646.3" y="319.9" opacity="0.27">p̂</text><text class="hc" x="686.6" y="316.7" opacity="0.26">0</text><text class="hc" x="702.8" y="315.7" opacity="0.31">1</text><text class="hc" x="791.4" y="315.3" opacity="0.28">1</text><text class="hc" x="823.7" y="315" opacity="0.28">1</text><text class="hc" x="855.9" y="314.9" opacity="0.28">1</text><text class="hc" x="872" y="315.6" opacity="0.34">0</text><text class="hc" x="904.3" y="313" opacity="0.30">Ω</text><text class="hc" x="1033.2" y="314.9" opacity="0.33">0</text><text class="hc" x="1121.9" y="315.2" opacity="0.37">0</text><text class="hc" x="1138" y="311.1" opacity="0.36">1</text><text class="hc" x="1170.2" y="310.3" opacity="0.37">0</text><text class="hc-em" x="1202.5" y="315.8" opacity="0.37">p̂</text><text class="hc" x="1242.8" y="310.7" opacity="0.37">0</text><text class="hc" x="1291.1" y="313.4" opacity="0.35">1</text><text class="hc" x="1307.3" y="317.7" opacity="0.35">0</text><text class="hc" x="1323.4" y="315.3" opacity="0.36">1</text><text class="hc" x="1355.6" y="312.3" opacity="0.39">0</text><text class="hc" x="1371.7" y="311.5" opacity="0.36">0</text><text class="hc" x="1387.9" y="317.8" opacity="0.36">0</text><text class="hc" x="1404" y="316.5" opacity="0.36">1</text><text class="hc" x="1420.1" y="312.5" opacity="0.40">0</text><text class="hc" x="1436.2" y="312.3" opacity="0.37">1</text><text class="hc" x="1452.3" y="317.3" opacity="0.39">Ω</text><text class="hc" x="35.6" y="344.6" opacity="0.18">0</text><text class="hc" x="51.8" y="341.1" opacity="0.23">1</text><text class="hc-em" x="67.9" y="340.6" opacity="0.22">p̂</text><text class="hc" x="108.2" y="338.4" opacity="0.22">0</text><text class="hc" x="140.4" y="344.9" opacity="0.20">1</text><text class="hc" x="156.5" y="342.9" opacity="0.22">0</text><text class="hc" x="213" y="342" opacity="0.21">1</text><text class="hc" x="229.1" y="346.1" opacity="0.20">0</text><text class="hc" x="245.2" y="345.8" opacity="0.25">1</text><text class="hc" x="277.4" y="346.3" opacity="0.20">1</text><text class="hc" x="325.8" y="338.4" opacity="0.24">Ω</text><text class="hc" x="406.4" y="338.2" opacity="0.23">0</text><text class="hc" x="438.6" y="338.8" opacity="0.24">Ω</text><text class="hc" x="454.8" y="340.1" opacity="0.23">0</text><text class="hc" x="470.9" y="342.3" opacity="0.25">0</text><text class="hc" x="559.5" y="339.2" opacity="0.24">1</text><text class="hc" x="575.7" y="344.6" opacity="0.29">1</text><text class="hc" x="607.9" y="340.3" opacity="0.27">1</text><text class="hc-em" x="624" y="344.9" opacity="0.30">p̂</text><text class="hc" x="648.2" y="343" opacity="0.29">1</text><text class="hc" x="664.3" y="338.9" opacity="0.30">0</text><text class="hc" x="696.6" y="344.6" opacity="0.27">0</text><text class="hc" x="712.7" y="338.6" opacity="0.26">1</text><text class="hc" x="744.9" y="337.2" opacity="0.27">1</text><text class="hc" x="777.2" y="343.5" opacity="0.29">0</text><text class="hc" x="793.3" y="337.2" opacity="0.28">0</text><text class="hc" x="809.4" y="339.6" opacity="0.30">0</text><text class="hc" x="825.5" y="341.7" opacity="0.30">1</text><text class="hc" x="841.6" y="340.6" opacity="0.32">0</text><text class="hc" x="873.9" y="342.4" opacity="0.30">Ω</text><text class="hc" x="890" y="346.1" opacity="0.29">0</text><text class="hc" x="962.5" y="342.1" opacity="0.34">1</text><text class="hc" x="978.7" y="338.7" opacity="0.33">0</text><text class="hc" x="994.8" y="342.8" opacity="0.30">1</text><text class="hc" x="1027" y="338" opacity="0.33">0</text><text class="hc" x="1043.1" y="342.6" opacity="0.33">1</text><text class="hc" x="1083.4" y="340.8" opacity="0.30">1</text><text class="hc" x="1099.6" y="339.7" opacity="0.34">0</text><text class="hc" x="1131.8" y="337.9" opacity="0.34">0</text><text class="hc" x="1147.9" y="343.4" opacity="0.37">1</text><text class="hc" x="1164" y="341.4" opacity="0.32">0</text><text class="hc" x="1196.3" y="345.3" opacity="0.36">Ω</text><text class="hc" x="1212.4" y="346" opacity="0.35">0</text><text class="hc" x="1228.5" y="342.6" opacity="0.38">0</text><text class="hc" x="1244.6" y="341.8" opacity="0.34">0</text><text class="hc" x="1276.9" y="340.4" opacity="0.34">0</text><text class="hc" x="1293" y="345.3" opacity="0.38">1</text><text class="hc" x="1430" y="345.1" opacity="0.36">1</text><text class="hc" x="1446.1" y="346.2" opacity="0.35">1</text><text class="hc" x="5.6" y="371.9" opacity="0.19">0</text><text class="hc" x="78.1" y="370.7" opacity="0.17">0</text><text class="hc" x="126.5" y="365.9" opacity="0.21">1</text><text class="hc" x="191" y="371.3" opacity="0.18">0</text><text class="hc" x="336.1" y="367.5" opacity="0.20">1</text><text class="hc-em" x="352.2" y="372" opacity="0.22">p̂</text><text class="hc" x="440.8" y="366.7" opacity="0.22">0</text><text class="hc" x="513.4" y="373.3" opacity="0.28">0</text><text class="hc" x="529.5" y="373.5" opacity="0.26">1</text><text class="hc" x="577.9" y="366.8" opacity="0.26">0</text><text class="hc" x="610.1" y="372.6" opacity="0.27">Ω</text><text class="hc" x="626.2" y="371.4" opacity="0.25">0</text><text class="hc" x="642.3" y="369.8" opacity="0.25">0</text><text class="hc" x="658.5" y="364.7" opacity="0.24">0</text><text class="hc" x="674.6" y="369.3" opacity="0.30">1</text><text class="hc" x="706.8" y="368.1" opacity="0.26">1</text><text class="hc" x="722.9" y="373.6" opacity="0.26">Ω</text><text class="hc" x="739.1" y="370.9" opacity="0.30">0</text><text class="hc" x="827.7" y="369.4" opacity="0.32">0</text><text class="hc" x="860" y="371.7" opacity="0.27">1</text><text class="hc" x="876.1" y="369.5" opacity="0.29">0</text><text class="hc" x="932.5" y="371.7" opacity="0.32">1</text><text class="hc" x="964.7" y="368.3" opacity="0.29">1</text><text class="hc" x="980.9" y="373.5" opacity="0.34">0</text><text class="hc" x="997" y="364.7" opacity="0.30">1</text><text class="hc" x="1029.2" y="365.3" opacity="0.32">1</text><text class="hc" x="1077.6" y="370.5" opacity="0.34">0</text><text class="hc" x="1109.8" y="371.1" opacity="0.31">1</text><text class="hc" x="1125.9" y="368.7" opacity="0.30">0</text><text class="hc" x="1142.1" y="367.9" opacity="0.33">1</text><text class="hc" x="1158.2" y="373.5" opacity="0.36">Ω</text><text class="hc" x="1174.3" y="369.9" opacity="0.33">0</text><text class="hc" x="1206.5" y="367" opacity="0.33">1</text><text class="hc" x="1246.8" y="368.1" opacity="0.34">1</text><text class="hc" x="1279.1" y="371.9" opacity="0.36">1</text><text class="hc" x="1295.2" y="367.7" opacity="0.35">1</text><text class="hc" x="1311.3" y="367.2" opacity="0.36">0</text><text class="hc" x="1327.4" y="367" opacity="0.37">1</text><text class="hc-em" x="1343.6" y="368.7" opacity="0.38">p̂</text><text class="hc" x="1367.7" y="367.8" opacity="0.39">1</text><text class="hc" x="1416.1" y="370.7" opacity="0.38">0</text><text class="hc" x="1432.2" y="371.2" opacity="0.40">1</text><text class="hc" x="45.7" y="398.7" opacity="0.19">0</text><text class="hc" x="77.9" y="398.1" opacity="0.16">0</text><text class="hc" x="126.3" y="397.1" opacity="0.18">1</text><text class="hc" x="174.6" y="400.1" opacity="0.18">0</text><text class="hc" x="247.2" y="396.9" opacity="0.23">0</text><text class="hc" x="311.7" y="398.1" opacity="0.23">1</text><text class="hc" x="368.1" y="398.8" opacity="0.22">0</text><text class="hc" x="416.4" y="396.7" opacity="0.24">1</text><text class="hc" x="448.7" y="397.3" opacity="0.26">1</text><text class="hc" x="480.9" y="399.1" opacity="0.24">0</text><text class="hc" x="497" y="397.1" opacity="0.24">0</text><text class="hc" x="577.6" y="398.6" opacity="0.23">Ω</text><text class="hc" x="593.8" y="397.9" opacity="0.27">0</text><text class="hc" x="626" y="393.7" opacity="0.25">1</text><text class="hc" x="666.3" y="394.7" opacity="0.28">1</text><text class="hc" x="682.4" y="394.1" opacity="0.29">0</text><text class="hc" x="714.7" y="392.8" opacity="0.25">1</text><text class="hc" x="730.8" y="398.9" opacity="0.29">0</text><text class="hc" x="746.9" y="395.9" opacity="0.29">1</text><text class="hc-em" x="763" y="399.2" opacity="0.30">p̂</text><text class="hc" x="787.2" y="398" opacity="0.30">1</text><text class="hc" x="803.3" y="399.8" opacity="0.27">0</text><text class="hc" x="819.4" y="394.1" opacity="0.28">1</text><text class="hc" x="900" y="393.2" opacity="0.31">Ω</text><text class="hc" x="916.2" y="400.6" opacity="0.29">0</text><text class="hc" x="932.3" y="395.3" opacity="0.32">0</text><text class="hc" x="980.6" y="394.6" opacity="0.32">0</text><text class="hc" x="996.8" y="399.8" opacity="0.33">1</text><text class="hc" x="1012.9" y="394.6" opacity="0.30">Ω</text><text class="hc" x="1045.1" y="398" opacity="0.29">0</text><text class="hc-em" x="1077.4" y="396.8" opacity="0.30">p̂</text><text class="hc" x="1101.5" y="394.5" opacity="0.35">1</text><text class="hc" x="1149.9" y="392" opacity="0.30">1</text><text class="hc" x="1182.1" y="393.7" opacity="0.35">1</text><text class="hc" x="1222.4" y="395.7" opacity="0.33">1</text><text class="hc" x="1238.6" y="394.6" opacity="0.33">0</text><text class="hc" x="1254.7" y="393.9" opacity="0.33">1</text><text class="hc" x="1270.8" y="394.1" opacity="0.35">0</text><text class="hc" x="1286.9" y="392.1" opacity="0.37">1</text><text class="hc" x="1303" y="396.1" opacity="0.34">0</text><text class="hc" x="1399.8" y="395.1" opacity="0.36">1</text><text class="hc" x="1415.9" y="395.7" opacity="0.37">0</text><text class="hc" x="1432" y="398.9" opacity="0.39">1</text><text class="hc" x="1448.1" y="391.2" opacity="0.36">Ω</text><text class="hc" x="13.8" y="419.9" opacity="0.20">1</text><text class="hc" x="223.4" y="420.5" opacity="0.23">0</text><text class="hc" x="271.8" y="426.6" opacity="0.21">1</text><text class="hc" x="304" y="427.9" opacity="0.19">0</text><text class="hc" x="320.1" y="421.9" opacity="0.23">0</text><text class="hc" x="336.2" y="423.6" opacity="0.25">0</text><text class="hc" x="416.8" y="422.6" opacity="0.26">0</text><text class="hc" x="449.1" y="422.5" opacity="0.24">1</text><text class="hc-em" x="465.2" y="423.8" opacity="0.25">p̂</text><text class="hc" x="489.4" y="420.2" opacity="0.25">1</text><text class="hc" x="505.5" y="418.7" opacity="0.26">0</text><text class="hc" x="521.6" y="427.6" opacity="0.25">1</text><text class="hc" x="537.7" y="424.4" opacity="0.23">1</text><text class="hc" x="610.3" y="418.3" opacity="0.27">1</text><text class="hc" x="626.4" y="420" opacity="0.23">0</text><text class="hc" x="642.5" y="422.7" opacity="0.29">1</text><text class="hc" x="658.6" y="420.6" opacity="0.28">0</text><text class="hc" x="674.8" y="424.4" opacity="0.27">1</text><text class="hc" x="707" y="423.6" opacity="0.26">1</text><text class="hc" x="739.2" y="425.1" opacity="0.25">0</text><text class="hc" x="787.6" y="420.8" opacity="0.30">1</text><text class="hc" x="819.8" y="419.9" opacity="0.27">1</text><text class="hc" x="836" y="426.4" opacity="0.30">Ω</text><text class="hc-em" x="900.4" y="425.2" opacity="0.29">p̂</text><text class="hc" x="924.6" y="422.9" opacity="0.29">1</text><text class="hc" x="956.9" y="418.3" opacity="0.33">1</text><text class="hc" x="973" y="421.3" opacity="0.28">1</text><text class="hc-em" x="1021.3" y="423" opacity="0.31">p̂</text><text class="hc" x="1077.8" y="419.9" opacity="0.33">1</text><text class="hc" x="1093.9" y="426.6" opacity="0.29">0</text><text class="hc" x="1110" y="422.7" opacity="0.34">1</text><text class="hc" x="1190.6" y="426.3" opacity="0.31">0</text><text class="hc" x="1206.7" y="418.4" opacity="0.31">0</text><text class="hc" x="1239" y="418.9" opacity="0.31">0</text><text class="hc" x="1303.4" y="419.1" opacity="0.33">0</text><text class="hc" x="1319.6" y="419.1" opacity="0.33">1</text><text class="hc" x="1359.9" y="419.7" opacity="0.36">1</text><text class="hc" x="1376" y="419.5" opacity="0.36">0</text><text class="hc" x="1392.1" y="421.9" opacity="0.36">1</text><text class="hc" x="1408.2" y="424.2" opacity="0.34">1</text><text class="hc" x="1424.3" y="418.1" opacity="0.39">0</text><text class="hc" x="1440.5" y="421.9" opacity="0.37">1</text><text class="hc" x="67.2" y="447.8" opacity="0.17">0</text><text class="hc" x="147.8" y="448.9" opacity="0.21">0</text><text class="hc" x="180" y="454.8" opacity="0.21">0</text><text class="hc" x="212.3" y="451.1" opacity="0.23">Ω</text><text class="hc" x="349.3" y="449" opacity="0.22">1</text><text class="hc" x="365.4" y="452.8" opacity="0.19">0</text><text class="hc-em" x="397.7" y="448.2" opacity="0.23">p̂</text><text class="hc" x="421.8" y="449.5" opacity="0.25">1</text><text class="hc" x="454.1" y="448.7" opacity="0.24">1</text><text class="hc" x="470.2" y="453.5" opacity="0.22">0</text><text class="hc" x="502.4" y="445" opacity="0.21">0</text><text class="hc" x="518.6" y="448.3" opacity="0.23">1</text><text class="hc" x="566.9" y="452.2" opacity="0.23">0</text><text class="hc" x="647.5" y="448.2" opacity="0.25">Ω</text><text class="hc" x="663.6" y="452.4" opacity="0.26">0</text><text class="hc" x="695.9" y="452.8" opacity="0.29">1</text><text class="hc-em" x="712" y="451.2" opacity="0.25">p̂</text><text class="hc" x="736.2" y="449.1" opacity="0.25">1</text><text class="hc" x="816.8" y="446" opacity="0.25">1</text><text class="hc-em" x="832.9" y="453.2" opacity="0.29">p̂</text><text class="hc" x="889.3" y="446.1" opacity="0.30">1</text><text class="hc" x="905.4" y="447.3" opacity="0.26">0</text><text class="hc" x="921.6" y="445.6" opacity="0.29">1</text><text class="hc" x="937.7" y="451" opacity="0.31">0</text><text class="hc" x="953.8" y="446.2" opacity="0.31">1</text><text class="hc" x="1082.8" y="452.7" opacity="0.32">Ω</text><text class="hc" x="1098.9" y="445.1" opacity="0.31">0</text><text class="hc" x="1115" y="451" opacity="0.32">0</text><text class="hc" x="1131.1" y="445.6" opacity="0.30">1</text><text class="hc" x="1219.8" y="449.6" opacity="0.33">1</text><text class="hc" x="1252" y="454.2" opacity="0.33">1</text><text class="hc-em" x="1268.1" y="449.8" opacity="0.33">p̂</text><text class="hc" x="1308.4" y="449" opacity="0.32">0</text><text class="hc" x="1340.7" y="446.5" opacity="0.34">0</text><text class="hc" x="1389" y="448" opacity="0.35">1</text><text class="hc" x="1421.3" y="445.1" opacity="0.38">0</text><text class="hc" x="1437.4" y="446.3" opacity="0.34">0</text><text class="hc" x="17.5" y="478.8" opacity="0.15">1</text><text class="hc" x="65.8" y="481.4" opacity="0.17">Ω</text><text class="hc" x="81.9" y="479.8" opacity="0.16">0</text><text class="hc" x="98.1" y="478.5" opacity="0.18">0</text><text class="hc" x="154.5" y="472.5" opacity="0.19">1</text><text class="hc" x="186.7" y="481.2" opacity="0.18">1</text><text class="hc" x="219" y="481.2" opacity="0.22">0</text><text class="hc-em" x="251.2" y="479.2" opacity="0.23">p̂</text><text class="hc" x="291.5" y="477" opacity="0.18">0</text><text class="hc" x="356" y="477.5" opacity="0.20">0</text><text class="hc" x="372.1" y="479.4" opacity="0.23">1</text><text class="hc" x="388.2" y="476.2" opacity="0.23">Ω</text><text class="hc" x="436.6" y="473" opacity="0.21">0</text><text class="hc" x="501.1" y="475.7" opacity="0.21">Ω</text><text class="hc" x="549.4" y="479" opacity="0.25">1</text><text class="hc" x="654.2" y="478.5" opacity="0.25">0</text><text class="hc" x="670.3" y="475.7" opacity="0.26">1</text><text class="hc-em" x="686.4" y="475.5" opacity="0.28">p̂</text><text class="hc" x="759" y="478.4" opacity="0.25">0</text><text class="hc" x="775.1" y="473" opacity="0.29">1</text><text class="hc" x="807.3" y="475.8" opacity="0.25">1</text><text class="hc" x="823.5" y="478.4" opacity="0.30">Ω</text><text class="hc" x="839.6" y="474.5" opacity="0.29">0</text><text class="hc" x="855.7" y="480.8" opacity="0.27">0</text><text class="hc" x="871.8" y="474" opacity="0.27">0</text><text class="hc" x="887.9" y="474.8" opacity="0.30">1</text><text class="hc" x="904.1" y="478.4" opacity="0.30">0</text><text class="hc" x="920.2" y="473.9" opacity="0.27">1</text><text class="hc" x="936.3" y="479.9" opacity="0.30">Ω</text><text class="hc" x="952.4" y="476.5" opacity="0.30">0</text><text class="hc" x="968.5" y="472.3" opacity="0.29">0</text><text class="hc" x="984.7" y="481.7" opacity="0.29">1</text><text class="hc" x="1057.2" y="480.1" opacity="0.28">1</text><text class="hc" x="1089.4" y="472.9" opacity="0.30">0</text><text class="hc" x="1105.6" y="481.9" opacity="0.32">1</text><text class="hc" x="1194.2" y="479.8" opacity="0.33">0</text><text class="hc" x="1210.3" y="477.3" opacity="0.32">1</text><text class="hc" x="1226.5" y="479.1" opacity="0.34">0</text><text class="hc" x="1290.9" y="473.5" opacity="0.31">0</text><text class="hc" x="1307.1" y="481.6" opacity="0.33">0</text><text class="hc" x="1323.2" y="476.7" opacity="0.34">1</text><text class="hc" x="1339.3" y="479.8" opacity="0.33">0</text><text class="hc" x="1387.7" y="477.5" opacity="0.32">0</text><text class="hc" x="1419.9" y="474.7" opacity="0.37">1</text><text class="hc-em" x="1436" y="478.7" opacity="0.35">p̂</text><text class="hc" x="6" y="503.6" opacity="0.15">1</text><text class="hc" x="38.3" y="500.4" opacity="0.15">1</text><text class="hc" x="86.6" y="508.9" opacity="0.20">1</text><text class="hc" x="126.9" y="507.3" opacity="0.21">1</text><text class="hc" x="143" y="506.6" opacity="0.20">0</text><text class="hc" x="175.3" y="500.2" opacity="0.17">0</text><text class="hc" x="191.4" y="508" opacity="0.21">1</text><text class="hc" x="223.6" y="502.5" opacity="0.18">1</text><text class="hc" x="336.5" y="503.6" opacity="0.22">1</text><text class="hc" x="368.7" y="504.7" opacity="0.19">0</text><text class="hc" x="384.8" y="502.9" opacity="0.21">0</text><text class="hc" x="401" y="499.8" opacity="0.21">1</text><text class="hc" x="457.4" y="502.2" opacity="0.22">0</text><text class="hc" x="473.5" y="500.4" opacity="0.23">1</text><text class="hc" x="505.7" y="500.8" opacity="0.21">0</text><text class="hc" x="521.9" y="506.7" opacity="0.22">1</text><text class="hc" x="578.3" y="500.9" opacity="0.23">0</text><text class="hc" x="626.6" y="503.5" opacity="0.24">1</text><text class="hc" x="675" y="507.1" opacity="0.28">Ω</text><text class="hc" x="739.5" y="508.9" opacity="0.24">1</text><text class="hc" x="771.7" y="502" opacity="0.26">1</text><text class="hc" x="820.1" y="508" opacity="0.29">0</text><text class="hc-em" x="852.3" y="501.9" opacity="0.26">p̂</text><text class="hc" x="876.5" y="508.4" opacity="0.28">1</text><text class="hc" x="908.7" y="501.5" opacity="0.30">1</text><text class="hc" x="924.9" y="501.3" opacity="0.26">1</text><text class="hc" x="941" y="503.1" opacity="0.29">0</text><text class="hc" x="957.1" y="504.7" opacity="0.28">1</text><text class="hc-em" x="973.2" y="505.7" opacity="0.28">p̂</text><text class="hc" x="997.4" y="502.8" opacity="0.28">1</text><text class="hc" x="1013.5" y="502" opacity="0.28">0</text><text class="hc" x="1029.6" y="499.3" opacity="0.30">1</text><text class="hc" x="1045.8" y="507.8" opacity="0.29">0</text><text class="hc" x="1061.9" y="504.3" opacity="0.27">1</text><text class="hc" x="1078" y="506.9" opacity="0.31">0</text><text class="hc" x="1094.1" y="502.4" opacity="0.32">1</text><text class="hc" x="1110.2" y="506.9" opacity="0.33">Ω</text><text class="hc" x="1174.7" y="504.3" opacity="0.32">1</text><text class="hc" x="1190.8" y="507.2" opacity="0.34">0</text><text class="hc" x="1207" y="506.5" opacity="0.33">1</text><text class="hc" x="1255.3" y="503.8" opacity="0.32">0</text><text class="hc-em" x="1287.6" y="504.6" opacity="0.31">p̂</text><text class="hc" x="1327.9" y="506.4" opacity="0.33">0</text><text class="hc" x="1360.1" y="501.2" opacity="0.36">1</text><text class="hc-em" x="1408.5" y="499.8" opacity="0.36">p̂</text><text class="hc" x="1448.8" y="508.3" opacity="0.35">0</text><text class="hc" x="-2.2" y="527" opacity="0.18">0</text><text class="hc" x="30" y="530.5" opacity="0.15">0</text><text class="hc" x="62.3" y="529.3" opacity="0.16">Ω</text><text class="hc" x="191.2" y="528.4" opacity="0.18">0</text><text class="hc-em" x="239.6" y="535.9" opacity="0.18">p̂</text><text class="hc" x="263.8" y="526.9" opacity="0.18">1</text><text class="hc" x="312.1" y="528.4" opacity="0.19">1</text><text class="hc-em" x="360.5" y="527" opacity="0.23">p̂</text><text class="hc" x="481.4" y="531.3" opacity="0.23">1</text><text class="hc" x="497.5" y="532.4" opacity="0.20">Ω</text><text class="hc" x="529.8" y="528.3" opacity="0.26">0</text><text class="hc" x="642.6" y="533.3" opacity="0.26">0</text><text class="hc-em" x="674.8" y="526.6" opacity="0.26">p̂</text><text class="hc" x="747.4" y="532.8" opacity="0.27">1</text><text class="hc" x="779.6" y="532.4" opacity="0.24">1</text><text class="hc" x="852.2" y="528.1" opacity="0.27">1</text><text class="hc" x="900.5" y="526" opacity="0.27">0</text><text class="hc" x="916.6" y="528.3" opacity="0.26">1</text><text class="hc" x="932.8" y="533" opacity="0.31">Ω</text><text class="hc" x="965" y="534.7" opacity="0.29">0</text><text class="hc" x="1013.4" y="529.4" opacity="0.27">0</text><text class="hc" x="1045.6" y="532.8" opacity="0.32">Ω</text><text class="hc" x="1166.5" y="526.1" opacity="0.32">1</text><text class="hc-em" x="1231" y="526" opacity="0.34">p̂</text><text class="hc" x="1351.9" y="535" opacity="0.33">1</text><text class="hc" x="1368" y="529.3" opacity="0.33">Ω</text><text class="hc" x="1400.2" y="528.7" opacity="0.35">0</text><text class="hc" x="1416.4" y="529.1" opacity="0.34">0</text><text class="hc" x="1432.5" y="532" opacity="0.34">1</text><text class="hc" x="13.1" y="558.3" opacity="0.14">Ω</text><text class="hc" x="29.2" y="556" opacity="0.18">0</text><text class="hc" x="45.3" y="557.9" opacity="0.16">0</text><text class="hc" x="61.5" y="558.3" opacity="0.14">1</text><text class="hc" x="101.8" y="561.2" opacity="0.19">1</text><text class="hc" x="182.4" y="554.3" opacity="0.19">1</text><text class="hc" x="254.9" y="558.7" opacity="0.20">1</text><text class="hc" x="287.1" y="562.7" opacity="0.19">1</text><text class="hc" x="303.3" y="562.8" opacity="0.19">0</text><text class="hc" x="319.4" y="559.7" opacity="0.18">1</text><text class="hc" x="335.5" y="556" opacity="0.21">Ω</text><text class="hc" x="351.6" y="559.6" opacity="0.23">0</text><text class="hc" x="416.1" y="561.2" opacity="0.19">0</text><text class="hc" x="448.3" y="554" opacity="0.24">Ω</text><text class="hc" x="464.5" y="560.2" opacity="0.22">0</text><text class="hc" x="480.6" y="560.9" opacity="0.19">0</text><text class="hc" x="569.2" y="560" opacity="0.20">1</text><text class="hc-em" x="633.7" y="560.2" opacity="0.25">p̂</text><text class="hc" x="657.9" y="560.7" opacity="0.25">1</text><text class="hc" x="674" y="558.3" opacity="0.23">0</text><text class="hc" x="690.1" y="561.9" opacity="0.24">1</text><text class="hc" x="722.4" y="554.9" opacity="0.22">1</text><text class="hc" x="803" y="554.6" opacity="0.23">0</text><text class="hc" x="867.5" y="555.3" opacity="0.25">1</text><text class="hc" x="883.6" y="553.3" opacity="0.27">Ω</text><text class="hc" x="899.7" y="556.7" opacity="0.30">0</text><text class="hc" x="915.8" y="561.3" opacity="0.28">0</text><text class="hc" x="931.9" y="553.3" opacity="0.28">1</text><text class="hc" x="972.2" y="560" opacity="0.27">1</text><text class="hc" x="1036.7" y="554.6" opacity="0.32">0</text><text class="hc" x="1109.3" y="556.7" opacity="0.32">0</text><text class="hc" x="1125.4" y="556" opacity="0.27">1</text><text class="hc" x="1157.6" y="553.8" opacity="0.30">1</text><text class="hc" x="1173.7" y="557.3" opacity="0.32">0</text><text class="hc" x="1206" y="558.3" opacity="0.29">Ω</text><text class="hc" x="1222.1" y="561.1" opacity="0.30">0</text><text class="hc" x="1254.3" y="556.9" opacity="0.34">0</text><text class="hc" x="1270.5" y="558.5" opacity="0.32">1</text><text class="hc" x="1334.9" y="555" opacity="0.33">0</text><text class="hc" x="1351.1" y="558.5" opacity="0.31">0</text><text class="hc-em" x="1383.3" y="553.5" opacity="0.31">p̂</text><text class="hc" x="1455.8" y="562.8" opacity="0.33">1</text><text class="hc" x="32.4" y="580" opacity="0.13">1</text><text class="hc-em" x="48.5" y="588" opacity="0.16">p̂</text><text class="hc" x="88.8" y="586.4" opacity="0.14">0</text><text class="hc" x="105" y="585.9" opacity="0.17">1</text><text class="hc" x="153.3" y="583" opacity="0.15">0</text><text class="hc" x="185.6" y="588.7" opacity="0.19">Ω</text><text class="hc" x="298.4" y="583.5" opacity="0.16">Ω</text><text class="hc-em" x="362.9" y="584.3" opacity="0.22">p̂</text><text class="hc" x="451.5" y="586.2" opacity="0.18">0</text><text class="hc" x="524.1" y="585.7" opacity="0.19">0</text><text class="hc" x="556.3" y="584.2" opacity="0.24">0</text><text class="hc" x="636.9" y="587.9" opacity="0.24">0</text><text class="hc" x="653" y="581.5" opacity="0.23">0</text><text class="hc" x="669.2" y="581.2" opacity="0.21">0</text><text class="hc" x="685.3" y="581.4" opacity="0.26">1</text><text class="hc" x="749.8" y="582.8" opacity="0.27">0</text><text class="hc" x="822.3" y="582" opacity="0.25">1</text><text class="hc" x="886.8" y="580.5" opacity="0.27">0</text><text class="hc" x="902.9" y="589.3" opacity="0.25">1</text><text class="hc-em" x="919" y="580.2" opacity="0.24">p̂</text><text class="hc" x="975.4" y="580.2" opacity="0.28">1</text><text class="hc" x="991.6" y="586.1" opacity="0.31">0</text><text class="hc" x="1023.8" y="586.1" opacity="0.27">0</text><text class="hc" x="1056" y="588.7" opacity="0.30">Ω</text><text class="hc" x="1088.3" y="589.5" opacity="0.30">0</text><text class="hc" x="1104.4" y="586.5" opacity="0.28">0</text><text class="hc" x="1120.5" y="580.4" opacity="0.30">1</text><text class="hc" x="1136.6" y="581" opacity="0.32">0</text><text class="hc" x="1152.8" y="587.5" opacity="0.29">1</text><text class="hc" x="1168.9" y="589.3" opacity="0.32">Ω</text><text class="hc" x="1289.8" y="583.8" opacity="0.32">1</text><text class="hc" x="1305.9" y="586.4" opacity="0.34">1</text><text class="hc" x="1338.1" y="580.3" opacity="0.32">1</text><text class="hc-em" x="1354.3" y="588.5" opacity="0.33">p̂</text><text class="hc" x="1378.4" y="586.1" opacity="0.33">1</text><text class="hc" x="1410.7" y="585.5" opacity="0.32">1</text><text class="hc" x="1426.8" y="584.4" opacity="0.36">0</text><text class="hc" x="1459" y="585.7" opacity="0.34">0</text><text class="hc" x="2.7" y="614.9" opacity="0.12">1</text><text class="hc" x="18.8" y="609.8" opacity="0.13">Ω</text><text class="hc" x="34.9" y="607.8" opacity="0.15">0</text><text class="hc" x="51.1" y="613.4" opacity="0.16">0</text><text class="hc" x="115.5" y="611.6" opacity="0.17">1</text><text class="hc" x="131.7" y="614.3" opacity="0.17">Ω</text><text class="hc" x="220.3" y="610.7" opacity="0.17">1</text><text class="hc" x="268.7" y="616.5" opacity="0.21">1</text><text class="hc" x="357.3" y="607.2" opacity="0.20">0</text><text class="hc" x="534.7" y="613.7" opacity="0.23">0</text><text class="hc" x="599.1" y="612.1" opacity="0.22">0</text><text class="hc" x="615.3" y="615.9" opacity="0.21">1</text><text class="hc" x="655.6" y="612.2" opacity="0.26">1</text><text class="hc" x="671.7" y="615.6" opacity="0.20">0</text><text class="hc" x="776.5" y="610.6" opacity="0.24">1</text><text class="hc" x="808.7" y="612.4" opacity="0.25">1</text><text class="hc" x="873.2" y="616.5" opacity="0.27">1</text><text class="hc" x="889.3" y="612.5" opacity="0.28">Ω</text><text class="hc" x="905.4" y="613.5" opacity="0.26">0</text><text class="hc" x="921.5" y="608.6" opacity="0.25">0</text><text class="hc" x="937.7" y="611.2" opacity="0.28">0</text><text class="hc" x="953.8" y="613.2" opacity="0.27">1</text><text class="hc" x="1002.1" y="616.8" opacity="0.28">Ω</text><text class="hc" x="1018.3" y="609.5" opacity="0.29">0</text><text class="hc" x="1034.4" y="613.8" opacity="0.27">0</text><text class="hc-em" x="1066.6" y="615.7" opacity="0.28">p̂</text><text class="hc" x="1090.8" y="612.8" opacity="0.29">1</text><text class="hc" x="1171.4" y="616.9" opacity="0.27">1</text><text class="hc-em" x="1187.5" y="615.2" opacity="0.29">p̂</text><text class="hc" x="1211.7" y="608.8" opacity="0.30">1</text><text class="hc" x="1243.9" y="608.7" opacity="0.28">1</text><text class="hc" x="1260.1" y="610.2" opacity="0.31">0</text><text class="hc" x="1372.9" y="610.7" opacity="0.32">0</text><text class="hc" x="1389" y="616.2" opacity="0.33">1</text><text class="hc" x="1405.1" y="611.9" opacity="0.35">0</text><text class="hc" x="1421.3" y="612.9" opacity="0.31">1</text><text class="hc" x="1437.4" y="608.9" opacity="0.33">Ω</text><text class="hc" x="128.4" y="634.8" opacity="0.17">1</text><text class="hc-em" x="144.5" y="634.3" opacity="0.14">p̂</text><text class="hc" x="184.8" y="636.6" opacity="0.18">0</text><text class="hc" x="217" y="640.8" opacity="0.20">0</text><text class="hc" x="329.9" y="641.8" opacity="0.16">0</text><text class="hc" x="346" y="639.1" opacity="0.17">1</text><text class="hc" x="378.2" y="643.4" opacity="0.19">1</text><text class="hc" x="483" y="635.2" opacity="0.22">1</text><text class="hc" x="531.4" y="639.3" opacity="0.20">1</text><text class="hc" x="547.5" y="641.7" opacity="0.18">0</text><text class="hc" x="603.9" y="641.3" opacity="0.21">1</text><text class="hc" x="620" y="636.5" opacity="0.23">0</text><text class="hc" x="668.4" y="641.8" opacity="0.23">1</text><text class="hc" x="684.5" y="638.9" opacity="0.22">0</text><text class="hc" x="700.6" y="643.5" opacity="0.23">1</text><text class="hc" x="732.9" y="640.3" opacity="0.22">0</text><text class="hc" x="749" y="635.3" opacity="0.21">0</text><text class="hc" x="797.4" y="634.1" opacity="0.26">0</text><text class="hc" x="829.6" y="641.7" opacity="0.22">Ω</text><text class="hc" x="845.7" y="641.8" opacity="0.27">0</text><text class="hc" x="861.8" y="639.1" opacity="0.27">0</text><text class="hc" x="918.3" y="634.7" opacity="0.24">1</text><text class="hc" x="966.6" y="640.4" opacity="0.27">1</text><text class="hc" x="998.9" y="642.4" opacity="0.27">1</text><text class="hc" x="1119.8" y="635" opacity="0.30">0</text><text class="hc" x="1135.9" y="640.1" opacity="0.29">1</text><text class="hc" x="1168.1" y="636.4" opacity="0.28">0</text><text class="hc" x="1216.5" y="637.1" opacity="0.30">1</text><text class="hc" x="1232.6" y="640.3" opacity="0.32">0</text><text class="hc" x="1313.2" y="638.5" opacity="0.32">1</text><text class="hc-em" x="1329.3" y="642.3" opacity="0.31">p̂</text><text class="hc" x="1369.6" y="637.6" opacity="0.29">0</text><text class="hc" x="1385.7" y="638.8" opacity="0.35">1</text><text class="hc" x="1401.9" y="643" opacity="0.35">1</text><text class="hc" x="1434.1" y="634.2" opacity="0.35">1</text><text class="hc-em" x="1450.2" y="637" opacity="0.36">p̂</text><text class="hc" x="45.9" y="666" opacity="0.12">1</text><text class="hc" x="110.4" y="667.7" opacity="0.13">1</text><text class="hc" x="126.5" y="661.6" opacity="0.16">Ω</text><text class="hc" x="255.5" y="663.9" opacity="0.17">0</text><text class="hc" x="328" y="670.4" opacity="0.18">1</text><text class="hc" x="344.1" y="668.6" opacity="0.19">0</text><text class="hc" x="392.5" y="665.7" opacity="0.19">0</text><text class="hc" x="408.6" y="666.8" opacity="0.17">1</text><text class="hc-em" x="424.7" y="662.2" opacity="0.17">p̂</text><text class="hc" x="545.6" y="670" opacity="0.20">1</text><text class="hc" x="577.9" y="670.5" opacity="0.22">0</text><text class="hc" x="594" y="668.3" opacity="0.20">0</text><text class="hc" x="610.1" y="664.8" opacity="0.21">0</text><text class="hc" x="626.2" y="662.6" opacity="0.21">1</text><text class="hc" x="642.4" y="669" opacity="0.21">0</text><text class="hc" x="795.5" y="666.9" opacity="0.22">1</text><text class="hc" x="811.6" y="664.3" opacity="0.25">1</text><text class="hc" x="827.7" y="668.5" opacity="0.22">0</text><text class="hc" x="843.9" y="665.8" opacity="0.27">1</text><text class="hc" x="884.2" y="667.7" opacity="0.24">1</text><text class="hc" x="916.4" y="670.6" opacity="0.25">1</text><text class="hc" x="932.5" y="664.1" opacity="0.29">0</text><text class="hc" x="948.6" y="663.4" opacity="0.26">1</text><text class="hc" x="997" y="664.3" opacity="0.28">Ω</text><text class="hc" x="1061.5" y="661.5" opacity="0.26">1</text><text class="hc" x="1077.6" y="662.8" opacity="0.27">0</text><text class="hc" x="1093.7" y="661.3" opacity="0.28">1</text><text class="hc" x="1126" y="661.9" opacity="0.30">0</text><text class="hc" x="1142.1" y="662.4" opacity="0.29">0</text><text class="hc" x="1158.2" y="668.8" opacity="0.29">1</text><text class="hc" x="1198.5" y="661.3" opacity="0.31">1</text><text class="hc" x="1214.6" y="669.3" opacity="0.27">0</text><text class="hc" x="1230.7" y="666.4" opacity="0.28">1</text><text class="hc" x="1246.9" y="670.4" opacity="0.33">1</text><text class="hc" x="1335.5" y="662.7" opacity="0.32">0</text><text class="hc" x="1351.6" y="667.8" opacity="0.29">1</text><text class="hc" x="1367.8" y="662.1" opacity="0.33">0</text><text class="hc" x="1383.9" y="663.9" opacity="0.34">1</text><text class="hc" x="1400" y="663.9" opacity="0.31">0</text><text class="hc" x="1416.1" y="661.6" opacity="0.30">1</text><text class="hc" x="55.6" y="692.4" opacity="0.15">0</text><text class="hc" x="136.2" y="692.9" opacity="0.15">1</text><text class="hc" x="176.5" y="690.4" opacity="0.17">1</text><text class="hc" x="192.6" y="692.8" opacity="0.19">0</text><text class="hc" x="329.6" y="692.7" opacity="0.16">1</text><text class="hc" x="426.3" y="694.6" opacity="0.22">0</text><text class="hc" x="506.9" y="690" opacity="0.22">1</text><text class="hc" x="539.2" y="694.2" opacity="0.22">0</text><text class="hc" x="571.4" y="697.5" opacity="0.19">1</text><text class="hc" x="627.8" y="690.7" opacity="0.20">0</text><text class="hc" x="644" y="688.4" opacity="0.23">1</text><text class="hc" x="676.2" y="697.5" opacity="0.22">0</text><text class="hc" x="797.1" y="688.7" opacity="0.25">1</text><text class="hc" x="845.5" y="695.4" opacity="0.22">Ω</text><text class="hc" x="909.9" y="691.6" opacity="0.27">1</text><text class="hc" x="926.1" y="688.4" opacity="0.25">0</text><text class="hc" x="974.4" y="688.8" opacity="0.28">0</text><text class="hc-em" x="1022.8" y="695.5" opacity="0.24">p̂</text><text class="hc" x="1047" y="691.2" opacity="0.30">1</text><text class="hc" x="1063.1" y="689.6" opacity="0.29">0</text><text class="hc" x="1095.3" y="688.8" opacity="0.30">1</text><text class="hc" x="1167.9" y="695.4" opacity="0.30">1</text><text class="hc" x="1216.2" y="697.8" opacity="0.29">0</text><text class="hc" x="1232.3" y="694.4" opacity="0.31">1</text><text class="hc" x="1280.7" y="697" opacity="0.32">Ω</text><text class="hc" x="1296.8" y="688.3" opacity="0.31">0</text><text class="hc" x="1393.5" y="694.7" opacity="0.31">Ω</text><text class="hc" x="1409.7" y="690.7" opacity="0.31">0</text><text class="hc" x="1441.9" y="691.2" opacity="0.30">1</text><text class="hc" x="49.9" y="717.8" opacity="0.13">1</text><text class="hc" x="66.1" y="723.2" opacity="0.12">1</text><text class="hc" x="82.2" y="719.5" opacity="0.11">0</text><text class="hc" x="98.3" y="721.1" opacity="0.15">1</text><text class="hc" x="138.6" y="720.6" opacity="0.15">1</text><text class="hc" x="154.7" y="717.2" opacity="0.13">0</text><text class="hc" x="235.3" y="721.1" opacity="0.15">1</text><text class="hc" x="267.6" y="720.9" opacity="0.18">0</text><text class="hc" x="364.3" y="717.7" opacity="0.18">Ω</text><text class="hc" x="380.4" y="716.8" opacity="0.16">0</text><text class="hc" x="485.2" y="718.2" opacity="0.17">1</text><text class="hc" x="501.3" y="723.7" opacity="0.18">1</text><text class="hc" x="517.4" y="724.8" opacity="0.19">0</text><text class="hc" x="590" y="719.7" opacity="0.22">0</text><text class="hc" x="606.1" y="724.2" opacity="0.20">1</text><text class="hc" x="638.3" y="715.8" opacity="0.19">1</text><text class="hc" x="718.9" y="722.8" opacity="0.22">0</text><text class="hc" x="783.4" y="716.4" opacity="0.21">1</text><text class="hc" x="799.5" y="717.9" opacity="0.26">Ω</text><text class="hc" x="815.6" y="722.6" opacity="0.21">0</text><text class="hc" x="831.8" y="724.2" opacity="0.22">0</text><text class="hc" x="888.2" y="718.5" opacity="0.22">1</text><text class="hc" x="920.4" y="721" opacity="0.27">1</text><text class="hc" x="936.5" y="719.2" opacity="0.24">1</text><text class="hc-em" x="984.9" y="719.6" opacity="0.23">p̂</text><text class="hc" x="1025.2" y="716.4" opacity="0.26">0</text><text class="hc" x="1057.4" y="720.8" opacity="0.26">0</text><text class="hc" x="1089.7" y="723.4" opacity="0.27">0</text><text class="hc" x="1105.8" y="717.9" opacity="0.28">1</text><text class="hc" x="1121.9" y="724.1" opacity="0.26">Ω</text><text class="hc" x="1138" y="715.7" opacity="0.28">0</text><text class="hc" x="1170.3" y="716.8" opacity="0.29">0</text><text class="hc" x="1202.5" y="717.2" opacity="0.29">0</text><text class="hc" x="1218.6" y="715.3" opacity="0.30">1</text><text class="hc" x="1283.1" y="718.1" opacity="0.30">1</text><text class="hc" x="1355.7" y="717.4" opacity="0.28">1</text><text class="hc" x="1371.8" y="720.8" opacity="0.28">1</text><text class="hc-em" x="1420.1" y="724.7" opacity="0.32">p̂</text><text class="hc" x="1444.3" y="718.8" opacity="0.31">1</text></svg><!--/@HERO_PATTERN-->
+    </div>
+    <div class="shell hero-grid">
+
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow"><span class="arch-glyph" aria-hidden="true"></span>NeurIPS 2026 · Competition Track</p>
+        <h1 id="hero-h">
+          <span class="h1-name">SimulacraBench</span>
+          <span class="h1-tag">Benchmarking AI's Ability to Augment Development&nbsp;Data</span>
+        </h1>
+        <p class="hero-statement">SimulacraBench is a NeurIPS competition to validate AI representations of hard-to-reach populations, evaluated on unreleased UNHCR, UNICEF, and World Bank microdata.</p>
+        <dl class="facts">
+          <div class="fact">
+            <dt>Public launch</dt>
+            <dd>August 18, 2026</dd>
+          </div>
+          <div class="fact fact-deadline">
+            <dt>Development submissions close</dt>
+            <dd>November 13, 2026</dd>
+          </div>
+          <div class="fact">
+            <dt>~40,000 respondents</dt>
+            <dd>14 countries</dd>
+          </div>
+        </dl>
+        <div class="cta-row">
+          <a class="pill pill-solid pill-lg" href="https://docs.google.com/forms/d/e/1FAIpQLSea9nL8ffhdvSzGz746rpkkgghdFMlB4x-h1n4eNiqF3Bir9A/viewform">Register interest</a>
+        </div>
+        <!-- The three that sit alongside the primary call: one tier down in
+             size so the row reads as "and also these", not as four equal
+             choices competing for the same click. -->
+        <div class="cta-row cta-secondary">
+          <a class="pill pill-outline pill-sm" href="https://forms.gle/tauRYpS7goFsDFbLA">Join the BeSci &amp; AI Exchange</a>
+          <a class="pill pill-outline pill-sm" href="https://www.unhcr.org/innovation/stories-insights/stories/can-ai-help-us-hear-communities-more-clearly-and-efficiently">Read the UNHCR blogpost</a>
+          <a class="pill pill-outline pill-sm" href="https://www.codabench.org/competitions/17822/">Competition platform</a>
+        </div>
+
+        <!-- The notebook sits directly under the two calls to action: the third
+             thing you can do from the hero is start reading the task. All six
+             official UN languages are live, one link each. -->
+        <div class="hero-kit">
+          <h2 class="hero-kit-cap" id="hero-kit-h">Starter notebook</h2>
+          <ul class="lang-row" aria-labelledby="hero-kit-h">
+            <li><a class="pill pill-outline pill-sm" href="https://github.com/SituatedEvals/public/blob/main/tutorials/en.ipynb">English</a></li>
+            <li><a class="pill pill-outline pill-sm" href="https://github.com/SituatedEvals/public/blob/main/tutorials/ar.ipynb" lang="ar" dir="rtl">العربية</a></li>
+            <li><a class="pill pill-outline pill-sm" href="https://github.com/SituatedEvals/public/blob/main/tutorials/zh.ipynb" lang="zh">中文</a></li>
+            <li><a class="pill pill-outline pill-sm" href="https://github.com/SituatedEvals/public/blob/main/tutorials/es.ipynb" lang="es">Español</a></li>
+            <li><a class="pill pill-outline pill-sm" href="https://github.com/SituatedEvals/public/blob/main/tutorials/fr.ipynb" lang="fr">Français</a></li>
+            <li><a class="pill pill-outline pill-sm" href="https://github.com/SituatedEvals/public/blob/main/tutorials/ru.ipynb" lang="ru">Русский</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ================= Partner band ================= -->
+  <section class="partners" aria-label="Partners and data providers">
+    <div class="shell partner-groups">
+      <!-- Both strips are crops of the supplied lockup, so each group keeps the
+           artwork's own alignment and relative sizing. The flex ratios match
+           their natural widths, which holds both groups at one scale. -->
+      <div class="partner-group">
+        <h2 class="partners-cap">In partnership with</h2>
+        <img class="partner-strip" src="assets/partners/partners-partnership.png"
+             width="384" height="48" decoding="async"
+             alt="Stanford HAI · UN Behavioural Science">
+      </div>
+      <div class="partner-group">
+        <h2 class="partners-cap">Data providers</h2>
+        <img class="partner-strip" src="assets/partners/partners-data.png"
+             width="612" height="48" decoding="async"
+             alt="UNICEF · UNHCR · World Bank">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= About ================= -->
+  <section id="about" class="section reveal" aria-labelledby="about-h">
+    <div class="shell">
+      <p class="eyebrow"><span class="arch-glyph" aria-hidden="true"></span>About</p>
+      <h2 id="about-h" class="section-head">AI is already filling data gaps for hard-to-reach populations. Nobody knows how&nbsp;well.</h2>
+      <div class="prose">
+        <p>UNHCR, UNICEF, the World Bank, and humanitarian programs increasingly rely on rapid behavioural surveys to set policy and programming. Field data is often slow, expensive, and gappy — driving interest in using LLMs as simulacra of specific populations to pre-test instruments, impute non-response, and run subgroup what-ifs.</p>
+
+
+      </div>
+
+      <dl class="stats">
+        <div class="stat">
+          <dt class="stat-fig">~40,000</dt>
+          <dd>respondents across 14 countries</dd>
+        </div>
+        <div class="stat">
+          <dt class="stat-fig">0</dt>
+          <dd>in the pretraining corpus</dd>
+        </div>
+        <div class="stat">
+          <dt class="stat-fig">3</dt>
+          <dd>behavioural surveys from UNHCR, UNICEF and the World Bank</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+<!-- ================= Why compete ================= -->
+  <section id="why" class="section reveal" aria-labelledby="why-h">
+    <div class="shell">
+      <h2 id="why-h" class="eyebrow"><span class="arch-glyph" aria-hidden="true"></span>Impact</h2>
+      <div class="prose">
+        <p>In classical survey practice, participants are asked questions and sample means are used to estimate population outcomes. With sufficiently accurate algorithmic predictions, human labels can be augmented, with the aim of achieving classical-level accuracy across the full sample at a fraction of the time and cost. Whether that is achievable, and under what conditions, is what this competition sets out to evaluate.</p>
+      </div>
+
+      <!-- The text equivalent is a real paragraph rather than an aria-label on
+           a role="img" wrapper: role="img" would make the figure a leaf node
+           and swallow the panel titles and captions below. -->
+      <figure class="wc">
+        <p class="visually-hidden">A three-panel diagram over the same population of respondents. In the first panel, classical survey practice, every cell is a solid observed response: participants are asked, and means are taken to estimate. In the second panel, every cell is hollow: algorithmic predictions stand in for responses throughout. In the third panel, the augmented approach, almost every cell is a hollow algorithmic estimate, with a small handful of cells scattered at random across the panel carrying solid human labels.</p>
+        <ol class="wc-panels">
+          <li class="wc-panel" data-step="1">
+            <h3 class="wc-title">Classical survey practice</h3>
+            <div class="wc-art"><!--@WC_P1--><svg class="mx" viewBox="0 0 147 147" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="0" y="0" width="14" height="14" class="c-obs"/><rect x="19" y="0" width="14" height="14" class="c-obs"/><rect x="38" y="0" width="14" height="14" class="c-obs"/><rect x="57" y="0" width="14" height="14" class="c-obs"/><rect x="76" y="0" width="14" height="14" class="c-obs"/><rect x="95" y="0" width="14" height="14" class="c-obs"/><rect x="114" y="0" width="14" height="14" class="c-obs"/><rect x="133" y="0" width="14" height="14" class="c-obs"/><rect x="0" y="19" width="14" height="14" class="c-obs"/><rect x="19" y="19" width="14" height="14" class="c-obs"/><rect x="38" y="19" width="14" height="14" class="c-obs"/><rect x="57" y="19" width="14" height="14" class="c-obs"/><rect x="76" y="19" width="14" height="14" class="c-obs"/><rect x="95" y="19" width="14" height="14" class="c-obs"/><rect x="114" y="19" width="14" height="14" class="c-obs"/><rect x="133" y="19" width="14" height="14" class="c-obs"/><rect x="0" y="38" width="14" height="14" class="c-obs"/><rect x="19" y="38" width="14" height="14" class="c-obs"/><rect x="38" y="38" width="14" height="14" class="c-obs"/><rect x="57" y="38" width="14" height="14" class="c-obs"/><rect x="76" y="38" width="14" height="14" class="c-obs"/><rect x="95" y="38" width="14" height="14" class="c-obs"/><rect x="114" y="38" width="14" height="14" class="c-obs"/><rect x="133" y="38" width="14" height="14" class="c-obs"/><rect x="0" y="57" width="14" height="14" class="c-obs"/><rect x="19" y="57" width="14" height="14" class="c-obs"/><rect x="38" y="57" width="14" height="14" class="c-obs"/><rect x="57" y="57" width="14" height="14" class="c-obs"/><rect x="76" y="57" width="14" height="14" class="c-obs"/><rect x="95" y="57" width="14" height="14" class="c-obs"/><rect x="114" y="57" width="14" height="14" class="c-obs"/><rect x="133" y="57" width="14" height="14" class="c-obs"/><rect x="0" y="76" width="14" height="14" class="c-obs"/><rect x="19" y="76" width="14" height="14" class="c-obs"/><rect x="38" y="76" width="14" height="14" class="c-obs"/><rect x="57" y="76" width="14" height="14" class="c-obs"/><rect x="76" y="76" width="14" height="14" class="c-obs"/><rect x="95" y="76" width="14" height="14" class="c-obs"/><rect x="114" y="76" width="14" height="14" class="c-obs"/><rect x="133" y="76" width="14" height="14" class="c-obs"/><rect x="0" y="95" width="14" height="14" class="c-obs"/><rect x="19" y="95" width="14" height="14" class="c-obs"/><rect x="38" y="95" width="14" height="14" class="c-obs"/><rect x="57" y="95" width="14" height="14" class="c-obs"/><rect x="76" y="95" width="14" height="14" class="c-obs"/><rect x="95" y="95" width="14" height="14" class="c-obs"/><rect x="114" y="95" width="14" height="14" class="c-obs"/><rect x="133" y="95" width="14" height="14" class="c-obs"/><rect x="0" y="114" width="14" height="14" class="c-obs"/><rect x="19" y="114" width="14" height="14" class="c-obs"/><rect x="38" y="114" width="14" height="14" class="c-obs"/><rect x="57" y="114" width="14" height="14" class="c-obs"/><rect x="76" y="114" width="14" height="14" class="c-obs"/><rect x="95" y="114" width="14" height="14" class="c-obs"/><rect x="114" y="114" width="14" height="14" class="c-obs"/><rect x="133" y="114" width="14" height="14" class="c-obs"/><rect x="0" y="133" width="14" height="14" class="c-obs"/><rect x="19" y="133" width="14" height="14" class="c-obs"/><rect x="38" y="133" width="14" height="14" class="c-obs"/><rect x="57" y="133" width="14" height="14" class="c-obs"/><rect x="76" y="133" width="14" height="14" class="c-obs"/><rect x="95" y="133" width="14" height="14" class="c-obs"/><rect x="114" y="133" width="14" height="14" class="c-obs"/><rect x="133" y="133" width="14" height="14" class="c-obs"/></svg><!--/@WC_P1--></div>
+            <p class="wc-cap">Every cell is an observed response. Estimates are sample means over collected data.</p>
+          </li>
+          <li class="wc-panel" data-step="2">
+            <h3 class="wc-title">Algorithmic estimates</h3>
+            <div class="wc-art"><!--@WC_P2--><svg class="mx" viewBox="0 0 147 147" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="0" y="0" width="14" height="14" class="c-est"/><rect x="19" y="0" width="14" height="14" class="c-est"/><rect x="38" y="0" width="14" height="14" class="c-est"/><rect x="57" y="0" width="14" height="14" class="c-est"/><rect x="76" y="0" width="14" height="14" class="c-est"/><rect x="95" y="0" width="14" height="14" class="c-est"/><rect x="114" y="0" width="14" height="14" class="c-est"/><rect x="133" y="0" width="14" height="14" class="c-est"/><rect x="0" y="19" width="14" height="14" class="c-est"/><rect x="19" y="19" width="14" height="14" class="c-est"/><rect x="38" y="19" width="14" height="14" class="c-est"/><rect x="57" y="19" width="14" height="14" class="c-est"/><rect x="76" y="19" width="14" height="14" class="c-est"/><rect x="95" y="19" width="14" height="14" class="c-est"/><rect x="114" y="19" width="14" height="14" class="c-est"/><rect x="133" y="19" width="14" height="14" class="c-est"/><rect x="0" y="38" width="14" height="14" class="c-est"/><rect x="19" y="38" width="14" height="14" class="c-est"/><rect x="38" y="38" width="14" height="14" class="c-est"/><rect x="57" y="38" width="14" height="14" class="c-est"/><rect x="76" y="38" width="14" height="14" class="c-est"/><rect x="95" y="38" width="14" height="14" class="c-est"/><rect x="114" y="38" width="14" height="14" class="c-est"/><rect x="133" y="38" width="14" height="14" class="c-est"/><rect x="0" y="57" width="14" height="14" class="c-est"/><rect x="19" y="57" width="14" height="14" class="c-est"/><rect x="38" y="57" width="14" height="14" class="c-est"/><rect x="57" y="57" width="14" height="14" class="c-est"/><rect x="76" y="57" width="14" height="14" class="c-est"/><rect x="95" y="57" width="14" height="14" class="c-est"/><rect x="114" y="57" width="14" height="14" class="c-est"/><rect x="133" y="57" width="14" height="14" class="c-est"/><rect x="0" y="76" width="14" height="14" class="c-est"/><rect x="19" y="76" width="14" height="14" class="c-est"/><rect x="38" y="76" width="14" height="14" class="c-est"/><rect x="57" y="76" width="14" height="14" class="c-est"/><rect x="76" y="76" width="14" height="14" class="c-est"/><rect x="95" y="76" width="14" height="14" class="c-est"/><rect x="114" y="76" width="14" height="14" class="c-est"/><rect x="133" y="76" width="14" height="14" class="c-est"/><rect x="0" y="95" width="14" height="14" class="c-est"/><rect x="19" y="95" width="14" height="14" class="c-est"/><rect x="38" y="95" width="14" height="14" class="c-est"/><rect x="57" y="95" width="14" height="14" class="c-est"/><rect x="76" y="95" width="14" height="14" class="c-est"/><rect x="95" y="95" width="14" height="14" class="c-est"/><rect x="114" y="95" width="14" height="14" class="c-est"/><rect x="133" y="95" width="14" height="14" class="c-est"/><rect x="0" y="114" width="14" height="14" class="c-est"/><rect x="19" y="114" width="14" height="14" class="c-est"/><rect x="38" y="114" width="14" height="14" class="c-est"/><rect x="57" y="114" width="14" height="14" class="c-est"/><rect x="76" y="114" width="14" height="14" class="c-est"/><rect x="95" y="114" width="14" height="14" class="c-est"/><rect x="114" y="114" width="14" height="14" class="c-est"/><rect x="133" y="114" width="14" height="14" class="c-est"/><rect x="0" y="133" width="14" height="14" class="c-est"/><rect x="19" y="133" width="14" height="14" class="c-est"/><rect x="38" y="133" width="14" height="14" class="c-est"/><rect x="57" y="133" width="14" height="14" class="c-est"/><rect x="76" y="133" width="14" height="14" class="c-est"/><rect x="95" y="133" width="14" height="14" class="c-est"/><rect x="114" y="133" width="14" height="14" class="c-est"/><rect x="133" y="133" width="14" height="14" class="c-est"/></svg><!--/@WC_P2--></div>
+            <p class="wc-cap">Every cell is model-predicted. Estimates inherit the model&rsquo;s bias, and nothing in the design reveals it.</p>
+          </li>
+          <li class="wc-panel wc-emph" data-step="3">
+            <h3 class="wc-title">Augmented</h3>
+            <div class="wc-art"><!--@WC_P3--><svg class="mx" viewBox="0 0 147 147" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="0" y="0" width="14" height="14" class="c-obs"/><rect x="19" y="0" width="14" height="14" class="c-est"/><rect x="38" y="0" width="14" height="14" class="c-est"/><rect x="57" y="0" width="14" height="14" class="c-est"/><rect x="76" y="0" width="14" height="14" class="c-est"/><rect x="95" y="0" width="14" height="14" class="c-est"/><rect x="114" y="0" width="14" height="14" class="c-obs"/><rect x="133" y="0" width="14" height="14" class="c-est"/><rect x="0" y="19" width="14" height="14" class="c-est"/><rect x="19" y="19" width="14" height="14" class="c-est"/><rect x="38" y="19" width="14" height="14" class="c-est"/><rect x="57" y="19" width="14" height="14" class="c-est"/><rect x="76" y="19" width="14" height="14" class="c-obs"/><rect x="95" y="19" width="14" height="14" class="c-obs"/><rect x="114" y="19" width="14" height="14" class="c-est"/><rect x="133" y="19" width="14" height="14" class="c-est"/><rect x="0" y="38" width="14" height="14" class="c-obs"/><rect x="19" y="38" width="14" height="14" class="c-est"/><rect x="38" y="38" width="14" height="14" class="c-est"/><rect x="57" y="38" width="14" height="14" class="c-est"/><rect x="76" y="38" width="14" height="14" class="c-est"/><rect x="95" y="38" width="14" height="14" class="c-est"/><rect x="114" y="38" width="14" height="14" class="c-est"/><rect x="133" y="38" width="14" height="14" class="c-est"/><rect x="0" y="57" width="14" height="14" class="c-est"/><rect x="19" y="57" width="14" height="14" class="c-est"/><rect x="38" y="57" width="14" height="14" class="c-est"/><rect x="57" y="57" width="14" height="14" class="c-est"/><rect x="76" y="57" width="14" height="14" class="c-est"/><rect x="95" y="57" width="14" height="14" class="c-est"/><rect x="114" y="57" width="14" height="14" class="c-est"/><rect x="133" y="57" width="14" height="14" class="c-est"/><rect x="0" y="76" width="14" height="14" class="c-est"/><rect x="19" y="76" width="14" height="14" class="c-est"/><rect x="38" y="76" width="14" height="14" class="c-est"/><rect x="57" y="76" width="14" height="14" class="c-est"/><rect x="76" y="76" width="14" height="14" class="c-est"/><rect x="95" y="76" width="14" height="14" class="c-est"/><rect x="114" y="76" width="14" height="14" class="c-est"/><rect x="133" y="76" width="14" height="14" class="c-est"/><rect x="0" y="95" width="14" height="14" class="c-est"/><rect x="19" y="95" width="14" height="14" class="c-obs"/><rect x="38" y="95" width="14" height="14" class="c-est"/><rect x="57" y="95" width="14" height="14" class="c-est"/><rect x="76" y="95" width="14" height="14" class="c-est"/><rect x="95" y="95" width="14" height="14" class="c-est"/><rect x="114" y="95" width="14" height="14" class="c-est"/><rect x="133" y="95" width="14" height="14" class="c-est"/><rect x="0" y="114" width="14" height="14" class="c-est"/><rect x="19" y="114" width="14" height="14" class="c-est"/><rect x="38" y="114" width="14" height="14" class="c-est"/><rect x="57" y="114" width="14" height="14" class="c-est"/><rect x="76" y="114" width="14" height="14" class="c-est"/><rect x="95" y="114" width="14" height="14" class="c-est"/><rect x="114" y="114" width="14" height="14" class="c-est"/><rect x="133" y="114" width="14" height="14" class="c-obs"/><rect x="0" y="133" width="14" height="14" class="c-est"/><rect x="19" y="133" width="14" height="14" class="c-est"/><rect x="38" y="133" width="14" height="14" class="c-est"/><rect x="57" y="133" width="14" height="14" class="c-est"/><rect x="76" y="133" width="14" height="14" class="c-obs"/><rect x="95" y="133" width="14" height="14" class="c-est"/><rect x="114" y="133" width="14" height="14" class="c-obs"/><rect x="133" y="133" width="14" height="14" class="c-est"/></svg><!--/@WC_P3--></div>
+            <p class="wc-cap">Model predictions scale the sample efficiently, while a small human subsample removes bias to recover classical accuracy with significantly less manual effort.</p>
+          </li>
+        </ol>
+      </figure>
+    </div>
+  </section>
+
+    <!-- ================= How the competition works ================= -->
+  <!-- Three steps, not a systems map. The whole argument is that code moves
+       and data does not, which needs a sequence, not a topology. -->
+  <section id="competition" class="section reveal" aria-labelledby="arch-h">
+    <div class="shell">
+      <div class="dark-module">
+        <p class="eyebrow eyebrow-dark"><span class="arch-glyph" aria-hidden="true"></span>Closed evaluation</p>
+        <h2 id="arch-h" class="section-head head-on-dark">How the competition works</h2>
+        <p class="dark-body">Evaluation is closed. Code travels to the data; only aggregate scores travel back.</p>
+
+        <ol class="flow">
+          <li class="flow-step">
+            <span class="flow-num">01</span>
+            <h3 class="flow-name">Submission</h3>
+            <p class="flow-line">A zip holding <code>main.py</code> and <code>requirements.txt</code>, implementing <code>predict()</code>, and optionally a <code>models.txt</code> listing Hugging Face models to be downloaded. Code, not predictions.</p>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">02</span>
+            <h3 class="flow-name">Execution</h3>
+            <p class="flow-line">Organizers install your requirements, then run <code>predict()</code> on the held-out respondents with the network removed.</p>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">03</span>
+            <h3 class="flow-name">Return</h3>
+            <p class="flow-line">One skill score, and how long the run took. No per-item breakdown, no cell counts, nothing else.</p>
+          </li>
+        </ol>
+
+        <p class="flow-rule">
+          <span class="flow-rest" aria-hidden="true"></span>
+          The microdata are never released to participants.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Photo band 1 ================= -->
+  <figure class="band reveal">
+    <div class="band-frame">
+      <img class="band-img" src="assets/photos/UNI639939-1400.jpg"
+           srcset="assets/photos/UNI639939-1400.jpg 1400w, assets/photos/UNI639939-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="934"
+           decoding="async" alt="A health worker in a white coat reads from a patient file while a mother, holding a cup for her small child, sits with her on a bed in a field clinic.">
+      <img class="band-img band-duo" src="assets/photos/UNI639939-1400.jpg"
+           srcset="assets/photos/UNI639939-1400.jpg 1400w, assets/photos/UNI639939-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="934" decoding="async" alt="" aria-hidden="true">
+    </div>
+    <figcaption class="band-bar">
+      <span class="band-credit">© UNICEF</span>
+    </figcaption>
+  </figure>
+
+<!-- ================= What makes it different ================= -->
+  <section id="different" class="section reveal" aria-labelledby="diff-h">
+    <div class="shell">
+      <h2 id="diff-h" class="section-head">A clean dataset, a proper score, the grader in your hands.<span class="head-em">Apples-to-apples.</span></h2>
+
+      <ol class="points">
+        <li class="point">
+          <span class="point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect class="i-fill" x="0.0" y="0.0" width="6.4" height="6.4"/><rect class="i-fill" x="8.8" y="0.0" width="6.4" height="6.4"/><rect class="i-fill" x="17.6" y="0.0" width="6.4" height="6.4"/><rect class="i-fill" x="0.0" y="8.8" width="6.4" height="6.4"/><rect class="i-fill" x="8.8" y="8.8" width="6.4" height="6.4"/><rect class="i-fill" x="17.6" y="8.8" width="6.4" height="6.4"/><rect class="i-fill" x="0.0" y="17.6" width="6.4" height="6.4"/><rect class="i-fill" x="8.8" y="17.6" width="6.4" height="6.4"/><rect class="i-fill" x="17.6" y="17.6" width="6.4" height="6.4"/></svg></span>
+          <p class="point-text"><b>New datasets, not benchmaxed.</b> Three unpublished datasets from UNHCR, UNICEF, and World Bank programs, not in any pretraining corpus.</p>
+        </li>
+        <li class="point">
+          <span class="point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect class="i-fill" x="0.0" y="0.0" width="6.4" height="6.4"/><rect class="i-line" x="9.5" y="0.7" width="5" height="5"/><rect class="i-line" x="18.3" y="0.7" width="5" height="5"/><rect class="i-line" x="0.7" y="9.5" width="5" height="5"/><rect class="i-fill" x="8.8" y="8.8" width="6.4" height="6.4"/><rect class="i-line" x="18.3" y="9.5" width="5" height="5"/><rect class="i-line" x="0.7" y="18.3" width="5" height="5"/><rect class="i-line" x="9.5" y="18.3" width="5" height="5"/><rect class="i-fill" x="17.6" y="17.6" width="6.4" height="6.4"/></svg></span>
+          <p class="point-text"><b>Calibration-first, log-score evaluation.</b> A proper rule that rewards truthful probabilities, not accuracy on the modal class — normalised so a uniform guess scores 0 and perfection scores 1.</p>
+        </li>
+        <li class="point">
+          <span class="point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect class="i-fill" x="0.0" y="0.0" width="6.4" height="6.4"/><rect class="i-line" x="9.5" y="0.7" width="5" height="5"/><rect class="i-fill" x="17.6" y="0.0" width="6.4" height="6.4"/><rect class="i-fill" x="0.0" y="8.8" width="6.4" height="6.4"/><rect class="i-line" x="9.5" y="9.5" width="5" height="5"/><rect class="i-fill" x="17.6" y="8.8" width="6.4" height="6.4"/><rect class="i-fill" x="0.0" y="17.6" width="6.4" height="6.4"/><rect class="i-line" x="9.5" y="18.3" width="5" height="5"/><rect class="i-fill" x="17.6" y="17.6" width="6.4" height="6.4"/></svg></span>
+          <p class="point-text"><b>Apples-to-apples comparison</b> against two published baselines — a trivial crowd marginal and an LLM prior — on identical held-out respondents.</p>
+        </li>
+        <li class="point">
+          <span class="point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect class="i-line" x="0.7" y="0.7" width="5" height="5"/><rect class="i-line" x="9.5" y="0.7" width="5" height="5"/><rect class="i-line" x="18.3" y="0.7" width="5" height="5"/><rect class="i-line" x="0.7" y="9.5" width="5" height="5"/><rect class="i-line" x="9.5" y="9.5" width="5" height="5"/><rect class="i-line" x="18.3" y="9.5" width="5" height="5"/><rect class="i-line" x="0.7" y="18.3" width="5" height="5"/><rect class="i-line" x="9.5" y="18.3" width="5" height="5"/><rect class="i-line" x="18.3" y="18.3" width="5" height="5"/></svg></span>
+          <p class="point-text"><b>Open-source starter kit.</b> MIT-licensed: the three schemas, a sandbox generator, two baselines, a tutorial notebook, and the grader itself.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+      <!-- ================= Photo band 2 ================= -->
+  <figure class="band reveal">
+    <div class="band-frame">
+      <img class="band-img" src="assets/photos/RF1495536-1400.jpg"
+           srcset="assets/photos/RF1495536-1400.jpg 1400w, assets/photos/RF1495536-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="933"
+           loading="lazy" decoding="async" alt="Three construction workers sift and shovel sand inside an unfinished concrete building, a UNHCR-branded bag resting on a ledge behind them.">
+      <img class="band-img band-duo" src="assets/photos/RF1495536-1400.jpg"
+           srcset="assets/photos/RF1495536-1400.jpg 1400w, assets/photos/RF1495536-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="933" loading="lazy" decoding="async" alt="" aria-hidden="true">
+    </div>
+    <figcaption class="band-bar">
+      <span class="band-credit">© UNHCR</span>
+    </figcaption>
+  </figure>
+
+  <!-- ================= Data ================= -->
+  <section id="data" class="section reveal" aria-labelledby="data-h">
+    <div class="shell">
+      <p class="eyebrow"><span class="arch-glyph" aria-hidden="true"></span>Data</p>
+      <h2 id="data-h" class="section-head">Three instruments, from UNHCR,<br class="br-wide">
+      UNICEF and the World Bank.<span class="head-em">None publicly available.</span></h2>
+      <div class="prose">
+        <p>The UNHCR ERPIS instrument is a household survey of Syrian refugees in four countries of asylum. The UNICEF Faith &amp; Immunisation survey covers adults in ten countries on religious influence and vaccine uptake. The World Bank Skills Assessment is a single-session online instrument for job seekers, mostly in South Africa, with smaller numbers in Lesotho and Nigeria.</p>
+
+        <p>Participants do not receive the microdata, but (i) a schema-only specification — for each item, the question wording, its class, its allowed answers, and the earlier answer that gates it; (ii) a generator that writes practice data of the schema's exact shape, with invented marginals and invented dependencies; (iii) the grader itself, so you can run a submission locally exactly as it will be run.</p>
+
+      </div>
+
+      <div class="table-wrap">
+        <table class="dt" id="instrument-table">
+          <caption class="visually-hidden">The three instruments: custodian, countries, waves, respondents, item counts by class, and the uniform reference each schema implies.</caption>
+          <thead>
+            <tr>
+              <td class="dt-corner"><span class="visually-hidden">Attribute</span></td>
+              <th scope="col" data-c="4" tabindex="0">ERPIS</th>
+              <th scope="col" data-c="2" tabindex="0">Faith &amp; Immunisation</th>
+              <th scope="col" data-c="3" tabindex="0">Skills Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Custodian</th>
+              <td data-c="4" class="dt-word">UNHCR</td><td data-c="2" class="dt-word">UNICEF</td><td data-c="3" class="dt-word">World Bank</td>
+            </tr>
+            <tr>
+              <th scope="row">Countries</th>
+              <td data-c="4">4</td><td data-c="2">10</td><td data-c="3">3</td>
+            </tr>
+            <tr>
+              <th scope="row">Waves</th>
+              <td data-c="4">2</td><td data-c="2">1</td><td data-c="3">1</td>
+            </tr>
+            <tr>
+              <th scope="row">N total</th>
+              <td data-c="4">10,300</td><td data-c="2">19,800</td><td data-c="3">6,900</td>
+            </tr>
+            <tr>
+              <th scope="row">Items in schema</th>
+              <td data-c="4">285</td><td data-c="2">19</td><td data-c="3">106</td>
+            </tr>
+            <tr>
+              <th scope="row">Always visible (GIVEN)</th>
+              <td data-c="4">17</td><td data-c="2">7</td><td data-c="3">9</td>
+            </tr>
+            <tr>
+              <th scope="row">Scored (PREDICT)</th>
+              <td data-c="4">213</td><td data-c="2">12</td><td data-c="3">73</td>
+            </tr>
+            <tr>
+              <th scope="row">Mean options per scored item</th>
+              <td data-c="4">3.8</td><td data-c="2">4.5</td><td data-c="3">7.0</td>
+            </tr>
+            <tr>
+              <th scope="row">Uniform reference <i>U</i> (nats)</th>
+              <td data-c="4">1.241</td><td data-c="2">1.528</td><td data-c="3">1.758</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Narrow viewports: the same figures as four stacked instrument cards,
+             rather than a horizontally scrolling grid. Exactly one of the two
+             is rendered at any width. -->
+        <ul class="dt-cards">
+          <li class="dt-card">
+            <h3>ERPIS</h3>
+            <dl>
+              <div><dt>Custodian</dt><dd class="dt-word">UNHCR</dd></div>
+              <div><dt>Countries</dt><dd>4</dd></div>
+              <div><dt>Waves</dt><dd>2</dd></div>
+              <div><dt>N total</dt><dd>10,300</dd></div>
+              <div><dt>Items in schema</dt><dd>285</dd></div>
+              <div><dt>Always visible (GIVEN)</dt><dd>17</dd></div>
+              <div><dt>Scored (PREDICT)</dt><dd>213</dd></div>
+              <div><dt>Mean options per scored item</dt><dd>3.8</dd></div>
+              <div><dt>Uniform reference <i>U</i> (nats)</dt><dd>1.241</dd></div>
+            </dl>
+          </li>
+          <li class="dt-card">
+            <h3>Faith &amp; Immunisation</h3>
+            <dl>
+              <div><dt>Custodian</dt><dd class="dt-word">UNICEF</dd></div>
+              <div><dt>Countries</dt><dd>10</dd></div>
+              <div><dt>Waves</dt><dd>1</dd></div>
+              <div><dt>N total</dt><dd>19,800</dd></div>
+              <div><dt>Items in schema</dt><dd>19</dd></div>
+              <div><dt>Always visible (GIVEN)</dt><dd>7</dd></div>
+              <div><dt>Scored (PREDICT)</dt><dd>12</dd></div>
+              <div><dt>Mean options per scored item</dt><dd>4.5</dd></div>
+              <div><dt>Uniform reference <i>U</i> (nats)</dt><dd>1.528</dd></div>
+            </dl>
+          </li>
+          <li class="dt-card">
+            <h3>Skills Assessment</h3>
+            <dl>
+              <div><dt>Custodian</dt><dd class="dt-word">World Bank</dd></div>
+              <div><dt>Countries</dt><dd>3</dd></div>
+              <div><dt>Waves</dt><dd>1</dd></div>
+              <div><dt>N total</dt><dd>6,900</dd></div>
+              <div><dt>Items in schema</dt><dd>106</dd></div>
+              <div><dt>Always visible (GIVEN)</dt><dd>9</dd></div>
+              <div><dt>Scored (PREDICT)</dt><dd>73</dd></div>
+              <div><dt>Mean options per scored item</dt><dd>7.0</dd></div>
+              <div><dt>Uniform reference <i>U</i> (nats)</dt><dd>1.758</dd></div>
+            </dl>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Starter kit ================= -->
+  <!-- The repository is the specification, so the links are the section: one
+       row of live actions, then the language row, one live link per official
+       UN language. -->
+  <section id="starter-kit" class="section reveal" aria-labelledby="kit-h">
+    <div class="shell">
+      <p class="eyebrow"><span class="arch-glyph" aria-hidden="true"></span>Starter kit</p>
+      <h2 id="kit-h" class="section-head">Everything except the data.<span class="head-em">Public, MIT-licensed, today.</span></h2>
+      <div class="prose">
+        <p>The repository holds the three schemas, the sandbox generator, the grader, the two baselines, and a <a href="https://github.com/SituatedEvals/public/tree/main/tutorials">tutorial notebook</a> that builds the submission format up one piece at a time. It holds no microdata: the schemas describe settings, questions, and answer options only.</p>
+      </div>
+
+      <div class="cta-row kit-actions">
+        <a class="pill pill-solid pill-lg" href="https://github.com/SituatedEvals/public">Starter kit on GitHub</a>
+        <a class="pill pill-outline pill-lg" href="https://www.codabench.org/competitions/17822/">Leaderboard on Codabench</a>
+      </div>
+
+      <p class="kit-langs-note">The notebook is linked from the top of this page in all six official UN languages. The schemas, the grader, and the submission contract are English-only.</p>
+    </div>
+  </section>
+
+    <!-- ================= Photo band 3 ================= -->
+  <figure class="band reveal">
+    <div class="band-frame">
+      <img class="band-img" src="assets/photos/RF1491728-1400.jpg"
+           srcset="assets/photos/RF1491728-1400.jpg 1400w, assets/photos/RF1491728-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="933"
+           loading="lazy" decoding="async" alt="A UNHCR staff member in a blue vest hands a printed form to a man at the counter of a reception and registration office.">
+      <img class="band-img band-duo" src="assets/photos/RF1491728-1400.jpg"
+           srcset="assets/photos/RF1491728-1400.jpg 1400w, assets/photos/RF1491728-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="933" loading="lazy" decoding="async" alt="" aria-hidden="true">
+    </div>
+    <figcaption class="band-bar">
+      <span class="band-credit">© UNHCR</span>
+    </figcaption>
+  </figure>
+
+<!-- ================= Submission and rules ================= -->
+  <section id="rules" class="section reveal" aria-labelledby="rules-h">
+    <div class="shell">
+      <p class="eyebrow"><span class="arch-glyph" aria-hidden="true"></span>Submission &amp; rules</p>
+      <h2 id="rules-h" class="section-head">Submit code, not predictions.<span class="head-em">Organizers run it inside the sandbox.</span></h2>
+
+      <div class="accordion">
+        <details class="acc">
+          <summary><span class="acc-title">How submission works</span><span class="sum-mark" aria-hidden="true"></span></summary>
+          <div class="acc-body">
+            <ul class="ruleset">
+              <li>Return one probability vector per blank cell, in the schema's item order, non-negative and summing to 1.</li>
+              <li>The harness type-checks the data, blanks the held-out cells, installs your requirements, downloads models from Hugging Face, runs <code>predict()</code>, and returns a single score.</li>
+              <li>Code can train on the visible rows of the matrix before predicting.</li>
+              <li><code>predict()</code> must be pure: no files, no sockets, no processes, no imports outside <code>requirements.txt</code>. Requirements install in a build step that has the network but no data; the run has the data but no network.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="acc">
+          <summary><span class="acc-title">Compute &amp; quotas</span><span class="sum-mark" aria-hidden="true"></span></summary>
+          <div class="acc-body">
+            <ul class="ruleset">
+              <li>Single H100 GPU, 16 GB. The compute budget is shared across all three instruments: 15 minutes total in the development phase; 60 minutes total in the final phase.</li>
+              <li>Development phase (Aug 17 – Nov 13, 2026): 1 leaderboard submission per team per day, with no cap over the phase, scored on the same 30% of respondents throughout. Scores come back noised and rounded to 0.01.</li>
+              <li>Final phase (Nov 14 – Nov 18, 2026): 1 submission per team, scored exactly, on respondents the development phase never touched. The phases do not nest.</li>
+              <li>External weights are allowed if publicly downloadable from Hugging Face.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="acc">
+          <summary><span class="acc-title">What ships with the starter kit</span><span class="sum-mark" aria-hidden="true"></span></summary>
+          <div class="acc-body">
+            <ul class="ruleset">
+              <li>Two baselines. The trivial one predicts each item's smoothed crowd shares and ignores everything about the individual respondent; it is what you have to beat. The second is an LLM prior.</li>
+              <li>A sandbox generator that writes practice data of the schema's exact shape, obeying the skip logic, with invented marginals and invented dependencies. A model tuned to it will not transfer; a pipeline debugged against it will.</li>
+              <li>The grader, so you can score a submission locally the way it will be scored: fresh virtual environment, dependencies installed, network cut.</li>
+              <li>A tutorial notebook, the three schemas, and the config that fixes the phases, time limits, and privacy parameters.</li>
+              <li>All of it under an MIT license. No microdata, and no real survey answer, appears anywhere in the repository.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="acc">
+          <summary><span class="acc-title">Eligibility &amp; ethics</span><span class="sum-mark" aria-hidden="true"></span></summary>
+          <div class="acc-body">
+            <ul class="ruleset">
+              <li>Open to teams from academia, industry, and independent research, except where precluded by sanctions or law. An individual may appear on at most one team.</li>
+              <li>Winning teams supply a 4-page method description and source code under a license permitting non-commercial research reproduction. Everyone else submits code alone.</li>
+              <li>Microdata are not released. Attempting to access, reconstruct, or re-identify the underlying records — successfully or not — is grounds for disqualification, and so is helping anyone else try.</li>
+              <li>Development-phase feedback may be used for ordinary model development, but not to infer hidden labels, reconstruct the evaluation set, or exploit repeated score feedback.</li>
+              <li>Teams whose final scores are not distinguishable under the pre-specified paired-bootstrap test are treated as tied.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <p class="rules-note">The full rules, the forum, and the leaderboard live on
+        <a href="https://www.codabench.org/competitions/17822/">Codabench</a>.
+        All competition communication goes through
+        <a href="mailto:team@simulacrabench.org">team@simulacrabench.org</a>.</p>
+    </div>
+  </section>
+
+  <!-- ================= Photo band 4 ================= -->
+  <figure class="band reveal">
+    <div class="band-frame">
+      <img class="band-img" src="assets/photos/RF1490462-1400.jpg"
+           srcset="assets/photos/RF1490462-1400.jpg 1400w, assets/photos/RF1490462-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="933"
+           loading="lazy" decoding="async" alt="Three members of a family — an older woman, a teenage boy and a woman in a headscarf — stand together outside their unfinished breeze-block house.">
+      <img class="band-img band-duo" src="assets/photos/RF1490462-1400.jpg"
+           srcset="assets/photos/RF1490462-1400.jpg 1400w, assets/photos/RF1490462-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="933" loading="lazy" decoding="async" alt="" aria-hidden="true">
+    </div>
+    <figcaption class="band-bar">
+      <span class="band-credit">© UNHCR</span>
+    </figcaption>
+  </figure>
+
+<!-- ================= Recognition ================= -->
+  <!-- The headline sell: a dark module, same weight as the closed-evaluation
+       and closing-CTA moments, so the prize structure reads as a highlight
+       rather than another line item. -->
+  <section id="recognition" class="section reveal" aria-labelledby="rec-h">
+    <div class="shell">
+      <div class="dark-module rec-module">
+        <p class="eyebrow eyebrow-dark"><span class="arch-glyph" aria-hidden="true"></span>Recognition</p>
+        <h2 id="rec-h" class="section-head head-on-dark">Prizes for the top teams, and a talk to the people whose data this&nbsp;is.</h2>
+
+        <p class="grand-prize">
+          <span class="grand-prize-label">Grand prize <span class="prize-amount">10,000 USD</span></span>
+          Top of the leaderboard — one ranking, the plain mean of three skills.
+        </p>
+
+        <!-- Second prize, same treatment at a smaller size: the population that
+             answered the questions and the people modelling them should not be
+             disjoint sets, and a prize is a cheaper way to say so than a
+             paragraph. -->
+        <div class="grand-prize roots-prize">
+          <span class="grand-prize-label">Roots of the Data Prize <span class="prize-amount">2,000 USD</span></span>
+          The highest-scoring team affiliated entirely in one of the 14 countries where the data was collected.
+          <!-- Naming them is the point: the list is the claim, so it sits inside
+               the prize box rather than in a footnote elsewhere. -->
+          <ul class="roots-countries">
+            <li>Egypt</li>
+            <li>Iraq</li>
+            <li>Jordan</li>
+            <li>Lebanon</li>
+            <li>Brazil</li>
+            <li>Guatemala</li>
+            <li>Kenya</li>
+            <li>Mali</li>
+            <li>Nepal</li>
+            <li>Nigeria</li>
+            <li>Pakistan</li>
+            <li>Zambia</li>
+            <li>South Africa</li>
+            <li>Lesotho</li>
+          </ul>
+        </div>
+
+        <!-- Three track prizes, one per instrument, at equal value: the
+             amount sits on each card so the cards read as prizes, not just as
+             the components of the mean. -->
+        <ul class="rec-grid rec-grid-dark">
+          <li class="rec-card rec-card-dark"><h3>UNHCR skill</h3><p>On the ERPIS instrument. 213 scored items</p><p class="rec-card-amount">Track prize · 1,500 USD</p></li>
+          <li class="rec-card rec-card-dark"><h3>UNICEF skill</h3><p>On the Faith &amp; Immunisation instrument. 12 scored items</p><p class="rec-card-amount">Track prize · 1,500 USD</p></li>
+          <li class="rec-card rec-card-dark"><h3>World Bank skill</h3><p>On the Skills Assessment instrument. 73 scored items</p><p class="rec-card-amount">Track prize · 1,500 USD</p></li>
+        </ul>
+
+        <h3 id="recog-h" class="rec-subhead">How teams are recognized</h3>
+
+        <p class="dark-body">Winning teams will present their work at NeurIPS and have the opportunity to discuss their approaches directly with the teams responsible for the datasets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Organizing team ================= -->
+  <section id="team" class="section reveal" aria-labelledby="team-h">
+    <div class="shell">
+      <p class="eyebrow"><span class="arch-glyph" aria-hidden="true"></span>Organizing team</p>
+      <h2 id="team-h" class="section-head">Organizing team<span class="head-sub">Sixteen people across Stanford, UNHCR, UNICEF, the World Bank, and the UN Innovation Network.</span></h2>
+
+      <div class="team">
+        <section aria-labelledby="tg-lead">
+          <h3 id="tg-lead" class="team-group-head">Lead organizers</h3>
+          <ul>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Andreas Haupt</span>
+                  <span class="p-aff">Stanford HAI · Digital Economy Lab</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Digital Fellow at Stanford HAI, working across Stanford's Economics and Computer Science departments. PhD from MIT; co-author of the forthcoming textbook Machine Learning from Human Preferences.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Mary MacLennan</span>
+                  <span class="p-aff">Stanford HAI · UN Innovation Network</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Senior Advisor on Behavioural Science and Lead of the UN Behavioural Science Group. Digital Fellow at Stanford HAI. Convenes the UNHCR, UNICEF and World Bank data-custodian counterparts.</p>
+              </details>
+            </li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="tg-sup">
+          <h3 id="tg-sup" class="team-group-head">Advisors</h3>
+          <ul>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Erik Brynjolfsson</span>
+                  <span class="p-aff">Stanford HAI · Digital Economy Lab</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Director of the Stanford Digital Economy Lab and Jerry Yang and Akiko Yamazaki Professor at Stanford HAI. Works on the economics of AI and on measuring what digital technologies do to productivity and welfare.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Sanmi Koyejo</span>
+                  <span class="p-aff">Stanford CS · STAIR</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Associate Professor of Computer Science at Stanford and director of Stanford Trustworthy AI Research (STAIR). Methodological expertise on trustworthy evaluation and benchmark design.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Alex Pentland</span>
+                  <span class="p-aff">Stanford HAI · MIT</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Toshiba Professor Emeritus at MIT, Professor (Research) at Stanford HAI. Long-standing engagement with multilateral institutions on data governance for development and humanitarian contexts.</p>
+              </details>
+            </li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="tg-data">
+          <h3 id="tg-data" class="team-group-head">Data partners</h3>
+          <ul>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Ahmed Galal Abukhashaba</span>
+                  <span class="p-aff">UNHCR</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Data and innovation specialist at UNHCR; supports the governance, preparation, and quality assurance of refugee and asylum-seeker microdata contributed to the benchmark.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Ukasha Ramli</span>
+                  <span class="p-aff">UNICEF</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Behavioural science global lead at UNICEF; data steward for the Faith &amp; Immunisation Survey.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Rebeca Moreno Jiménez</span>
+                  <span class="p-aff">UNHCR</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Leads innovation data work at UNHCR over refugee and asylum-seeker microdata; owns the technical specification and ingestion pathway for UNHCR-contributed data.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Rifat Zahir</span>
+                  <span class="p-aff">UNHCR</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Leads regional data science innovation for UNHCR in MENA, applying data science and predictive analytics to strengthen refugee protection.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Samantha de Martino</span>
+                  <span class="p-aff">World Bank</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Economist at the World Bank's Mind, Behavior, and Development Unit (eMBeD).</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Daniel Alejandro Pinzón Hernández</span>
+                  <span class="p-aff">World Bank</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Consultant at the World Bank's Mind, Behavior, and Development Unit (eMBeD), working on impact evaluation of behavioural policy and on monitoring, evaluation and learning frameworks for AI initiatives. Specialises in psychometrics, survey design, and measuring soft skills for policy in developing countries.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Michelle Dugas</span>
+                  <span class="p-aff">World Bank</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Behavioural scientist at the World Bank's Mind, Behavior, and Development Unit (eMBeD).</p>
+              </details>
+            </li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="tg-comp">
+          <h3 id="tg-comp" class="team-group-head">Contributors</h3>
+          <ul>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">José Ramón Enríquez</span>
+                  <span class="p-aff">Stanford</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">PhD researcher at Stanford working at the intersection of economics and machine learning; coordinates the competition design, evaluation protocol, and participant operations.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Yegor Denisov-Blanch</span>
+                  <span class="p-aff">Stanford</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Researcher at Stanford on the measurement and evaluation of AI systems; builds and maintains the closed-evaluation harness, submission API, and leaderboard.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Sophia Kazinnik</span>
+                  <span class="p-aff">Stanford</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Economist working on machine learning and text as measurement; contributes to the benchmark's evaluation design and analysis.</p>
+              </details>
+            </li>
+            <li>
+              <details class="person">
+                <summary>
+                  <span class="p-name">Vani Bhatnagar</span>
+                  <span class="p-aff">UN Innovation Network</span>
+                  <span class="sum-mark" aria-hidden="true"></span>
+                </summary>
+                <p class="p-bio">Designer leading the visual identity and competition theme for SimulacraBench — brand, web, and participant-facing materials.</p>
+              </details>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+    <!-- ================= Photo band 5 ================= -->
+  <figure class="band reveal">
+    <div class="band-frame">
+      <img class="band-img" src="assets/photos/UNI773354-1400.jpg"
+           srcset="assets/photos/UNI773354-1400.jpg 1400w, assets/photos/UNI773354-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="933"
+           loading="lazy" decoding="async" alt="A field officer helps a group of schoolchildren in uniform wash their hands at a UNICEF handwashing station in a school yard.">
+      <img class="band-img band-duo" src="assets/photos/UNI773354-1400.jpg"
+           srcset="assets/photos/UNI773354-1400.jpg 1400w, assets/photos/UNI773354-2200.jpg 2200w"
+           sizes="100vw" width="1400" height="933" loading="lazy" decoding="async" alt="" aria-hidden="true">
+    </div>
+    <figcaption class="band-bar">
+      <span class="band-credit">© UNICEF</span>
+    </figcaption>
+  </figure>
+
+<!-- ================= Secondary CTA — the Exchange ================= -->
+  <section id="exchange" class="section reveal" aria-labelledby="ex-h">
+    <div class="shell">
+      <div class="bone-module">
+        <p class="eyebrow"><span class="arch-glyph" aria-hidden="true"></span>Behavioural Science and AI Exchange</p>
+        <h2 id="ex-h" class="section-head">Interested in behavioural and global applications of AI?</h2>
+        <p class="ex-body">The Behavioural Science and AI Exchange brings together researchers, practitioners, governments, civil society, and technology organisations working on AI, behaviour, and deployment in complex settings. Previous sessions have featured speakers from Anthropic, OpenAI, UNHCR, UNICEF, the World Bank, and leading academic experts.</p>
+        <a class="arrow-link" href="https://forms.gle/tauRYpS7goFsDFbLA">Join the Behavioural Science and AI Exchange
+          <span class="arrow-circle" aria-hidden="true"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" focusable="false"><path d="M2 8 H13 M8.5 3.5 L13 8 L8.5 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Closing CTA ================= -->
+  <!-- Both states live in the DOM. The pre-launch state is the default so the
+       page is correct without JavaScript before August 18, 2026; main.js swaps
+       to the post-launch state on or after that date. The static fallbacks read
+       correctly on their own, so no counter can ever show zero or a negative. -->
+  <section class="section reveal" aria-labelledby="cta-h">
+    <div class="shell">
+      <div class="dark-module cta-module">
+        <div class="binary-texture" aria-hidden="true"></div>
+
+        <div class="cta-state" id="cta-pre">
+          <p class="eyebrow eyebrow-dark"><span class="arch-glyph" aria-hidden="true"></span>Public launch</p>
+          <h2 id="cta-h" class="section-head head-on-dark">Be ready for August&nbsp;18.</h2>
+          <p class="countdown" id="countdown" data-target="2026-08-18T00:00:00Z">
+            <span class="cd-static">Registration opens August 18, 2026.</span>
+          </p>
+          <p class="dark-body">Registration opens with the public launch on August 18, 2026. The starter kit is already public — clone it, run the grader on the sandbox, and register your interest to be notified when the leaderboard goes live.</p>
+          <a class="pill pill-bone pill-lg" href="https://docs.google.com/forms/d/e/1FAIpQLSea9nL8ffhdvSzGz746rpkkgghdFMlB4x-h1n4eNiqF3Bir9A/viewform">Register interest</a>
+        </div>
+
+        <div class="cta-state" id="cta-post" hidden>
+          <p class="eyebrow eyebrow-dark"><span class="arch-glyph" aria-hidden="true"></span>Development phase</p>
+          <h2 id="cta-h-post" class="section-head head-on-dark">Registration is open.</h2>
+          <p class="countdown" id="deadline" data-target="2026-11-13T23:59:59Z">
+            <span class="cd-static">Development phase runs through November 13, 2026.</span>
+          </p>
+          <p class="dark-body">Registration is open and the development phase is running through November 13, 2026 — one leaderboard submission per team per day.</p>
+          <a class="pill pill-bone pill-lg" href="https://docs.google.com/forms/d/e/1FAIpQLSea9nL8ffhdvSzGz746rpkkgghdFMlB4x-h1n4eNiqF3Bir9A/viewform">Register interest</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <a class="lockup lockup-footer" href="/" aria-label="SimulacraBench home">
+        <svg class="mark" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path class="mark-left" d="M0 46 V24 A12 12 0 0 1 24 24 V46 Z"/>
+          <path class="mark-right" d="M25.8 46 V10.1 A10.1 10.1 0 0 1 46 10.1 V46 Z"/>
+        </svg>
+        <span class="wordmark">Simulacra<span class="wordmark-em">Bench</span></span>
+      </a>
+      <!-- Stanford Trustworthy AI Research set as a wordmark rather than a
+           logo: the lab's own mark is not available reversed, and type at the
+           Digital Economy Lab's cap height sits beside it without competing. -->
+      <span class="stair-lockup">Stanford Trustworthy<br>AI&nbsp;Research</span>
+      <!-- Stanford Digital Economy Lab, reversed to a single light tone: the
+           mark's cardinal red is unreadable on the ink footer. -->
+      <a class="del-lockup" href="https://digitaleconomy.stanford.edu" aria-label="Stanford Digital Economy Lab">
+        <svg viewBox="0 0 181.876 56.151" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <rect width="55.865" height="18.812" transform="translate(64.584)"/>
+          <rect class="del-b" width="55.865" height="18.812" transform="translate(64.584 18.812)"/>
+          <rect width="55.865" height="18.527" transform="translate(64.584 37.624)"/>
+          <path d="M153.948,0H126.015V56.15h27.933V0Z"/>
+          <rect class="del-b" width="27.933" height="27.648" transform="translate(153.943 28.502)"/>
+          <path d="M0,.285V56.15H27.933V.285Z"/>
+          <path class="del-b" d="M32.088.285H27.933V56.15h4.155A27.8,27.8,0,0,0,60.021,28.5,28.089,28.089,0,0,0,32.088.285Z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="footer-base">
+      <nav class="footer-links" aria-label="Site information">
+        <a href="mailto:team@simulacrabench.org">team@simulacrabench.org</a>
+        <a href="https://github.com/SituatedEvals/public">Starter kit</a>
+      </nav>
+      <div class="footer-sponsors">
+      <p class="footer-prizes">With thanks to <a href="https://www.schmidtsciences.org">Schmidt Sciences</a> for prize sponsorship.</p>
+      <p class="footer-compute">Compute sponsored by
+        <a href="https://modal.com" aria-label="Modal">
+          <svg class="modal-mark" viewBox="0 0 368 192" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M148.873 4L183.513 64L111.922 188C110.492 190.47 107.853 192 104.993 192H40.3325C38.9025 192 37.5325 191.62 36.3325 190.93C35.1325 190.24 34.1226 189.24 33.4026 188L1.0725 132C-0.3575 129.53 -0.3575 126.48 1.0725 124L70.3625 4C71.0725 2.76 72.0925 1.76001 73.2925 1.07001C74.4925 0.380007 75.8625 0 77.2925 0H141.952C144.812 0 147.453 1.53 148.883 4H148.873ZM365.963 124L296.672 4C295.962 2.76 294.943 1.76001 293.743 1.07001C292.543 0.380007 291.173 0 289.743 0H225.083C222.223 0 219.583 1.53 218.153 4L183.513 64L255.103 188C256.533 190.47 259.173 192 262.033 192H326.693C328.122 192 329.492 191.62 330.693 190.93C331.893 190.24 332.902 189.24 333.622 188L365.953 132C367.383 129.53 367.383 126.48 365.953 124H365.963Z" fill="#62DE61"/>
+            <path d="M109.623 64H183.523L148.883 4C147.453 1.53 144.813 0 141.953 0H77.2925C75.8625 0 74.4925 0.380007 73.2925 1.07001L109.623 64Z" fill="url(#mdl-a)"/>
+            <path d="M109.623 64L73.2925 1.07001C72.0925 1.76001 71.0825 2.76 70.3625 4L1.0725 124C-0.3575 126.48 -0.3575 129.52 1.0725 132L33.4026 188C34.1126 189.24 35.1325 190.24 36.3325 190.93L109.613 64H109.623Z" fill="url(#mdl-b)"/>
+            <path d="M183.513 64H109.613L36.3325 190.93C37.5325 191.62 38.9025 192 40.3325 192H104.993C107.853 192 110.492 190.47 111.922 188L183.513 64Z" fill="#09AF58"/>
+            <path d="M365.963 132C366.673 130.76 367.033 129.38 367.033 128H294.372L258.042 190.93C259.242 191.62 260.612 192 262.042 192H326.703C329.563 192 332.202 190.47 333.632 188L365.963 132Z" fill="#09AF58"/>
+            <path d="M225.083 0C223.653 0 222.283 0.380007 221.083 1.07001L294.362 128H367.023C367.023 126.62 366.663 125.24 365.953 124L296.672 4C295.242 1.53 292.603 0 289.743 0H225.073H225.083Z" fill="url(#mdl-c)"/>
+            <path d="M258.033 190.93L294.362 128L221.083 1.07001C219.883 1.76001 218.873 2.76 218.153 4L183.513 64L255.103 188C255.813 189.24 256.833 190.24 258.033 190.93Z" fill="url(#mdl-d)"/>
+            <defs>
+              <linearGradient id="mdl-a" x1="155.803" y1="80" x2="101.003" y2="-14.93" gradientUnits="userSpaceOnUse"><stop stop-color="#BFF9B4"/><stop offset="1" stop-color="#80EE64"/></linearGradient>
+              <linearGradient id="mdl-b" x1="8.62251" y1="174.93" x2="100.072" y2="16.54" gradientUnits="userSpaceOnUse"><stop stop-color="#80EE64"/><stop offset="0.55" stop-color="#5ADA60"/><stop offset="1" stop-color="#09AF58"/></linearGradient>
+              <linearGradient id="mdl-c" x1="340.243" y1="143.46" x2="248.793" y2="-14.93" gradientUnits="userSpaceOnUse"><stop stop-color="#BFF9B4"/><stop offset="1" stop-color="#80EE64"/></linearGradient>
+              <linearGradient id="mdl-d" x1="284.822" y1="175.47" x2="193.372" y2="17.0701" gradientUnits="userSpaceOnUse"><stop stop-color="#80EE64"/><stop offset="0.55" stop-color="#5ADA60"/><stop offset="1" stop-color="#09AF58"/></linearGradient>
+            </defs>
+          </svg>
+        </a>
+      </p>
+      </div>
+    </div>
+
+    <p class="footer-legal">&copy; 2026 SimulacraBench. Organized from the
+      Stanford Digital Economy Lab at Stanford HAI, with the UN Innovation
+      Network, and with UNHCR, UNICEF and the World Bank as data partners.</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>

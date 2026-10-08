@@ -1,0 +1,492 @@
+ 
+
+ SimulacraBench · Benchmarking AI's Ability to Augment Development Data 
+
+ Skip to content 
+
+ Simulacra Bench 
+
+ Menu 
+
+ About 
+ Competition 
+ Data 
+ Starter kit 
+ Rules 
+ Team 
+ Register interest 
+
+ NeurIPS 2026 · Competition Track
+
+ SimulacraBench 
+ Benchmarking AI's Ability to Augment Development Data 
+
+ SimulacraBench is a NeurIPS competition to validate AI representations of hard-to-reach populations, evaluated on unreleased UNHCR, UNICEF, and World Bank microdata.
+
+ Public launch 
+ August 18, 2026 
+
+ Development submissions close 
+ November 13, 2026 
+
+ ~40,000 respondents 
+ 14 countries 
+
+ Register interest 
+
+ Join the BeSci & AI Exchange 
+ Read the UNHCR blogpost 
+ Competition platform 
+
+ Starter notebook
+
+ English 
+
+ العربية 
+
+ 中文 
+
+ Español 
+
+ Français 
+
+ Русский 
+
+ In partnership with
+
+ Data providers
+
+ About
+
+ AI is already filling data gaps for hard-to-reach populations. Nobody knows how well.
+
+ UNHCR, UNICEF, the World Bank, and humanitarian programs increasingly rely on rapid behavioural surveys to set policy and programming. Field data is often slow, expensive, and gappy — driving interest in using LLMs as simulacra of specific populations to pre-test instruments, impute non-response, and run subgroup what-ifs.
+
+ ~40,000 
+ respondents across 14 countries 
+
+ 0 
+ in the pretraining corpus 
+
+ 3 
+ behavioural surveys from UNHCR, UNICEF and the World Bank 
+
+ Impact
+
+ In classical survey practice, participants are asked questions and sample means are used to estimate population outcomes. With sufficiently accurate algorithmic predictions, human labels can be augmented, with the aim of achieving classical-level accuracy across the full sample at a fraction of the time and cost. Whether that is achievable, and under what conditions, is what this competition sets out to evaluate.
+
+ A three-panel diagram over the same population of respondents. In the first panel, classical survey practice, every cell is a solid observed response: participants are asked, and means are taken to estimate. In the second panel, every cell is hollow: algorithmic predictions stand in for responses throughout. In the third panel, the augmented approach, almost every cell is a hollow algorithmic estimate, with a small handful of cells scattered at random across the panel carrying solid human labels.
+
+ Classical survey practice
+
+ Every cell is an observed response. Estimates are sample means over collected data.
+
+ Algorithmic estimates
+
+ Every cell is model-predicted. Estimates inherit the model’s bias, and nothing in the design reveals it.
+
+ Augmented
+
+ Model predictions scale the sample efficiently, while a small human subsample removes bias to recover classical accuracy with significantly less manual effort.
+
+ Closed evaluation
+
+ How the competition works
+
+ Evaluation is closed. Code travels to the data; only aggregate scores travel back.
+
+ 01 
+ Submission
+
+ A zip holding main.py and requirements.txt , implementing predict() , and optionally a models.txt listing Hugging Face models to be downloaded. Code, not predictions.
+
+ 02 
+ Execution
+
+ Organizers install your requirements, then run predict() on the held-out respondents with the network removed.
+
+ 03 
+ Return
+
+ One skill score, and how long the run took. No per-item breakdown, no cell counts, nothing else.
+
+ The microdata are never released to participants.
+
+ © UNICEF 
+
+ A clean dataset, a proper score, the grader in your hands. Apples-to-apples. 
+
+ New datasets, not benchmaxed. Three unpublished datasets from UNHCR, UNICEF, and World Bank programs, not in any pretraining corpus.
+
+ Calibration-first, log-score evaluation. A proper rule that rewards truthful probabilities, not accuracy on the modal class — normalised so a uniform guess scores 0 and perfection scores 1.
+
+ Apples-to-apples comparison against two published baselines — a trivial crowd marginal and an LLM prior — on identical held-out respondents.
+
+ Open-source starter kit. MIT-licensed: the three schemas, a sandbox generator, two baselines, a tutorial notebook, and the grader itself.
+
+ © UNHCR 
+
+ Data
+
+ Three instruments, from UNHCR, 
+ UNICEF and the World Bank. None publicly available. 
+
+ The UNHCR ERPIS instrument is a household survey of Syrian refugees in four countries of asylum. The UNICEF Faith & Immunisation survey covers adults in ten countries on religious influence and vaccine uptake. The World Bank Skills Assessment is a single-session online instrument for job seekers, mostly in South Africa, with smaller numbers in Lesotho and Nigeria.
+
+ Participants do not receive the microdata, but (i) a schema-only specification — for each item, the question wording, its class, its allowed answers, and the earlier answer that gates it; (ii) a generator that writes practice data of the schema's exact shape, with invented marginals and invented dependencies; (iii) the grader itself, so you can run a submission locally exactly as it will be run.
+
+ The three instruments: custodian, countries, waves, respondents, item counts by class, and the uniform reference each schema implies. 
+
+ Attribute 
+ ERPIS 
+ Faith & Immunisation 
+ Skills Assessment 
+
+ Custodian 
+ UNHCR UNICEF World Bank 
+
+ Countries 
+ 4 10 3 
+
+ Waves 
+ 2 1 1 
+
+ N total 
+ 10,300 19,800 6,900 
+
+ Items in schema 
+ 285 19 106 
+
+ Always visible (GIVEN) 
+ 17 7 9 
+
+ Scored (PREDICT) 
+ 213 12 73 
+
+ Mean options per scored item 
+ 3.8 4.5 7.0 
+
+ Uniform reference U (nats) 
+ 1.241 1.528 1.758 
+
+ ERPIS
+
+ Custodian UNHCR 
+
+ Countries 4 
+
+ Waves 2 
+
+ N total 10,300 
+
+ Items in schema 285 
+
+ Always visible (GIVEN) 17 
+
+ Scored (PREDICT) 213 
+
+ Mean options per scored item 3.8 
+
+ Uniform reference U (nats) 1.241 
+
+ Faith & Immunisation
+
+ Custodian UNICEF 
+
+ Countries 10 
+
+ Waves 1 
+
+ N total 19,800 
+
+ Items in schema 19 
+
+ Always visible (GIVEN) 7 
+
+ Scored (PREDICT) 12 
+
+ Mean options per scored item 4.5 
+
+ Uniform reference U (nats) 1.528 
+
+ Skills Assessment
+
+ Custodian World Bank 
+
+ Countries 3 
+
+ Waves 1 
+
+ N total 6,900 
+
+ Items in schema 106 
+
+ Always visible (GIVEN) 9 
+
+ Scored (PREDICT) 73 
+
+ Mean options per scored item 7.0 
+
+ Uniform reference U (nats) 1.758 
+
+ Starter kit
+
+ Everything except the data. Public, MIT-licensed, today. 
+
+ The repository holds the three schemas, the sandbox generator, the grader, the two baselines, and a tutorial notebook that builds the submission format up one piece at a time. It holds no microdata: the schemas describe settings, questions, and answer options only.
+
+ Starter kit on GitHub 
+ Leaderboard on Codabench 
+
+ The notebook is linked from the top of this page in all six official UN languages. The schemas, the grader, and the submission contract are English-only.
+
+ © UNHCR 
+
+ Submission & rules
+
+ Submit code, not predictions. Organizers run it inside the sandbox. 
+
+ How submission works 
+
+ Return one probability vector per blank cell, in the schema's item order, non-negative and summing to 1.
+
+ The harness type-checks the data, blanks the held-out cells, installs your requirements, downloads models from Hugging Face, runs predict() , and returns a single score.
+
+ Code can train on the visible rows of the matrix before predicting.
+
+ predict() must be pure: no files, no sockets, no processes, no imports outside requirements.txt . Requirements install in a build step that has the network but no data; the run has the data but no network.
+
+ Compute & quotas 
+
+ Single H100 GPU, 16 GB. The compute budget is shared across all three instruments: 15 minutes total in the development phase; 60 minutes total in the final phase.
+
+ Development phase (Aug 17 – Nov 13, 2026): 1 leaderboard submission per team per day, with no cap over the phase, scored on the same 30% of respondents throughout. Scores come back noised and rounded to 0.01.
+
+ Final phase (Nov 14 – Nov 18, 2026): 1 submission per team, scored exactly, on respondents the development phase never touched. The phases do not nest.
+
+ External weights are allowed if publicly downloadable from Hugging Face.
+
+ What ships with the starter kit 
+
+ Two baselines. The trivial one predicts each item's smoothed crowd shares and ignores everything about the individual respondent; it is what you have to beat. The second is an LLM prior.
+
+ A sandbox generator that writes practice data of the schema's exact shape, obeying the skip logic, with invented marginals and invented dependencies. A model tuned to it will not transfer; a pipeline debugged against it will.
+
+ The grader, so you can score a submission locally the way it will be scored: fresh virtual environment, dependencies installed, network cut.
+
+ A tutorial notebook, the three schemas, and the config that fixes the phases, time limits, and privacy parameters.
+
+ All of it under an MIT license. No microdata, and no real survey answer, appears anywhere in the repository.
+
+ Eligibility & ethics 
+
+ Open to teams from academia, industry, and independent research, except where precluded by sanctions or law. An individual may appear on at most one team.
+
+ Winning teams supply a 4-page method description and source code under a license permitting non-commercial research reproduction. Everyone else submits code alone.
+
+ Microdata are not released. Attempting to access, reconstruct, or re-identify the underlying records — successfully or not — is grounds for disqualification, and so is helping anyone else try.
+
+ Development-phase feedback may be used for ordinary model development, but not to infer hidden labels, reconstruct the evaluation set, or exploit repeated score feedback.
+
+ Teams whose final scores are not distinguishable under the pre-specified paired-bootstrap test are treated as tied.
+
+ The full rules, the forum, and the leaderboard live on
+ Codabench .
+ All competition communication goes through
+ team@simulacrabench.org .
+
+ © UNHCR 
+
+ Recognition
+
+ Prizes for the top teams, and a talk to the people whose data this is.
+
+ Grand prize 10,000 USD 
+ Top of the leaderboard — one ranking, the plain mean of three skills.
+
+ Roots of the Data Prize 2,000 USD 
+ The highest-scoring team affiliated entirely in one of the 14 countries where the data was collected.
+
+ Egypt
+
+ Iraq
+
+ Jordan
+
+ Lebanon
+
+ Brazil
+
+ Guatemala
+
+ Kenya
+
+ Mali
+
+ Nepal
+
+ Nigeria
+
+ Pakistan
+
+ Zambia
+
+ South Africa
+
+ Lesotho
+
+ UNHCR skill
+ On the ERPIS instrument. 213 scored items
+ Track prize · 1,500 USD
+
+ UNICEF skill
+ On the Faith & Immunisation instrument. 12 scored items
+ Track prize · 1,500 USD
+
+ World Bank skill
+ On the Skills Assessment instrument. 73 scored items
+ Track prize · 1,500 USD
+
+ How teams are recognized
+
+ Winning teams will present their work at NeurIPS and have the opportunity to discuss their approaches directly with the teams responsible for the datasets.
+
+ Organizing team
+
+ Organizing team Sixteen people across Stanford, UNHCR, UNICEF, the World Bank, and the UN Innovation Network. 
+
+ Lead organizers
+
+ Andreas Haupt 
+ Stanford HAI · Digital Economy Lab 
+
+ Digital Fellow at Stanford HAI, working across Stanford's Economics and Computer Science departments. PhD from MIT; co-author of the forthcoming textbook Machine Learning from Human Preferences.
+
+ Mary MacLennan 
+ Stanford HAI · UN Innovation Network 
+
+ Senior Advisor on Behavioural Science and Lead of the UN Behavioural Science Group. Digital Fellow at Stanford HAI. Convenes the UNHCR, UNICEF and World Bank data-custodian counterparts.
+
+ Advisors
+
+ Erik Brynjolfsson 
+ Stanford HAI · Digital Economy Lab 
+
+ Director of the Stanford Digital Economy Lab and Jerry Yang and Akiko Yamazaki Professor at Stanford HAI. Works on the economics of AI and on measuring what digital technologies do to productivity and welfare.
+
+ Sanmi Koyejo 
+ Stanford CS · STAIR 
+
+ Associate Professor of Computer Science at Stanford and director of Stanford Trustworthy AI Research (STAIR). Methodological expertise on trustworthy evaluation and benchmark design.
+
+ Alex Pentland 
+ Stanford HAI · MIT 
+
+ Toshiba Professor Emeritus at MIT, Professor (Research) at Stanford HAI. Long-standing engagement with multilateral institutions on data governance for development and humanitarian contexts.
+
+ Data partners
+
+ Ahmed Galal Abukhashaba 
+ UNHCR 
+
+ Data and innovation specialist at UNHCR; supports the governance, preparation, and quality assurance of refugee and asylum-seeker microdata contributed to the benchmark.
+
+ Ukasha Ramli 
+ UNICEF 
+
+ Behavioural science global lead at UNICEF; data steward for the Faith & Immunisation Survey.
+
+ Rebeca Moreno Jiménez 
+ UNHCR 
+
+ Leads innovation data work at UNHCR over refugee and asylum-seeker microdata; owns the technical specification and ingestion pathway for UNHCR-contributed data.
+
+ Rifat Zahir 
+ UNHCR 
+
+ Leads regional data science innovation for UNHCR in MENA, applying data science and predictive analytics to strengthen refugee protection.
+
+ Samantha de Martino 
+ World Bank 
+
+ Economist at the World Bank's Mind, Behavior, and Development Unit (eMBeD).
+
+ Daniel Alejandro Pinzón Hernández 
+ World Bank 
+
+ Consultant at the World Bank's Mind, Behavior, and Development Unit (eMBeD), working on impact evaluation of behavioural policy and on monitoring, evaluation and learning frameworks for AI initiatives. Specialises in psychometrics, survey design, and measuring soft skills for policy in developing countries.
+
+ Michelle Dugas 
+ World Bank 
+
+ Behavioural scientist at the World Bank's Mind, Behavior, and Development Unit (eMBeD).
+
+ Contributors
+
+ José Ramón Enríquez 
+ Stanford 
+
+ PhD researcher at Stanford working at the intersection of economics and machine learning; coordinates the competition design, evaluation protocol, and participant operations.
+
+ Yegor Denisov-Blanch 
+ Stanford 
+
+ Researcher at Stanford on the measurement and evaluation of AI systems; builds and maintains the closed-evaluation harness, submission API, and leaderboard.
+
+ Sophia Kazinnik 
+ Stanford 
+
+ Economist working on machine learning and text as measurement; contributes to the benchmark's evaluation design and analysis.
+
+ Vani Bhatnagar 
+ UN Innovation Network 
+
+ Designer leading the visual identity and competition theme for SimulacraBench — brand, web, and participant-facing materials.
+
+ © UNICEF 
+
+ Behavioural Science and AI Exchange
+
+ Interested in behavioural and global applications of AI?
+
+ The Behavioural Science and AI Exchange brings together researchers, practitioners, governments, civil society, and technology organisations working on AI, behaviour, and deployment in complex settings. Previous sessions have featured speakers from Anthropic, OpenAI, UNHCR, UNICEF, the World Bank, and leading academic experts.
+
+ Join the Behavioural Science and AI Exchange
+
+ Public launch
+
+ Be ready for August 18.
+
+ Registration opens August 18, 2026. 
+
+ Registration opens with the public launch on August 18, 2026. The starter kit is already public — clone it, run the grader on the sandbox, and register your interest to be notified when the leaderboard goes live.
+
+ Register interest 
+
+ Development phase
+
+ Registration is open.
+
+ Development phase runs through November 13, 2026. 
+
+ Registration is open and the development phase is running through November 13, 2026 — one leaderboard submission per team per day.
+
+ Register interest 
+
+ Simulacra Bench 
+
+ Stanford Trustworthy
+AI Research 
+
+ team@simulacrabench.org 
+ Starter kit 
+
+ With thanks to Schmidt Sciences for prize sponsorship.
+
+ Compute sponsored by
+
+ © 2026 SimulacraBench. Organized from the
+ Stanford Digital Economy Lab at Stanford HAI, with the UN Innovation
+ Network, and with UNHCR, UNICEF and the World Bank as data partners.
+
+

@@ -1,0 +1,460 @@
+# SimulacraBench tutorial
+
+We will use the sample schema
+`data/sample.json` to understand the shape of the task, and the more technical reason for the competition. See `README.md` for the submission contract, the scoring rule and the rules.
+---
+[code] import os
+import sys
+from pathlib import Path
+
+# This notebook lives in tutorials/, but the harness lives at the
+# repository root and every path below -- config.yml, data/sample.json,
+# _sandbox/ -- is written relative to that root. Find it and work from there,
+# so the notebook runs the same whether Jupyter was started in this directory
+# or above it.
+ROOT = next((p for p in [Path.cwd(), *Path.cwd().parents]
+             if (p / "make_sandbox.py").exists()), None)
+if ROOT is None:
+    raise RuntimeError("run this notebook from inside a clone of the repository")
+os.chdir(ROOT)
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+import numpy as np
+import pandas as pd
+
+# The same modules score.py uses. Nothing here reimplements the
+# grader: when you score something in this notebook, you are calling the code
+# that scores you.
+from make_sandbox import (ROLE_COLUMN, generated_items, load_config,
+                          load_schema, options_for, write_sandbox)
+from score import floored, load_frames, sample_rows
+from score import score as grade
+
+SEED = 0
+PHASE = 1
+config = load_config("config.yml")
+
+pd.set_option("display.width", 200, "display.max_columns", 50)
+---
+---
+
+## 1. The shape of the task
+
+`make_sandbox.py` turns a schema into a dataset of exactly the shape the real
+one has: same columns, same options, same skip logic. The marginals and the
+dependencies are invented, so a pipeline debugged here will transfer and a
+model tuned here will not.
+
+It writes `respondents.parquet` — every respondent, plus the `role` that says
+what they are for — and `schema.json`, which is what your `predict()` receives.
+Roles are decided once, here, and written to disk. `score.py` looks them up; it
+never splits anything itself.
+---
+[code] sample = load_schema("data/sample.json", config)
+write_sandbox(sample, config, "_sandbox/sample", seed=SEED)
+
+respondents = load_frames("_sandbox/sample", sample)
+print(sample["dataset"]["description"])
+print()
+
+MEANING = {"TRAIN": "visible in both phases",
+           "DEV": "scored in phase 1, visible in phase 2",
+           "TEST": "scored in phase 2"}
+counts = respondents[ROLE_COLUMN].value_counts()
+print(pd.DataFrame({"respondents": counts,
+                    "meaning": [MEANING[r] for r in counts.index]}).to_string())
+[out] A toy instrument, not a real survey. Ten items, few enough to print the whole schema and read it. It has one of everything the real schemas have: a frame block that is always visible, items that are scored, a gate chain two deep, and an EXCLUDE column the grader never shows anybody. The GIVEN block is deliberately the cheap half of a questionnaire -- the variables that already sit on a sampling frame, a census roster or another survey of the same households -- and the PREDICT block is the expensive half, the part that needs an enumerator and an interview. Use it to see the shape of the task; use the three real schemas to see whether a method works.
+
+       respondents                                meaning
+role                                                     
+TRAIN         8000                 visible in both phases
+TEST          2100                      scored in phase 2
+DEV           1900  scored in phase 1, visible in phase 2
+
+---
+### What the schema declares
+
+Every item carries four keys: the `question` as asked, a `class`, the `values`
+it allows, and a `gate` if it is only asked of some people.
+
+The three classes are the whole of the task. **`GIVEN`** is visible for
+everybody and never scored. **`PREDICT`** is held out for the held-out
+respondents, and every blank is scored. **`EXCLUDE`** — identifiers, record
+keys, free text — is never shipped in the frame at all, so filter on `class`
+rather than assuming the schema and the frame carry the same columns.
+
+In this instrument the split is deliberately the cheap half of a questionnaire
+against the expensive half. The `GIVEN` block is the kind of thing that already
+sits on a sampling frame, a census roster or another survey of the same
+households — where someone lives, how big the household is, whether anyone has
+a phone. The `PREDICT` block is what needs an enumerator and an interview.
+Part 2 turns on that distinction.
+---
+[code] rows = []
+for name, rec in sample["items"].items():
+    gate = rec.get("gate") or {}
+    rows.append({"item": name,
+                 "class": rec["class"],
+                 "K": len(options_for(sample, name)) if rec["values"] else 0,
+                 "gate": gate.get("parent", "-"),
+                 "asked if": ", ".join(gate.get("observed_if", [])) or "-",
+                 "options": " | ".join(map(str, rec["values"] or ["-"]))})
+print(pd.DataFrame(rows).to_string(index=False))
+[out]                   item   class  K           gate                                              asked if                                                 options
+                region   GIVEN  3              -                                                     -                                 North | Central | South
+           urban_rural   GIVEN  2              -                                                     -                                           Urban | Rural
+              age_band   GIVEN  4              -                                                     -                             18-29 | 30-44 | 45-59 | 60+
+        household_size   GIVEN  4              -                                                     -                               1 | 2-3 | 4-5 | 6 or more
+household_has_children   GIVEN  2              -                                                     -                                                Yes | No
+      has_mobile_phone   GIVEN  2              -                                                     -                                                Yes | No
+     interviewer_notes EXCLUDE  0              -                                       
+---
+`K` is the item's option count **with the gate sentinel included** — a gated
+item has one more slot than it has answers, because "never asked" is a real
+answer for it. That extra slot is the last entry of your probability vector,
+and `K` is what the uniform reference `U` is computed from.
+
+`would_return` gates on `clinic_wait`, which gates on `visited_clinic`: a chain
+two deep. A respondent who never visited a clinic was never asked how long they
+waited, and so was never asked whether they would go back. Their true answer to
+both is `NA_GATED`.
+---
+[code] chain = ["visited_clinic", "clinic_wait", "would_return"]
+print(respondents[chain].value_counts().to_frame("respondents").head(12).to_string())
+[out]                                                          respondents
+visited_clinic       clinic_wait           would_return             
+No                   NA_GATED              NA_GATED             5179
+Prefer not to answer NA_GATED              NA_GATED             4413
+Yes                  Over 2 hours          Yes                  1405
+                     Under 30 minutes      Yes                   380
+                     Over 2 hours          No                    204
+                                           Not sure              201
+                     Under 30 minutes      Not sure              162
+                                           No                     28
+                     30 minutes to 2 hours Yes                    21
+                                           Not sure                4
+                                           No                      3
+
+---
+Read that table as the skip logic itself: wherever `visited_clinic` is anything
+but `Yes`, both children are `NA_GATED`, with no exceptions. **A gated item's
+answer is determined whenever its parent is visible** — which is free score,
+and the first thing to exploit.
+
+### What `predict()` is handed
+
+`score.py` takes this phase's visible and hidden roles, stacks the visible
+respondents on top of the hidden ones, and blanks every `PREDICT` cell of the
+latter. Those blanks are what you return probabilities for.
+
+`NaN` means exactly one thing: *this cell is held out, predict it*. It never
+means "they did not answer" — genuine non-response is an ordinary option like
+`Prefer not to answer`, sitting in the option list like any other.
+---
+[code] frame, cells, truth = sample_rows(sample, respondents, PHASE)
+shown = [n for n, r in sample["items"].items() if r["class"] != "EXCLUDE"]
+
+print("frame:", frame.shape, " cells to predict:", len(cells))
+print()
+print(pd.concat([frame[["respondent_id"] + shown].head(3),
+                 frame[["respondent_id"] + shown].tail(3)]).to_string(index=False))
+[out] frame: (9900, 11)  cells to predict: 7600
+
+respondent_id  region urban_rural age_band household_size household_has_children has_mobile_phone visited_clinic  clinic_wait would_return trusts_health_advice
+      R000001 Central       Rural      60+            4-5                    Yes               No            Yes Over 2 hours          Yes             Somewhat
+      R000002   North       Rural      60+            4-5                    Yes               No             No     NA_GATED     NA_GATED           Not at all
+      R000003   South       Rural      60+            2-3                     No               No             No     NA_GATED     NA_GATED                A lot
+      R009898   South       Rural      60+            2-3                    Yes               No            NaN          NaN          NaN                  NaN
+      R009899   South       Rural      60+            4-5                     No              Yes            NaN          NaN          NaN                  NaN
+      R009900   South       Rural      60+            2-3                    Yes               No            NaN          NaN          NaN                  NaN
+
+---
+The top rows are visible respondents: complete, and yours to learn from. The
+bottom rows are held out — you see their `GIVEN` block and nothing else. The
+rows were shuffled before roles were assigned, so top versus bottom says
+nothing about who the respondents are or when they were interviewed.
+
+Your return value is one probability vector per blank, in **canonical order**:
+rows top to bottom, and within a row, items in `schema["items"]` key order —
+not `frame.columns` order, which may differ. Each vector follows that item's
+`values` in order, plus the sentinel slot when the item is gated. Read the
+order from the schema, never from the data: an option nobody chose still has a
+slot.
+---
+[code] print(pd.DataFrame(cells, columns=["row", "respondent_id", "item"]).head(8)
+      .to_string(index=False))
+[out]  row respondent_id                 item
+8000       R008001       visited_clinic
+8000       R008001          clinic_wait
+8000       R008001         would_return
+8000       R008001 trusts_health_advice
+8001       R008002       visited_clinic
+8001       R008002          clinic_wait
+8001       R008002         would_return
+8001       R008002 trusts_health_advice
+
+---
+### Scoring
+
+The crowd baseline: every held-out respondent gets each item's smoothed shares,
+ignoring everything about the individual. `skill` is 0 for a uniform guess and
+1 for perfection, and it is what the leaderboard ranks.
+---
+[code] def hidden_cells(frame, items):
+    '''Every blank cell, in the order predict() must return them.'''
+    values = frame[items].to_numpy(dtype=object)
+    ids = frame["respondent_id"].to_numpy(dtype=object)
+    return [(row, ids[row], items[col])
+            for row in range(values.shape[0])
+            for col in range(len(items))
+            if pd.isna(values[row, col])]
+
+
+def crowd_for(sch, frame):
+    items = generated_items(sch)
+    tables = {}
+    for item in items:
+        counts = frame[item].value_counts()
+        n = np.array([counts.get(o, 0) for o in options_for(sch, item)], float)
+        tables[item] = (n + 0.5) / (n + 0.5).sum()
+    return [tables[item] for _, _, item in hidden_cells(frame, items)]
+
+
+vectors = floored(crowd_for(sample, frame), sample, cells, config["scoring"]["floor"])
+result = grade(sample, config, vectors, truth, cells)
+
+def table(rows):
+    """Print label/value pairs, aligned however long the labels happen to be."""
+    pad = max(len(label) for label, _ in rows)
+    for label, value in rows:
+        print("%-*s  %s" % (pad, label, value))
+
+
+table([("uniform reference (nats)", "%.4f" % result["uniform_reference"]),
+       ("log score", "%.4f" % result["log_score"]),
+       ("skill", "%.4f" % result["skill"])])
+print()
+print("skill is 0 for a uniform guess and 1 for perfection.")
+[out] uniform reference (nats)  1.3144
+log score                 -0.8925
+skill                     0.3210
+
+skill is 0 for a uniform guess and 1 for perfection.
+
+---
+That is the entire contract. A submission is a `main.py` with a `predict()`
+that returns those vectors; `score.py` runs it the way the grader will, and
+`tools/check_submission_zip.py` checks that the archive you upload is
+well-formed.
+
+---
+
+## 2. What a good model buys you
+
+A benchmark that rewards predicting people's answers invites an obvious
+worry: is the point to stop asking them? Here we see a version to combine algorithmic predictions and human samples.
+
+We want one number about a population: the share of households that trust health advice from their local clinic. The cheap block —
+region, urban or rural, household size, whether anyone has a phone — is already
+known for every household on the frame, from administrative records or an
+earlier survey. The expensive block needs an enumerator at the door, and the
+budget pays for a few hundred interviews.
+
+You have three options.
+
+1. **Interview only.** Ask 300 households, take the share, report a confidence
+   interval. Valid, and as precise as 300 interviews allow.
+2. **Model only.** Run a model over the cheap block for every household and
+   report its average. Free, and *wrong by whatever the model is wrong by* —
+   with no interval, and no way to find out.
+3. **Both.** Use the model everywhere, then use the 300 interviews to measure
+   and subtract the model's error. This is **prediction-powered inference**,
+   and it is what the rest of this section builds.
+
+The third is the one worth having, because it is valid whether the model is
+good or bad, and *more precise than the first when the model is good*.
+---
+[code] # The estimand: the share who trust health advice at least somewhat.
+TARGET, POSITIVE = "trusts_health_advice", ["Somewhat", "A lot"]
+GIVEN = [n for n, r in sample["items"].items() if r["class"] == "GIVEN"]
+
+Y = respondents[TARGET].isin(POSITIVE).to_numpy(float)
+design = pd.get_dummies(respondents[GIVEN].astype(str), drop_first=True)
+X = np.column_stack([np.ones(len(design)), design.to_numpy(float)])
+
+# The model is fitted on respondents from earlier rounds -- the
+# TRAIN role, which is exactly the visible block a submission learns from. It
+# never sees the households we are about to interview.
+past = (respondents[ROLE_COLUMN] == "TRAIN").to_numpy()
+ridge = np.linalg.solve(X[past].T @ X[past] + 5 * np.eye(X.shape[1]),
+                        X[past].T @ Y[past])
+predicted = X @ ridge          # f(cheap block), for every household
+
+# The frame we want a number for: the households not used to fit the model.
+frame_rows = np.flatnonzero(~past)
+TRUTH = Y[frame_rows].mean()   # knowable only because the data is invented
+
+table([("model fitted on, earlier respondents:", "%d" % past.sum()),
+       ("frame to estimate, households:", "%d" % len(frame_rows)),
+       ("correlation between prediction and answer:", "%.2f"
+        % np.corrcoef(predicted[frame_rows], Y[frame_rows])[0, 1]),
+       ("true share (which a real survey never gets to see):", "%.3f" % TRUTH)])
+[out] model fitted on, earlier respondents:                8000
+frame to estimate, households:                       4000
+correlation between prediction and answer:           0.58
+true share (which a real survey never gets to see):  0.594
+
+---
+Now draw the 300 interviews and compute all three numbers.
+
+The interview-only interval is the textbook one. The prediction-powered
+interval is the model's average over the households you did **not** interview,
+corrected by the model's average error on the households you did:
+
+```
+estimate = mean(prediction | not interviewed) - [ mean(prediction | interviewed) - mean(answer | interviewed) ]
+                    ↑ the model, used everywhere      ↑ how wrong the model was, measured
+```
+
+That bracket is the whole safety mechanism. It is computed from real answers,
+so it costs real interviews, and it removes the model's bias whatever that bias
+happens to be.
+---
+[code] def estimates(f, interviewed, rest):
+    '''Interview-only and prediction-powered estimates, each with a standard error.'''
+    y = Y[interviewed]
+    classical = (y.mean(), y.std(ddof=1) / np.sqrt(len(y)))
+
+    correction = f[interviewed].mean() - y.mean()
+    powered = (f[rest].mean() - correction,
+               np.sqrt(f[rest].var(ddof=1) / len(rest)
+                       + (f[interviewed] - y).var(ddof=1) / len(interviewed)))
+    return classical, powered
+
+
+def band(estimate):
+    point, se = estimate
+    return "%.3f  [%.3f, %.3f]  width %.3f" % (
+        point, point - 1.96 * se, point + 1.96 * se, 2 * 1.96 * se)
+
+
+N_INTERVIEWS = 300
+draw = np.random.default_rng(SEED).permutation(frame_rows)
+interviewed, rest = draw[:N_INTERVIEWS], draw[N_INTERVIEWS:]
+
+classical, powered = estimates(predicted, interviewed, rest)
+table([("truth", "%.3f" % TRUTH),
+       ("interview only", band(classical)),
+       ("prediction-powered", band(powered)),
+       ("model only (no interviews)", "%.3f  [no interval at all]"
+        % predicted[frame_rows].mean())])
+[out] truth                       0.594
+interview only              0.597  [0.541, 0.652]  width 0.111
+prediction-powered          0.587  [0.541, 0.632]  width 0.091
+model only (no interviews)  0.590  [no interval at all]
+
+---
+One draw proves nothing — the interval could be lucky. What matters is the
+behaviour over many surveys: does the interval contain the truth about 95% of
+the time, and how wide is it? Repeat the whole exercise a thousand times, each
+with a fresh 300 households.
+---
+[code] def repeat(f, n_interviews=N_INTERVIEWS, draws=1000, seed=SEED):
+    rng = np.random.default_rng(seed)
+    out = []
+    for _ in range(draws):
+        shuffled = rng.permutation(frame_rows)
+        classical, powered = estimates(f, shuffled[:n_interviews],
+                                       shuffled[n_interviews:])
+        out.append(classical + powered)
+    return np.array(out)          # point, se, point, se
+
+
+def summarize(trials, label):
+    rows = []
+    for name, point, se in (("interview only", trials[:, 0], trials[:, 1]),
+                            ("prediction-powered", trials[:, 2], trials[:, 3])):
+        rows.append({"method": name,
+                     "average width": (2 * 1.96 * se).mean(),
+                     "covers the truth": np.mean(np.abs(point - TRUTH) <= 1.96 * se)})
+    out = pd.DataFrame(rows)
+    print(label)
+    print(out.to_string(index=False, float_format="%.3f"))
+    return out
+
+
+good = summarize(repeat(predicted), "a model that predicts well")
+narrower = 1 - good.loc[1, "average width"] / good.loc[0, "average width"]
+print("\nthe band is %.0f%% narrower, from the same %d interviews." % (100 * narrower, N_INTERVIEWS))
+print("to buy that precision with interviews alone you would need about %d of them." % round(N_INTERVIEWS / (1 - narrower) ** 2))
+[out] a model that predicts well
+            method  average width  covers the truth
+    interview only          0.111             0.942
+prediction-powered          0.093             0.958
+
+the band is 17% narrower, from the same 300 interviews.
+to buy that precision with interviews alone you would need about 432 of them.
+
+---
+Both intervals contain the truth about 95% of the time — that is what makes
+them intervals. The prediction-powered one is simply **narrower**, from exactly
+the same fieldwork. Read the last line as the point of the whole exercise: a
+better model does not remove interviews from the budget, it makes each one
+count for more.
+
+### What happens when the model is bad
+
+The obvious objection is that this only works while the model is right, and
+that trusting it is the risk. Here is the same procedure with a
+model fitted on a **different population**.
+---
+[code] from make_sandbox import make_sandbox
+
+elsewhere = make_sandbox(sample, config, seed=99)      # a different population
+other_design = pd.get_dummies(elsewhere[GIVEN].astype(str), drop_first=True)
+other_X = np.column_stack([np.ones(len(other_design)), other_design.to_numpy(float)])
+other_Y = elsewhere[TARGET].isin(POSITIVE).to_numpy(float)
+
+wrong = np.linalg.solve(other_X.T @ other_X + 5 * np.eye(other_X.shape[1]),
+                        other_X.T @ other_Y)
+mispredicted = X @ wrong
+
+table([("correlation between prediction and answer:", "%.2f"
+        % np.corrcoef(mispredicted[frame_rows], Y[frame_rows])[0, 1]),
+       ("model only (no interviews)", "%.3f   vs truth %.3f   <- off by %+.3f"
+        % (mispredicted[frame_rows].mean(), TRUTH,
+           mispredicted[frame_rows].mean() - TRUTH))])
+print()
+summarize(repeat(mispredicted), "a model that does not transfer")
+[out] correlation between prediction and answer:  0.06
+model only (no interviews)                  0.727   vs truth 0.594   <- off by +0.133
+
+
+[out] a model that does not transfer
+            method  average width  covers the truth
+    interview only          0.111             0.942
+prediction-powered          0.117             0.944
+
+[out]                method  average width  covers the truth
+0      interview only       0.111157             0.942
+1  prediction-powered       0.116888             0.944
+---
+Observe: The model-only estimate is off by more than a tenth,
+and nothing in the output would have told you — no interval, no warning, just a
+number that looks exactly as authoritative as the right one. Replacing the
+fieldwork with the model introduces bias.
+
+The prediction-powered interval still contains the truth
+about 95% of the time. It is no narrower than interviewing alone — a useless
+model buys no precision. The
+correction term measured the model's error on the 300 real interviews and
+subtracted it, which is exactly what it is there for.
+
+### Why this needs a benchmark
+
+The width of that band is a direct function of how good the model is. Which is the case for measuring prediction quality carefully, on
+real instruments, with a proper scoring rule — a better `skill` on the
+leaderboard is a narrower confidence interval in the field, or the same
+interval from fewer interviews.
+---
