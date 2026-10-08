@@ -27,6 +27,7 @@ import pandas as pd  # noqa: E402
 from evaluate import load_sub  # noqa: E402
 from make_sandbox import load_config, load_schema  # noqa: E402
 from score import floored, load_frames, sample_rows  # noqa: E402
+from world import split_options  # noqa: E402
 
 
 def table(df, key, total):
@@ -82,8 +83,10 @@ def main():
             g = items[t].get("gate")
             gk = "none" if not g else ("given-parent" if items[g["parent"]]["class"] == "GIVEN"
                                        else "predict-parent")
-            rows.append((t, gk, size[r], ent, kl))
-        df = pd.DataFrame(rows, columns=["item", "gate", "n", "ent", "kl"])
+            _, nr, ordered = split_options(items[t]["values"])
+            kind = ("ordinal" if ordered else "nominal") + ("+nonresp" if nr else "")
+            rows.append((t, gk, kind, size[r], ent, kl))
+        df = pd.DataFrame(rows, columns=["item", "gate", "kind", "n", "ent", "kl"])
         df["cellsize"] = pd.cut(df["n"], [-1, 0, 2, 5, 10, 20, 50, 1e9],
                                 labels=["0", "1-2", "3-5", "6-10", "11-20", "21-50", "51+"])
         df["sharpness"] = pd.cut(df["ent"], [-1, 0.1, 0.3, 0.6, 2],
@@ -92,7 +95,7 @@ def main():
         pd.set_option("display.width", 160)
         print("=== %s  %s  excess %.4f nats/cell over %d cells" % (
             inst, tag, total / len(df), len(df)))
-        for k in ("gate", "cellsize", "sharpness"):
+        for k in ("kind", "gate", "cellsize", "sharpness"):
             print(table(df, k, total).round(4).to_string(), "\n")
         print(table(df, "item", total).head(a.top).round(4).to_string(), "\n")
 
