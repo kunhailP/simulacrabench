@@ -14,6 +14,11 @@ Knobs (scenario bundle):
   parent_scale  child answer depends on parent answer
   cell_scale    low-rank high-order cell effects on the top-3 GIVEN cell
   agree_lo/hi   per-item routing agreement range
+  ord           1 = items whose options are ordered bins get a cumulative-logit
+                law on a scalar index (main + interactions + traits + cells)
+  hurdle        scale of GIVEN effects on answering at all; items with a
+                non-substantive option ("Not answered", "No response", ...)
+                put 1 - a(x) on it, a(x) on the substantive answer law
 
     python tools/world.py --schema raw/repo/data/unhcr.json --scenario base --out data/worlds/base/unhcr
 writes respondents.parquet (+ role) like make_sandbox, and oracle.npz holding
@@ -23,6 +28,7 @@ the oracle probabilities of the DEV rows for phase-1 evaluation.
 import argparse
 import json
 import os
+import re
 import sys
 
 import numpy as np
@@ -44,7 +50,48 @@ SCENARIOS = {
                      parent_scale=0.8, cell_scale=1.0, agree_lo=0.55, agree_hi=0.99),
     "cleangate": dict(given_scale=1.0, inter_scale=0.6, trait_scale=1.0, trait2_scale=0.7,
                       parent_scale=0.8, cell_scale=0.0, agree_lo=0.97, agree_hi=1.0),
+    "ordinal":  dict(given_scale=1.0, inter_scale=0.6, trait_scale=1.0, trait2_scale=0.7,
+                     parent_scale=0.8, cell_scale=0.0, agree_lo=0.55, agree_hi=0.99,
+                     ord=1, hurdle=1.0),
+    "ordweak":  dict(given_scale=0.4, inter_scale=0.2, trait_scale=1.2, trait2_scale=1.0,
+                     parent_scale=0.8, cell_scale=0.0, agree_lo=0.55, agree_hi=0.99,
+                     ord=1, hurdle=0.5),
 }
+
+NONSUB = re.compile(r"not answer|no response|refus|don.t know|prefer not|^\s*9[789]\s*$", re.I)
+NUMERIC = re.compile(r"^\s*[<>]?\s*-?[\d.]+(?!\.\s*[A-Za-z])")
+ENUM = re.compile(r"^\s*\d+\.\s+[A-Za-z]")
+
+
+def _ord_key(v):
+    v = str(v).strip().lower()
+    if v.startswith("before"):
+        return -1e9
+    m = re.search(r"-?\d+(\.\d+)?", v)
+    if not m:
+        return None
+    x = float(m.group())
+    return x - 0.5 if v.startswith("<") else x
+
+
+def split_options(values):
+    """(substantive positions, non-substantive positions, ordered?)
+
+    For an ordered item the substantive positions come back sorted by value,
+    not by schema position: the schema lists months as 1, 10, 11, 12, 2, ...
+    """
+    nr = [i for i, v in enumerate(values) if NONSUB.search(str(v))]
+    sub = [i for i in range(len(values)) if i not in nr]
+    num = sum(bool(NUMERIC.match(str(values[i]))) and not ENUM.match(str(values[i]))
+              for i in sub)
+    ordered = len(sub) >= 3 and num >= 0.7 * len(sub)
+    if ordered:
+        keys = [_ord_key(values[i]) for i in sub]
+        if any(k is None for k in keys):
+            ordered = False
+        else:
+            sub = [i for _, i in sorted(zip(keys, sub))]
+    return sub, nr, ordered
 
 
 class World:
@@ -105,6 +152,34 @@ class World:
                 P["parent"] = rng.normal(0, k["parent_scale"], (wp, w))
             if g:
                 P["agree"] = rng.uniform(k["agree_lo"], k["agree_hi"])
+            sub, nr, ordered = split_options(rec["values"])
+            if k.get("ord") and ordered:
+                O = {"sub": sub}
+                O["main"] = {gg: rng.normal(0, k["given_scale"] * (1.0 if gg == self.anchor else
+                                                                rng.choice([0.0, 0.3, 0.6])),
+                                            self.card[gg]) for gg in self.given}
+                O["inter"] = []
+                for _ in range(2):
+                    if len(self.given) < 2:
+                        break
+                    a_, b_ = rng.choice(len(self.given), 2, replace=False)
+                    ga, gb = self.given[a_], self.given[b_]
+                    O["inter"].append((ga, gb, rng.normal(0, k["inter_scale"],
+                                                          self.card[ga] * self.card[gb])))
+                O["trait"] = rng.normal(0, k["trait_scale"])
+                O["trait2"] = rng.normal(0, k["trait2_scale"])
+                O["cell"] = rng.normal(0, k["cell_scale"], self.cell_rank)
+                O["cut"] = np.sort(rng.normal(0, 1.2, len(sub) - 1))
+                if "parent" in P:
+                    O["parent"] = rng.normal(0, k["parent_scale"], P["parent"].shape[0])
+                P["ord"] = O
+            if k.get("hurdle") and nr:
+                H = {"sub": sub, "nr": nr, "h0": rng.normal(1.5, 1.0),
+                     "trait": rng.normal(0, 0.5)}
+                picks = [self.anchor] + list(rng.choice(self.given, 1))
+                H["main"] = {gg: rng.normal(0, k["hurdle"], self.card[gg]) for gg in picks}
+                H["nrw"] = rng.dirichlet(np.ones(len(nr)))
+                P["hurdle"] = H
             self.par[t] = P
 
     # -- GIVEN ------------------------------------------------------------
@@ -162,6 +237,27 @@ class World:
                 L += P["parent"][pcodes[g["parent"]]]
             pr = np.exp(L - L.max(1, keepdims=True))
             pr /= pr.sum(1, keepdims=True)
+            if "ord" in P:
+                O = P["ord"]
+                sidx = sum(O["main"][gg][codes[gg]] for gg in self.given)
+                for ga, gb, eff in O["inter"]:
+                    sidx = sidx + eff[codes[ga] * self.card[gb] + codes[gb]]
+                sidx = sidx + trait * O["trait"] + trait2 * O["trait2"] + self.F[ck] @ O["cell"]
+                if "parent" in O:
+                    sidx = sidx + O["parent"][pcodes[g["parent"]]]
+                cum = 1 / (1 + np.exp(-(O["cut"][None] - sidx[:, None])))
+                cum = np.concatenate([np.zeros((n, 1)), cum, np.ones((n, 1))], 1)
+                pr = np.zeros((n, w))
+                pr[:, O["sub"]] = np.diff(cum, axis=1)
+            if "hurdle" in P:
+                H = P["hurdle"]
+                hl = H["h0"] + trait * H["trait"] + sum(e[codes[gg]] for gg, e in H["main"].items())
+                a = 1 / (1 + np.exp(-hl))
+                ps = pr[:, H["sub"]]
+                ps = ps / np.maximum(ps.sum(1, keepdims=True), 1e-12)
+                pr = np.zeros((n, w))
+                pr[:, H["sub"]] = a[:, None] * ps
+                pr[:, H["nr"]] = (1 - a)[:, None] * H["nrw"][None]
             idx = (pr.cumsum(1) > rng.random((n, 1))).argmax(1)
             v = np.asarray(vals, dtype=object)[idx]
             if g:
