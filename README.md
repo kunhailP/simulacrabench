@@ -3,6 +3,7 @@
 NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공식 레포는 `SituatedEvals/public`이다.
 
 - 대회 원문 조사와 규정·일정·채점: [`RESEARCH.md`](RESEARCH.md)
+- **다음 세션은 먼저 읽을 것: [`docs/HANDOFF.md`](docs/HANDOFF.md)**
 - 실험 기록: [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md)
 - 전략: [`docs/STRATEGY.md`](docs/STRATEGY.md)
 - 연구 설계서(PDF) 검토: [`docs/DESIGN_REVIEW.md`](docs/DESIGN_REVIEW.md)
@@ -14,7 +15,7 @@ NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공�
   - 선별 방식: 블록별 점수검정을 하고, Efron 경험적 null로 local fdr을 구한다.
   - 판정: 9개 생성기 전체에서 v2 대비 손해가 없다. WB에서 +0.015~0.036이다.
   - 시간: 3090에서 3기관 합계 약 365s.
-- 첫 Dev 제출은 v7이다. 사전등록은 `docs/submissions/2026-10-08.md`에 있다.
+- 첫 Dev 제출(v7): Grand 0.64 / UNICEF 0.52 / WB 0.49 / UNHCR 0.92. WB 가설은 지지되지 않았다(`docs/submissions/2026-10-08.md`).
 
 ## 구조
 
