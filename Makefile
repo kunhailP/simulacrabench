@@ -17,6 +17,14 @@ data:             ## official sandbox + harder sim2, all instruments
 	  $(PY) tools/sim2.py --schema raw/repo/data/$$s.json --out data/sim2/$$s --seed 1; \
 	done
 
+WORLDS := base weakx strongx cells cleangate ordinal ordweak notrait
+
+worlds:           ## oracle worlds (CPU, parallel, ~15 min for UNHCR): data/worlds/<scenario>/<inst>
+	for sc in $(WORLDS); do for s in $(INST); do \
+	  CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=8 $(PY) tools/world.py --schema raw/repo/data/$$s.json \
+	    --scenario $$sc --out data/worlds/$$sc/$$s --reps 2000 --seed 7 & \
+	done; done; wait
+
 eval:             ## make eval SUB=sub/v2 [DATA=data/sim2]
 	$(PY) tools/evaluate.py $(SUB) --data $(or $(DATA),data/sim2)
 

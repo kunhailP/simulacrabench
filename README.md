@@ -6,33 +6,54 @@ NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공�
 - 실험 기록: [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md)
 - 전략: [`docs/STRATEGY.md`](docs/STRATEGY.md)
 - 연구 설계서(PDF) 검토: [`docs/DESIGN_REVIEW.md`](docs/DESIGN_REVIEW.md)
-- 제출 프로토콜 (리뷰 승인 필수): [`docs/SUBMISSION_PROTOCOL.md`](docs/SUBMISSION_PROTOCOL.md)
+- 방법 제안 v0.1 (다변량 소지역 추정, H2는 내부 기각): [`docs/METHOD_PROPOSAL.md`](docs/METHOD_PROPOSAL.md)
+- 제출 프로토콜과 제출 기록: [`docs/SUBMISSION_PROTOCOL.md`](docs/SUBMISSION_PROTOCOL.md), [`docs/submissions/`](docs/submissions/)
+
+## 현재 상태 (2026-10-08)
+- **제출 후보: `sub/v7`.** v2 위에 GIVEN 쌍 상호작용의 선별 수축(sint)을 얹었다.
+  - 선별 방식: 블록별 점수검정을 하고, Efron 경험적 null로 local fdr을 구한다.
+  - 판정: 9개 생성기 전체에서 v2 대비 손해가 없다. WB에서 +0.015~0.036이다.
+  - 시간: 3090에서 3기관 합계 약 365s.
+- 첫 Dev 제출은 v7이다. 사전등록은 `docs/submissions/2026-10-08.md`에 있다.
 
 ## 구조
 
 ```
-RESEARCH.md        원문 조사 요약 (규정, 일정, 채점, 리더보드, 출처 간 불일치)
-raw/               수집한 원문 (사이트, Codabench terms/리더보드, GitHub PR/issue, 참고 글)
-  repo/            공식 레포 clone (gitignore; make setup이 고정 commit으로 받음)
+RESEARCH.md          원문 조사 요약 (규정, 일정, 채점, 리더보드, 출처 간 불일치)
+raw/                 수집한 원문 (사이트, Codabench terms/리더보드, GitHub PR/issue, 참고 글)
+  repo/              공식 레포 clone (gitignore; make setup이 고정 commit으로 받음)
+sub/                 제출본. 각 폴더의 main.py 하나가 제출 단위다.
+  v1                 marginal + backoff 격자 + linear + MLP, OOF 혼합
+  v2                 경험적 베이즈 backoff, fold bagging, 문항별 temperature
+  v3                 다변량 FH (MSAE) 프로토타입 — H2 내부 기각
+  v4                 v2 + PREDICT 부모 gate 분해
+  v5                 v4 + 쌍 상호작용 top-k 선별 수축
+  v6                 v4 + 쌍 상호작용 local fdr 선별 수축
+  v7                 v6 + GPU 블렌딩 + Lindsey local fdr (점수 같고 더 빠름)  ← 현재 후보
 tools/
-  sim2.py          현실적인 합성 데이터 생성기 (GIVEN 효과, 노이즈 gate, wave 코딩)
-  evaluate.py      in-process 채점: 세 기관 skill(정확값)과 시간
-  schema_stats.py  스키마 통계 (U, 문항 수, gate 구조)
-sub/
-  v1/              최초 제출본
-  v2/              경험적 베이즈 backoff + bagging + temperature
-data/              sandbox / sim2 (gitignore, make data로 재생성)
-docs/EXPERIMENTS.md
+  evaluate.py        in-process 채점: 세 기관 skill(정확값), 시간, 오라클 headroom
+  world.py           오라클을 계산할 수 있는 합성 world (시나리오 묶음, 순서형·무응답 구조)
+  headroom.py        오라클 대비 초과 KL을 문항·gate·셀 크기·유형별로 분해
+  learning_curve.py  학습 행을 늘려 근사 오차와 추정 오차를 분리
+  proto_latent.py    조건부 IRT 잠재요인 모형 프로토타입 (H3, 이득 없음)
+  bundle.sh          한 제출본을 모든 world에서 평가
+  sim2.py            현실적인 합성 데이터 생성기 (GIVEN 효과, 노이즈 gate, wave 코딩)
+  schema_stats.py    스키마 통계 (U, 문항 수, gate 구조)
+experiments/         EXPERIMENTS.md의 결과를 낸 일회성 스크립트 (x1–x9, 각 파일 첫 줄에 요지)
+data/                sandbox / sim2 / sim3 / worlds (gitignore, make data / make worlds로 재생성)
+docs/
 ```
 
 ## 사용법
 
 ```
 make setup                      # venv, 공식 레포, 연습 데이터
-make eval SUB=sub/v2            # sim2 채점
-make eval SUB=sub/v2 DATA=data/sandbox
-make zip SUB=sub/v2             # sub/v2.zip + 공식 zip 검사
-make official SUB=sub/v2        # 공식 score.py (subprocess, 네트워크 차단)
+make worlds                     # 오라클 world 8종 × 3기관 (CPU 병렬)
+make eval SUB=sub/v7            # sim2 채점
+make eval SUB=sub/v7 DATA=data/worlds/base   # 오라클 headroom도 출력
+tools/bundle.sh sub/v7          # 모든 world에서 평가
+make zip SUB=sub/v7             # sub/v7.zip + 공식 zip 검사
+make official SUB=sub/v7        # 공식 score.py (subprocess, 네트워크 차단)
 ```
 
 ## 제출 전 체크리스트
@@ -40,3 +61,7 @@ make official SUB=sub/v2        # 공식 score.py (subprocess, 네트워크 차�
 - [ ] 총 시간 < 900s (H100 기준; 3090 기준이면 여유를 둘 것)
 - [ ] 외부 HF 모델을 쓰면 commit hash를 고정하고 Test 시작 전에 신고 (Terms 9)
 - [ ] Test 제출 시 4쪽 방법 설명서 (Terms 7)
+
+## 공개 전 할 일 (대회 종료 후)
+- 레포는 대회 기간 동안 비공개로 둔다. 수상하면 비상업 연구 재현 라이선스로 공개한다(Terms 7).
+- 공개 전에 `raw/codabench/`의 리더보드 스냅샷(다른 팀 이름 포함)을 뺀다.
