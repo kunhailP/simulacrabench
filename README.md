@@ -5,6 +5,7 @@ NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공�
 - 대회 원문 조사와 규정·일정·채점: [`RESEARCH.md`](RESEARCH.md)
 - 실험 기록: [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md)
 - 전략: [`docs/STRATEGY.md`](docs/STRATEGY.md)
+- 연구 설계서(PDF) 검토: [`docs/DESIGN_REVIEW.md`](docs/DESIGN_REVIEW.md)
 - 제출 프로토콜 (리뷰 승인 필수): [`docs/SUBMISSION_PROTOCOL.md`](docs/SUBMISSION_PROTOCOL.md)
 
 ## 구조
