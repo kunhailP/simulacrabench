@@ -61,8 +61,8 @@
 7. **작업 습관.**
    - `pkill -f <패턴>`은 그 패턴이 담긴 자기 셸까지 죽인다(이번 세션에서 두 번 일어남). PID로 kill할 것.
    - 실행시간은 GPU를 다른 작업과 같이 쓰지 않을 때 잴 것.
-   - git 작성자는 `-c user.name=kunhailP -c user.email=pkw31386094@gmail.com`로 지정한다(전역 설정 없음).
-   - 원격 저장소는 아직 없다. 사용자에게 비공개 GitHub 레포를 권했고, `gh auth login`이 필요하다.
+   - git 작성자는 `-c user.name=kunhailP -c user.email=pkw31386094@gmail.com`로 지정한다(전역 설정 없음). **Claude Co-Authored-By 표기를 넣지 않는다.** 사용자 요청이다.
+   - 원격 저장소: 비공개 `github.com/kunhailP/simulacrabench` (origin/main). 토큰은 파일에 저장하지 않는다.
 
 ## 6. 파일 지도
 - 제출본: `sub/v7/main.py`(현재), `sub/v7.zip`, `/root/v7.zip`
