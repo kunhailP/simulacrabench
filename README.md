@@ -6,7 +6,7 @@ NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공�
 - **다음 세션은 먼저 읽을 것: [`docs/HANDOFF.md`](docs/HANDOFF.md)**
 - 실험 기록: [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md)
 - 전략: [`docs/STRATEGY.md`](docs/STRATEGY.md)
-- 연구 설계서(PDF) 검토: [`docs/DESIGN_REVIEW.md`](docs/DESIGN_REVIEW.md)
+- 연구 설계서 원본: [`docs/research_design_2026-10-08.pdf`](docs/research_design_2026-10-08.pdf), 검토: [`docs/DESIGN_REVIEW.md`](docs/DESIGN_REVIEW.md)
 - 방법 제안 v0.1 (다변량 소지역 추정, H2는 내부 기각): [`docs/METHOD_PROPOSAL.md`](docs/METHOD_PROPOSAL.md)
 - 제출 프로토콜과 제출 기록: [`docs/SUBMISSION_PROTOCOL.md`](docs/SUBMISSION_PROTOCOL.md), [`docs/submissions/`](docs/submissions/)
 

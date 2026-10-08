@@ -29,7 +29,7 @@ eval:             ## make eval SUB=sub/v2 [DATA=data/sim2]
 	$(PY) tools/evaluate.py $(SUB) --data $(or $(DATA),data/sim2)
 
 zip:              ## make zip SUB=sub/v2 -> sub/v2.zip, then run the official checker
-	rm -f $(SUB).zip && cd $(SUB) && zip -qr ../$(notdir $(SUB)).zip .
+	rm -f $(SUB).zip && cd $(SUB) && zip -qr ../$(notdir $(SUB)).zip . -x '__pycache__/*' '*.pyc'
 	cd raw/repo && ../../$(PY) tools/check_submission_zip.py ../../$(SUB).zip
 
 official:         ## official score.py on the sandbox, all instruments (slow, subprocess)
