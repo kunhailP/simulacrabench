@@ -5,3 +5,6 @@ data/
 sub/*.zip
 raw/repo/
 _sandbox/
+# TabICL checkpoint (106 MB, over GitHub's file limit): tools/fetch_tabicl.sh
+sub/*/weights/*.ckpt
+results/

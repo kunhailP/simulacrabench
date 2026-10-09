@@ -10,12 +10,13 @@ NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공�
 - 방법 제안 v0.1 (다변량 소지역 추정, H2는 내부 기각): [`docs/METHOD_PROPOSAL.md`](docs/METHOD_PROPOSAL.md)
 - 제출 프로토콜과 제출 기록: [`docs/SUBMISSION_PROTOCOL.md`](docs/SUBMISSION_PROTOCOL.md), [`docs/submissions/`](docs/submissions/)
 
-## 현재 상태 (2026-10-08)
-- **제출 후보: `sub/v7`.** v2 위에 GIVEN 쌍 상호작용의 선별 수축(sint)을 얹었다.
-  - 선별 방식: 블록별 점수검정을 하고, Efron 경험적 null로 local fdr을 구한다.
-  - 판정: 9개 생성기 전체에서 v2 대비 손해가 없다. WB에서 +0.015~0.036이다.
-  - 시간: 3090에서 3기관 합계 약 365s.
-- 첫 Dev 제출(v7): Grand 0.64 / UNICEF 0.52 / WB 0.49 / UNHCR 0.92. WB 가설은 지지되지 않았다(`docs/submissions/2026-10-08.md`).
+## 현재 상태 (2026-10-09)
+- **제출 후보: `sub/v8`** (`/root/v8.zip`, 103MB, 공식 zip 검사 OK). 구성은 v7 + TabICLv2 + TabICL 분기 분해 + 기하평균 결합이고, 시간 감시와 v7·marginal fallback을 갖췄다.
+  - 근거는 공개 실데이터 실험실(`docs/LAB.md`): GSS +0.0022 ± 0.0001, UNHCR식 GSS +0.0024 ± 0.0001 (v7 대비, 3회 반복, 쌍대 SE)
+  - 공식 score.py: sandbox 세 기관 × phase 1·2 전부 PASS (3090 단독)
+  - 제출 기록과 예상: `docs/submissions/v8.md`
+- **할 일:** TabICL 체크포인트(`jingang/TabICL` @ `4dcd344`)를 Test 시작(11-14) 전에 주최 측에 신고한다(Terms 9).
+- 이전 후보 v7: Dev Grand 0.64 / UNICEF 0.52 / WB 0.49 / UNHCR 0.92
 
 ## 구조
 
@@ -30,7 +31,8 @@ sub/                 제출본. 각 폴더의 main.py 하나가 제출 단위다
   v4                 v2 + PREDICT 부모 gate 분해
   v5                 v4 + 쌍 상호작용 top-k 선별 수축
   v6                 v4 + 쌍 상호작용 local fdr 선별 수축
-  v7                 v6 + GPU 블렌딩 + Lindsey local fdr (점수 같고 더 빠름)  ← 현재 후보
+  v7                 v6 + GPU 블렌딩 + Lindsey local fdr (점수 같고 더 빠름)
+  v8                 v7 + TabICLv2(동봉) + 분기 분해 + 기하평균 결합  ← 현재 후보
 tools/
   evaluate.py        in-process 채점: 세 기관 skill(정확값), 시간, 오라클 headroom
   world.py           오라클을 계산할 수 있는 합성 world (시나리오 묶음, 순서형·무응답 구조)
@@ -41,6 +43,10 @@ tools/
   sim2.py            현실적인 합성 데이터 생성기 (GIVEN 효과, 노이즈 gate, wave 코딩)
   schema_stats.py    스키마 통계 (U, 문항 수, gate 구조)
 experiments/         EXPERIMENTS.md의 결과를 낸 일회성 스크립트 (x1–x9, 각 파일 첫 줄에 요지)
+research/            실데이터 실험실의 후보 모델과 실험 스크립트 (docs/LAB.md)
+tools/proxy_gss*.py  공개 GSS를 대회 형식으로 바꾼 실험실 데이터 (UNHCR식 기록 변형 포함)
+tools/lab.py         반복 분할 + 쌍대 비교 평가, tools/oof.py·blend.py는 모델별 캐시와 조합 실험
+tools/fetch_tabicl.sh  v8 체크포인트를 고정 commit에서 받고 SHA-256 검증 (git에는 넣지 않음)
 data/                sandbox / sim2 / sim3 / worlds (gitignore, make data / make worlds로 재생성)
 docs/
 ```
