@@ -11,6 +11,7 @@ Gates are inferred the way the UNHCR schema infers one of its own: for each item
 that carries IAP, the single candidate parent whose values best separate asked
 from not-asked. The delivered rows need not satisfy it.
 
+    tools/fetch_gss.sh                       # -> data/raw/gss (hash-checked)
     .venv/bin/python tools/proxy_gss.py --out data/proxy/gss
 """
 
@@ -23,7 +24,7 @@ import numpy as np
 import pandas as pd
 import pyreadstat
 
-SRC = "/root/proxydata/gss"
+SRC = os.environ.get("GSS_SRC", "data/raw/gss")   # tools/fetch_gss.sh
 FILES = [(2016, "gss2016/GSS2016.dta"), (2018, "gss2018/GSS2018.dta"),
          (2022, "gss2022/2022/GSS2022.dta")]
 GV = "NA_GATED"
@@ -70,10 +71,10 @@ def label(meta, var, code):
     return f"{c}. {lab}" if lab else c
 
 
-def load():
+def load(src=SRC):
     frames = []
     for y, f in FILES:
-        d, m = pyreadstat.read_dta(os.path.join(SRC, f), user_missing=True)
+        d, m = pyreadstat.read_dta(os.path.join(src, f), user_missing=True)
         d.columns = [c.lower() for c in d.columns]
         m.variable_value_labels = {k.lower(): v for k, v in m.variable_value_labels.items()}
         out = {}
@@ -97,9 +98,10 @@ def main():
     ap.add_argument("--out", default="data/proxy/gss")
     ap.add_argument("--max-items", type=int, default=150)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--src", default=SRC)
     a = ap.parse_args()
     rng = np.random.default_rng(a.seed)
-    df = load()
+    df = load(a.src)
     for g in GIVEN:  # GIVEN never carries the IAP marker
         df[g] = df[g].replace({"i": "Not recorded"})
 

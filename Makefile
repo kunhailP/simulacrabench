@@ -7,8 +7,8 @@ setup:            ## venv + official repo + practice data
 	test -d raw/repo || git clone https://github.com/SituatedEvals/public.git raw/repo
 	cd raw/repo && git checkout -q $(OFFICIAL_COMMIT)
 	test -d .venv || python3 -m venv .venv
-	.venv/bin/pip install -q numpy pandas pyarrow scipy scikit-learn pyyaml
 	.venv/bin/pip install -q torch==2.5.1 --index-url https://download.pytorch.org/whl/cu124
+	.venv/bin/pip install -q -r requirements-lab.txt
 	$(MAKE) data
 
 data:             ## official sandbox + harder sim2, all instruments
@@ -34,3 +34,17 @@ zip:              ## make zip SUB=sub/v2 -> sub/v2.zip, then run the official ch
 
 official:         ## official score.py on the sandbox, all instruments (slow, subprocess)
 	cd raw/repo && for s in $(INST); do ../../$(PY) score.py --submission ../../$(SUB) --data ../../data/sandbox/$$s --schema data/$$s.json --phase 1 | grep -E 'PASS|FAIL'; done
+
+lab-data:         ## real-data lab: GSS download (hash-checked) -> data/proxy/gss, data/proxy/gss_hcr
+	tools/fetch_gss.sh data/raw/gss
+	$(PY) tools/proxy_gss.py --src data/raw/gss --out data/proxy/gss
+	$(PY) tools/proxy_gss_hcr.py --src data/proxy/gss --out data/proxy/gss_hcr
+
+lab:              ## make lab SUB=sub/v8 [LAB=gss] [REPS=3]: repeated-split paired evaluation
+	V8_BUDGET=100000 $(PY) tools/lab.py $(SUB) --data data/proxy/$(or $(LAB),gss) --reps $(or $(REPS),3)
+
+compare:          ## make compare A=v7 B=v8 [LAB=gss]: paired difference of two lab runs
+	$(PY) tools/lab.py --compare $(A) $(B) --data data/proxy/$(or $(LAB),gss)
+
+tabicl:           ## fetch the TabICL checkpoint sub/v8 bundles (pinned commit, SHA-256 checked)
+	tools/fetch_tabicl.sh sub/v8/weights

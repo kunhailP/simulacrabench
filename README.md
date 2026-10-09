@@ -15,6 +15,7 @@ NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공�
   - 근거는 공개 실데이터 실험실(`docs/LAB.md`): GSS +0.0022 ± 0.0001, UNHCR식 GSS +0.0024 ± 0.0001 (v7 대비, 3회 반복, 쌍대 SE)
   - 공식 score.py: sandbox 세 기관 × phase 1·2 전부 PASS (3090 단독)
   - 제출 기록과 예상: `docs/submissions/v8.md`
+- **다음 목표: UNICEF 0.53 / WB 0.51 / UNHCR 0.95**, WB와 UNHCR은 별도 트랙(`docs/HANDOFF.md`).
 - **할 일:** TabICL 체크포인트(`jingang/TabICL` @ `4dcd344`)를 Test 시작(11-14) 전에 주최 측에 신고한다(Terms 9).
 - **v8 Dev 결과 (submission 971475): Grand 0.65 (0.6467) / UNICEF 0.52 / WB 0.49 / UNHCR 0.93.** v7보다 UNHCR이 한 칸 올랐고, 떨어진 기관은 없다. 이득의 크기는 반올림 때문에 알 수 없다(`docs/submissions/v8.md`).
 - 이전 v7: Dev Grand 0.64 / UNICEF 0.52 / WB 0.49 / UNHCR 0.92
@@ -62,6 +63,9 @@ make eval SUB=sub/v7 DATA=data/worlds/base   # 오라클 headroom도 출력
 tools/bundle.sh sub/v7          # 모든 world에서 평가
 make zip SUB=sub/v7             # sub/v7.zip + 공식 zip 검사
 make official SUB=sub/v7        # 공식 score.py (subprocess, 네트워크 차단)
+make lab-data                   # 실데이터 실험실: GSS 다운로드(해시 검증) → data/proxy/gss, gss_hcr
+make tabicl                     # v8 체크포인트 (고정 commit, SHA-256 검증)
+make lab SUB=sub/v8 LAB=gss     # 반복 분할 평가, make compare A=v7 B=v8 로 쌍대 비교
 ```
 
 ## 제출 전 체크리스트
