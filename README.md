@@ -11,12 +11,13 @@ NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공�
 - 제출 프로토콜과 제출 기록: [`docs/SUBMISSION_PROTOCOL.md`](docs/SUBMISSION_PROTOCOL.md), [`docs/submissions/`](docs/submissions/)
 
 ## 현재 상태 (2026-10-09)
-- **제출 후보: `sub/v8`** (`/root/v8.zip`, 103MB, 공식 zip 검사 OK). 구성은 v7 + TabICLv2 + TabICL 분기 분해 + 기하평균 결합이고, 시간 감시와 v7·marginal fallback을 갖췄다.
+- **현재 제출본: `sub/v8`** (zip은 git에 없음. `make zip SUB=sub/v8`로 다시 만들고, 체크포인트는 `tools/fetch_tabicl.sh`로 받는다). 구성은 v7 + TabICLv2 + TabICL 분기 분해 + 기하평균 결합이고, 시간 감시와 v7·marginal fallback을 갖췄다.
   - 근거는 공개 실데이터 실험실(`docs/LAB.md`): GSS +0.0022 ± 0.0001, UNHCR식 GSS +0.0024 ± 0.0001 (v7 대비, 3회 반복, 쌍대 SE)
   - 공식 score.py: sandbox 세 기관 × phase 1·2 전부 PASS (3090 단독)
   - 제출 기록과 예상: `docs/submissions/v8.md`
 - **할 일:** TabICL 체크포인트(`jingang/TabICL` @ `4dcd344`)를 Test 시작(11-14) 전에 주최 측에 신고한다(Terms 9).
-- 이전 후보 v7: Dev Grand 0.64 / UNICEF 0.52 / WB 0.49 / UNHCR 0.92
+- **v8 Dev 결과 (submission 971475): Grand 0.65 (0.6467) / UNICEF 0.52 / WB 0.49 / UNHCR 0.93.** v7보다 UNHCR이 한 칸 올랐고, 떨어진 기관은 없다. 이득의 크기는 반올림 때문에 알 수 없다(`docs/submissions/v8.md`).
+- 이전 v7: Dev Grand 0.64 / UNICEF 0.52 / WB 0.49 / UNHCR 0.92
 
 ## 구조
 
