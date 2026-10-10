@@ -18,6 +18,7 @@ NeurIPS 2026 SimulacraBench 대회 준비용이다. Codabench 대회 17822, 공�
 - **다음 목표: UNICEF 0.53 / WB 0.51 / UNHCR 0.95**, WB와 UNHCR은 별도 트랙(`docs/HANDOFF.md`).
 - **할 일:** TabICL 체크포인트(`jingang/TabICL` @ `4dcd344`)를 Test 시작(11-14) 전에 주최 측에 신고한다(Terms 9).
 - **v8 Dev 결과 (submission 971475): Grand 0.65 (0.6467) / UNICEF 0.52 / WB 0.49 / UNHCR 0.93.** v7보다 UNHCR이 한 칸 올랐고, 떨어진 기관은 없다. 이득의 크기는 반올림 때문에 알 수 없다(`docs/submissions/v8.md`).
+- v9 Dev 결과: Grand 0.65, v8 대비 보이는 개선 없음. 현재 제출본과 Final 후보는 v8을 유지한다(`docs/submissions/v9.md`).
 - 이전 v7: Dev Grand 0.64 / UNICEF 0.52 / WB 0.49 / UNHCR 0.92
 
 ## 구조
