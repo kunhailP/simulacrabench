@@ -1,0 +1,2 @@
+v8 rep0 skill 0.4323 (1068s) {"chosen": ["marg", "eb", "('lin', 3e-05)", "('mlp', 30)", "('sint', 0.1, 0.03, 30.0)"], "glob_w": [0.0, 0.261, 0.0, 0.506, 0.233], "nonnull_blocks_per_item": 5.16, "w_gate": 0.282, "n_gate_items": 28, "gate_gain_nats_per_cell": 2e-05, "t_v7": 281.6, "tab_items": "150/150", "tabgate_items": 28, "poo
+v8 MEAN 0.4323

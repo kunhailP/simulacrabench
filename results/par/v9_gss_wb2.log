@@ -1,0 +1,2 @@
+v9 rep0 skill 0.4334 (711s) {"chosen": ["marg", "eb", "('lin', 3e-05)", "('mlp', 10)", "('sint', 0.3, 0.03, 3.0)"], "glob_w": [0.0, 0.312, 0.083, 0.302, 0.304], "nonnull_blocks_per_item": 7.45, "w_gate": 0.28, "n_gate_items": 126, "gate_gain_nats_per_cell": -0.0003, "tab_n_est": 1, "t_v7": 184.2, "tab_items": "151/151", "tabgate_items": 126, "pool_w": [0.256, 0.356, 0.33], "country_eb": {"col": null, "items": 0}, "monotone": {"items": 150, "segments": 2, "largest": 90, "mode": "plain", "oof_gain": 470.57}, "seconds": 708.2, "tab_budget": 20533.4}
+v9 MEAN 0.4334

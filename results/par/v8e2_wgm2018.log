@@ -1,0 +1,512 @@
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+/root/simulacrabench/sub/v8e2/vendor/tabicl/_sklearn/preprocessing.py:138: UserWarning: The following categorical columns have a cardinality above 40: ['country']. High-cardinality columns might benefit from a better encoding than ordinal encoding, e.g. Skrub's TableVectorizer for strings.
+  warnings.warn(
+v8e2 rep0 skill 0.4233 (488s) {"chosen": ["marg", "eb", "('lin', 0.0003)", "('mlp', 15)", "('sint', 0.1, 0.03, 30.0)"], "glob_w": [0.001, 0.135, 0.159, 0.481, 0.224], "nonnull_blocks_per_item": 5.97, "w_gate": 0.287, "n_gate_items": 8, "gate_gain_nats_per_cell": 7e-05, "t_v7": 295.7, "tab_items": "43/43", "tabgate_items": 8, "po
+v8e2 MEAN 0.4233
