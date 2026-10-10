@@ -90,7 +90,7 @@ def run(sub, data, reps, frac, tag):
         skills.append(r["skill"])
         info = getattr(mod.predict, "last_info", None)
         print(f"{tag} rep{rep} skill {r['skill']:.4f} ({dt:.0f}s) "
-              f"{json.dumps(info, default=str)[:300] if info else ''}", flush=True)
+              f"{json.dumps(info, default=str)[:2000] if info else ''}", flush=True)
     print(f"{tag} MEAN {np.mean(skills):.4f}")
 
 

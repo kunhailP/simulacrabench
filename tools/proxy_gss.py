@@ -28,6 +28,7 @@ SRC = os.environ.get("GSS_SRC", "data/raw/gss")   # tools/fetch_gss.sh
 FILES = [(2016, "gss2016/GSS2016.dta"), (2018, "gss2018/GSS2018.dta"),
          (2022, "gss2022/2022/GSS2022.dta")]
 GV = "NA_GATED"
+PARA = ["coop", "comprend"]   # interviewer-rated cooperation and comprehension
 MISS = {"d": "Don't know", "n": "No answer", "s": "Skipped"}
 GIVEN = ["year", "sex", "race", "region", "agegrp", "degree", "marital",
          "childs", "wrkstat", "relig"]
@@ -177,7 +178,11 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     with open(os.path.join(a.out, "schema.json"), "w") as fh:
         json.dump(schema, fh, indent=1)
-    df[["respondent_id"] + order + ["role"]].to_parquet(
+    # paradata kept as hidden columns (not in the schema, never shipped by
+    # tools/lab.py) for the structural labs in tools/proxy_gss_struct.py
+    for c in PARA:
+        df["_" + c] = df[c]
+    df[["respondent_id"] + order + ["role"] + ["_" + c for c in PARA]].to_parquet(
         os.path.join(a.out, "respondents.parquet"), index=False)
     ng = sum(1 for k in targets if items[k]["gate"])
     print(f"wrote {a.out}: {n} rows, {len(GIVEN)} GIVEN, {len(targets) + 1} PREDICT, "

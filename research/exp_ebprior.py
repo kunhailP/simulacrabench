@@ -24,6 +24,7 @@ def main():
     ap.add_argument("--rep", type=int, default=0)
     ap.add_argument("--prior", required=True, help="comma list: blended to form the prior")
     ap.add_argument("--modes", default="mult")
+    ap.add_argument("--fixed", default="", help="';'-separated fixed partitions, e.g. 'country;country,relig'")
     a = ap.parse_args()
     schema, ins = build(a.data, a.rep)
     d = cache_dir(a.data, a.rep)
@@ -51,11 +52,14 @@ def main():
             ins.gcodes[g][ins.vis][ok], yv[ok, j], ins.gcard[g], K[j])))
     parts = {f"top{k}": (lambda j, k=k: rank[j][:k]) for k in (1, 2, 3, 4, 5)}
     parts["full"] = lambda j: ins.given
+    for spec in filter(None, a.fixed.split(";")):
+        cols = spec.split(",")
+        parts[spec] = (lambda j, cols=cols: cols)
     for name, f in parts.items():
         for mode in a.modes.split(","):
             o, h, al = correct(ins, po, ph, f, folds, mode)
             s, _ = skill(blend([(o, h)], Yv, K)[0], Yh, K)
-            print(f"  +EB[{name:5s},{mode}] {s:.4f} ({s - base:+.4f})  alpha median {np.median(al):.1f}", flush=True)
+            print(f"  +EB[{name:14s},{mode}] {s:.4f} ({s - base:+.4f})  alpha median {np.median(al):.1f}", flush=True)
 
 
 if __name__ == "__main__":
